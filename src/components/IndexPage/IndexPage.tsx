@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
 import { DropZone } from './DropZone';
-import { parse } from '../../parser';
-import type { SaveFile } from '../../parser';
+import { parse } from '../../lib/parser';
+import type { SaveFile } from '../../lib/parser';
+import { ZebesMap } from './ZebesMap';
+import { getStartingCells } from '../../lib/parser/cells/getStartingCells';
 
 function IndexPage() {
 	const [file, setFile] = useState<null | File>(null);
 	const [parsedSaveFile, setParsedSaveFile] = useState<null | SaveFile>(null);
+	const [cells] = useState<CellMatrix>(getStartingCells());
 
 	useEffect(() => {
 		if (file) {
@@ -23,6 +26,7 @@ function IndexPage() {
 		<div className="w-32 h-32">
 			<DropZone onFileChosen={(f) => setFile(f)} />
 			{parsedSaveFile && <pre>{JSON.stringify(parsedSaveFile, null, 2)}</pre>}
+			<ZebesMap matrix={cells} />
 		</div>
 	);
 }
