@@ -2,11 +2,20 @@ import React, { useState } from 'react';
 import clsx from 'clsx';
 
 type DropZoneProps = {
-	onFileChosen: (file: File) => void;
+	onData: (data: Uint8Array) => void;
 };
 
-function DropZone({ onFileChosen }: DropZoneProps) {
+function DropZone({ onData }: DropZoneProps) {
 	const [fileOver, setFileOver] = useState(false);
+
+	function handleFileChosen(file: File) {
+		const reader = new FileReader();
+		reader.addEventListener('loadend', () => {
+			const data = new Uint8Array(reader.result as ArrayBuffer);
+			onData(data);
+		});
+		reader.readAsArrayBuffer(file);
+	}
 
 	return (
 		<div
@@ -29,7 +38,7 @@ function DropZone({ onFileChosen }: DropZoneProps) {
 				const file = e.dataTransfer.files?.[0];
 
 				if (file) {
-					onFileChosen(file);
+					handleFileChosen(file);
 				}
 			}}
 		>
@@ -42,7 +51,7 @@ function DropZone({ onFileChosen }: DropZoneProps) {
 					onChange={(e) => {
 						const file = e.target.files?.[0];
 						if (file) {
-							onFileChosen(file);
+							handleFileChosen(file);
 						}
 					}}
 				/>

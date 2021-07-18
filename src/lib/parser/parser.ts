@@ -1,3 +1,5 @@
+import { getFirstSave } from '../getFirstSave';
+
 type SaveFile = {
 	energy: {
 		current: number;
@@ -5,17 +7,13 @@ type SaveFile = {
 	};
 };
 
-const FIRST_SAVE_OFFSET = 0x10;
-const SAVE_FILE_SIZE = 0x65c;
-
 /**
  * Reads a Super Metroid SRAM save file and returns
  * the first save parsed out into an object
  */
 function parse(saveFile: Uint8Array): SaveFile {
-	const view = new DataView(
-		saveFile.slice(FIRST_SAVE_OFFSET, FIRST_SAVE_OFFSET + SAVE_FILE_SIZE).buffer
-	);
+	const firstSave = getFirstSave(saveFile);
+	const view = new DataView(firstSave.buffer);
 
 	return {
 		energy: {
