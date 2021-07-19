@@ -17,13 +17,22 @@ function toHexString(value: number): string {
 	}
 }
 
-function Cell({ value, known }: { value: number; known: boolean }) {
+function Cell({
+	value,
+	known,
+	description,
+}: {
+	value: number;
+	known: boolean;
+	description?: string;
+}) {
 	return (
 		<div
 			className={clsx('p-0.5 border border-gray-400 font-mono', {
 				'bg-gray-600 text-gray-400': !known,
 				'bg-green-600 text-white': known,
 			})}
+			title={description}
 		>
 			{toHexString(value)}
 		</div>
@@ -42,11 +51,19 @@ function HexView({ className, data }: HexViewProps) {
 			curOffset += 1;
 		}
 
-		nodes.push(<Cell key={curOffset} value={data[curOffset]} known={true} />);
+		nodes.push(
+			<Cell
+				key={curOffset}
+				value={data[curOffset]}
+				known={true}
+				description={`${toHexString(offset.offset)}: ${offset.description}`}
+			/>
+		);
+		curOffset += 1;
 
 		if (offset.size === 16) {
-			curOffset += 1;
 			nodes.push(<Cell key={curOffset} value={data[curOffset]} known={true} />);
+			curOffset += 1;
 		}
 
 		return building.concat(nodes);
