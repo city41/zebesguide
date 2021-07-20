@@ -41,33 +41,37 @@ function Cell({
 
 function HexView({ className, data }: HexViewProps) {
 	let curOffset = 0;
-	const cells: ReactNode[] = offsets.reduce<ReactNode[]>((building, offset) => {
-		const nodes = [];
+	const cells: ReactNode[] = [...offsets]
+		.sort((a, b) => a.offset - b.offset)
+		.reduce<ReactNode[]>((building, offset) => {
+			const nodes = [];
 
-		while (curOffset < offset.offset) {
+			while (curOffset < offset.offset) {
+				nodes.push(
+					<Cell key={curOffset} value={data[curOffset]} known={false} />
+				);
+				curOffset += 1;
+			}
+
 			nodes.push(
-				<Cell key={curOffset} value={data[curOffset]} known={false} />
+				<Cell
+					key={curOffset}
+					value={data[curOffset]}
+					known={true}
+					description={`${toHexString(offset.offset)}: ${offset.description}`}
+				/>
 			);
 			curOffset += 1;
-		}
 
-		nodes.push(
-			<Cell
-				key={curOffset}
-				value={data[curOffset]}
-				known={true}
-				description={`${toHexString(offset.offset)}: ${offset.description}`}
-			/>
-		);
-		curOffset += 1;
+			if (offset.size === 16) {
+				nodes.push(
+					<Cell key={curOffset} value={data[curOffset]} known={true} />
+				);
+				curOffset += 1;
+			}
 
-		if (offset.size === 16) {
-			nodes.push(<Cell key={curOffset} value={data[curOffset]} known={true} />);
-			curOffset += 1;
-		}
-
-		return building.concat(nodes);
-	}, []);
+			return building.concat(nodes);
+		}, []);
 
 	data.forEach((byte, i) => {
 		cells.push(
