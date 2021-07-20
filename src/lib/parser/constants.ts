@@ -314,9 +314,11 @@ export const offsets = [
 	{
 		offset: 0xb0,
 		size: 8,
-		key: ['itemAcquired', 'crateria', 'missilePacks'],
-		description: 'flags for if items obtained | crateria missile packs 1-5',
+		key: ['itemAcquired', 'crateria', 'missilePacks', 'powerBombPacks'],
+		description:
+			'flags for if items obtained | crateria missile packs 1-5 | crateria power bomb packs 1',
 		bits: {
+			powerBombPack1: 0,
 			missilePack1: 1,
 			missilePack2: 2,
 			missilePack3: 3,
@@ -489,11 +491,14 @@ export const offsets = [
 	{
 		offset: 0xc1,
 		size: 8,
-		key: ['itemAcquired', 'maridia', 'missilePacks'],
-		description: 'flags for if items obtained | maridia missile packs 1-4',
+		key: ['itemAcquired', 'maridia', 'missilePacks', 'superMissilePacks'],
+		description:
+			'flags for if items obtained | maridia missile packs 1-4 | maridia super missile packs 1-2',
 		bits: {
 			missilePack1: 0,
+			superMissilePack1: 1,
 			missilePack2: 3,
+			superMissilePack2: 4,
 			missilePack3: 5,
 			missilePack4: 6,
 			plasmaBeam: 7,
@@ -502,12 +507,14 @@ export const offsets = [
 	{
 		offset: 0xc2,
 		size: 8,
-		key: ['itemAcquired', 'maridia', 'missilePacks'],
-		description: 'flags for if items obtained | maridia missile packs 5-8',
+		key: ['itemAcquired', 'maridia', 'missilePacks', 'superMissilePacks'],
+		description:
+			'flags for if items obtained | maridia missile packs 5-8 | maridia super missile packs 3',
 		bits: {
 			missilePack5: 0,
 			missilePack6: 2,
 			missilePack7: 4,
+			superMissilePack: 5,
 			springBall: 6,
 			missilePack8: 7,
 		},
