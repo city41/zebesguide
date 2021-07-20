@@ -314,7 +314,7 @@ export const offsets = [
 	{
 		offset: 0xb0,
 		size: 8,
-		key: ['itemAcquired', 'crateria', 'missile packs'],
+		key: ['itemAcquired', 'crateria', 'missilePacks'],
 		description: 'flags for if items obtained | crateria missile packs 1-5',
 		bits: {
 			missilePack1: 1,
@@ -328,7 +328,7 @@ export const offsets = [
 	{
 		offset: 0xb1,
 		size: 8,
-		key: ['crateria', 'brinstar', 'missile packs'],
+		key: ['crateria', 'brinstar', 'missilePacks'],
 		description: 'crateria missile packs 6-8 | brinstar missile packs 1',
 		bits: {
 			missilePack1: 7,
@@ -337,7 +337,7 @@ export const offsets = [
 	{
 		offset: 0xb2,
 		size: 8,
-		key: ['itemAcquired', 'brinstar', 'missile packs'],
+		key: ['itemAcquired', 'brinstar', 'missilePacks'],
 		description: 'flags for if items obtained | brinstar missile packs 2-5',
 		bits: {
 			missilePack2: 2,
@@ -350,7 +350,7 @@ export const offsets = [
 	{
 		offset: 0xb3,
 		size: 8,
-		key: ['itemAcquired', 'brinstar', 'missile packs'],
+		key: ['itemAcquired', 'brinstar', 'missilePacks'],
 		description: 'flags for if items obtained | brinstar missile packs 6-7',
 		bits: {
 			missilePack6: 1,
@@ -361,7 +361,7 @@ export const offsets = [
 	{
 		offset: 0xb4,
 		size: 8,
-		key: ['itemAcquired', 'brinstar', 'missile packs'],
+		key: ['itemAcquired', 'brinstar', 'missilePacks'],
 		description: 'flags for if items obtained | brinstar missile packs 8-10',
 		bits: {
 			missilePack8: 2,
@@ -373,7 +373,7 @@ export const offsets = [
 	{
 		offset: 0xb5,
 		size: 8,
-		key: ['itemAcquired', 'brinstar', 'missile packs'],
+		key: ['itemAcquired', 'brinstar', 'missilePacks'],
 		description: 'flags for if items obtained | brinstar missile packs 11-12',
 		bits: {
 			missilePack11: 1,
@@ -384,7 +384,7 @@ export const offsets = [
 	{
 		offset: 0xb6,
 		size: 8,
-		key: ['itemAcquired', 'norfair', 'missile packs'],
+		key: ['itemAcquired', 'norfair', 'missilePacks'],
 		description: 'flags for if items obtained | norfair missile packs 1-4',
 		bits: {
 			variaSuit: 0,
@@ -399,7 +399,7 @@ export const offsets = [
 	{
 		offset: 0xb7,
 		size: 8,
-		key: ['norfair', 'missile packs'],
+		key: ['norfair', 'missilePacks'],
 		description: 'norfair missile packs 5-8',
 		bits: {
 			missilePack5: 2,
@@ -411,7 +411,7 @@ export const offsets = [
 	{
 		offset: 0xb8,
 		size: 8,
-		key: ['norfair', 'missile packs'],
+		key: ['norfair', 'missilePacks'],
 		description: 'norfair missile packs 9-12',
 		bits: {
 			missilePack9: 0,
@@ -423,7 +423,7 @@ export const offsets = [
 	{
 		offset: 0xb9,
 		size: 8,
-		key: ['itemAcquired', 'norfair', 'missile packs'],
+		key: ['itemAcquired', 'norfair', 'missilePacks'],
 		description: 'flags for if items obtained | norfair missile packs 13-15',
 		bits: {
 			missilePack13: 1,
@@ -463,9 +463,12 @@ export const offsets = [
 	{
 		offset: 0xc0,
 		size: 8,
-		key: ['itemAcquired'],
+		key: ['itemAcquired', 'wreckedShip', 'missilePacks'],
 		description: 'flags for if items obtained',
 		bits: {
+			missilePack1: 0,
+			missilePack2: 2,
+			missilePack3: 3,
 			gravitySuite: 7,
 		},
 	},
