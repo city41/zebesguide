@@ -58,7 +58,9 @@ function HexView({ className, data }: HexViewProps) {
 					key={curOffset}
 					value={data[curOffset]}
 					known={true}
-					description={`${toHexString(offset.offset)}: ${offset.description}`}
+					description={`${toHexString(offset.offset)}: ${offset.key.join(
+						', '
+					)}`}
 				/>
 			);
 			curOffset += 1;
