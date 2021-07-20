@@ -328,18 +328,26 @@ export const offsets = [
 	{
 		offset: 0xb1,
 		size: 8,
-		key: ['crateria', 'brinstar', 'missilePacks'],
-		description: 'crateria missile packs 6-8 | brinstar missile packs 1',
+		key: ['crateria', 'brinstar', 'missilePacks', 'superMissilePacks'],
+		description:
+			'crateria missile packs 6-8 | crateria super missile pack | brinstar missile packs 1 | brinstar super missile packs 1',
 		bits: {
+			missilePack6: 1,
+			missilePack7: 2,
+			crateria_superMissilePack1: 3,
+			missilePack8: 4,
+			brinstar_superMissilePack1: 6,
 			missilePack1: 7,
 		},
 	},
 	{
 		offset: 0xb2,
 		size: 8,
-		key: ['itemAcquired', 'brinstar', 'missilePacks'],
-		description: 'flags for if items obtained | brinstar missile packs 2-5',
+		key: ['itemAcquired', 'brinstar', 'missilePacks', 'superMissilePacks'],
+		description:
+			'flags for if items obtained | brinstar missile packs 2-5 | brinstar super missile packs 2',
 		bits: {
+			superMissilePack2: 0,
 			missilePack2: 2,
 			missilePack3: 3,
 			missilePack4: 5,
@@ -350,12 +358,14 @@ export const offsets = [
 	{
 		offset: 0xb3,
 		size: 8,
-		key: ['itemAcquired', 'brinstar', 'missilePacks'],
-		description: 'flags for if items obtained | brinstar missile packs 6-7',
+		key: ['itemAcquired', 'brinstar', 'missilePacks', 'superMissilePacks'],
+		description:
+			'flags for if items obtained | brinstar missile packs 6-7 | brinstar super missile pack 3',
 		bits: {
 			missilePack6: 1,
 			morphBall: 2,
 			missilePack7: 4,
+			superMissilePack3: 7,
 		},
 	},
 	{
@@ -411,13 +421,14 @@ export const offsets = [
 	{
 		offset: 0xb8,
 		size: 8,
-		key: ['norfair', 'missilePacks'],
-		description: 'norfair missile packs 9-12',
+		key: ['norfair', 'missilePacks', 'superMissilePacks'],
+		description: 'norfair missile packs 9-12 | norfair super missile packs 1',
 		bits: {
 			missilePack9: 0,
 			missilePack10: 1,
 			missilePack11: 3,
 			missilePack12: 6,
+			superMissilePack1: 7,
 		},
 	},
 	{
@@ -463,31 +474,42 @@ export const offsets = [
 	{
 		offset: 0xc0,
 		size: 8,
-		key: ['itemAcquired', 'wreckedShip', 'missilePacks'],
-		description: 'flags for if items obtained',
+		key: ['itemAcquired', 'wreckedShip', 'missilePacks', 'superMissilePacks'],
+		description:
+			'flags for if items obtained | wrecked ship missile packs 1-3 | wrecked ship super missile packs 1-2',
 		bits: {
 			missilePack1: 0,
 			missilePack2: 2,
 			missilePack3: 3,
+			superMissilePack1: 5,
+			superMissilePack2: 6,
 			gravitySuite: 7,
 		},
 	},
 	{
 		offset: 0xc1,
 		size: 8,
-		key: ['itemAcquired'],
-		description: 'flags for if items obtained',
+		key: ['itemAcquired', 'maridia', 'missilePacks'],
+		description: 'flags for if items obtained | maridia missile packs 1-4',
 		bits: {
+			missilePack1: 0,
+			missilePack2: 3,
+			missilePack3: 5,
+			missilePack4: 6,
 			plasmaBeam: 7,
 		},
 	},
 	{
 		offset: 0xc2,
 		size: 8,
-		key: ['itemAcquired'],
-		description: 'flags for if items obtained',
+		key: ['itemAcquired', 'maridia', 'missilePacks'],
+		description: 'flags for if items obtained | maridia missile packs 5-8',
 		bits: {
+			missilePack5: 0,
+			missilePack6: 2,
+			missilePack7: 4,
 			springBall: 6,
+			missilePack8: 7,
 		},
 	},
 	{
