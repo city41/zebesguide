@@ -206,6 +206,33 @@ export const offsets: Offset[] = [
 		description: 'game time minutes',
 	} as const,
 	{
+		offset: 0x40,
+		size: 8,
+		key: 'config',
+		description: 'config: English or Japanese',
+		bits: {
+			englishOrJapanese: 0
+		}
+	} as const,
+	{
+		offset: 0x42,
+		size: 8,
+		key: 'config',
+		description: 'config: Moonwalk',
+		bits: {
+			moonWalkOffOrOn: 0
+		}
+	} as const,
+	{
+		offset: 0x48,
+		size: 8,
+		key: 'config',
+		description: 'config: Icon Cancel',
+		bits: {
+			iconCancelManualOrAutomatic: 0
+		}
+	} as const,
+	{
 		offset: 0x60,
 		size: 8,
 		key: 'bossStatueBrokenAndZebetites',
