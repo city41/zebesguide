@@ -552,6 +552,171 @@ export const offsets = [
 		},
 	},
 	{
+		offset: 0xf0,
+		size: 8,
+		key: ['crateria', 'redDoors', 'greenDoors'],
+		bits: {
+			0: ['crateria', 'greenDoor'],
+			5: ['crateria', 'redDoor'],
+		},
+	},
+	{
+		offset: 0xf3,
+		size: 8,
+		key: ['crateria', 'brinstar', 'redDoors', 'greenDoors'],
+		bits: {
+			4: ['crateria', 'greenDoor'],
+			5: ['crateria', 'redDoor'],
+			6: ['crateria', 'redDoor'],
+			7: ['brinstar', 'redDoor'],
+		},
+	},
+	{
+		offset: 0xf4,
+		size: 8,
+		key: ['brinstar', 'redDoors'],
+		bits: {
+			0: ['brinstar', 'redDoor'],
+			1: ['brinstar', 'redDoor'],
+			2: ['brinstar', 'redDoor'],
+			3: ['brinstar', 'redDoor'],
+			6: ['brinstar', 'redDoor'],
+		},
+	},
+	{
+		offset: 0xf5,
+		size: 8,
+		key: ['brinstar', 'redDoors', 'greenDoors'],
+		bits: {
+			1: ['brinstar', 'greenDoor'],
+			2: ['brinstar', 'redDoor'],
+			3: ['brinstar', 'redDoor'],
+			6: ['brinstar', 'greenDoor'],
+		},
+	},
+	{
+		offset: 0xf6,
+		size: 8,
+		key: ['brinstar', 'redDoors', 'greenDoors'],
+		bits: {
+			2: ['brinstar', 'redDoor'],
+			3: ['brinstar', 'greenDoor'],
+			4: ['brinstar', 'greenDoor'],
+			5: ['brinstar', 'greenDoor'],
+		},
+	},
+	{
+		offset: 0xf7,
+		size: 8,
+		key: ['brinstar', 'redDoors', 'greenDoors'],
+		bits: {
+			0: ['brinstar', 'greenDoor'],
+			2: ['brinstar', 'redDoor'],
+			3: ['brinstar', 'greenDoor'],
+			5: ['brinstar', 'greenDoor'],
+			7: ['brinstar', 'greenDoor'],
+		},
+	},
+	{
+		offset: 0xf8,
+		size: 8,
+		key: ['brinstar', 'greenDoors'],
+		bits: {
+			4: ['brinstar', 'greenDoor'],
+		},
+	},
+	{
+		offset: 0xf9,
+		size: 8,
+		key: ['norfair', 'redDoors', 'greenDoors'],
+		bits: {
+			1: ['norfair', 'greenDoor'],
+			2: ['norfair', 'redDoor'],
+			3: ['norfair', 'greenDoor'],
+			5: ['norfair', 'redDoor'],
+			6: ['norfair', 'greenDoor'],
+		},
+	},
+	{
+		offset: 0xfa,
+		size: 8,
+		key: ['norfair', 'redDoors', 'greenDoors'],
+		bits: {
+			1: ['norfair', 'redDoor'],
+			2: ['norfair', 'redDoor'],
+			3: ['norfair', 'greenDoor'],
+			4: ['norfair', 'greenDoor'],
+			5: ['norfair', 'redDoor'],
+			6: ['norfair', 'redDoor'],
+			7: ['norfair', 'redDoor'],
+		},
+	},
+	{
+		offset: 0xfb,
+		size: 8,
+		key: ['norfair', 'greenDoors'],
+		bits: {
+			7: ['norfair', 'greenDoor'],
+		},
+	},
+	{
+		offset: 0x100,
+		size: 8,
+		key: ['wreckedShip', 'greenDoors'],
+		bits: {
+			4: ['wreckedShip', 'greenDoor'],
+		},
+	},
+	{
+		offset: 0x101,
+		size: 8,
+		key: ['wreckedShip', 'maridia', 'redDoors', 'greenDoors'],
+		bits: {
+			3: ['wreckedShip', 'redDoor'],
+			4: ['maridia', 'redDoor'],
+			5: ['maridia', 'redDoor'],
+			6: ['maridia', 'redDoor'],
+			7: ['maridia', 'greenDoor'],
+		},
+	},
+	{
+		offset: 0x102,
+		size: 8,
+		key: ['maridia', 'redDoors', 'greenDoors'],
+		bits: {
+			0: ['maridia', 'redDoor'],
+			2: ['maridia', 'redDoor'],
+			4: ['maridia', 'greenDoor'],
+			5: ['maridia', 'greenDoor'],
+			6: ['maridia', 'redDoor'],
+		},
+	},
+	{
+		offset: 0x103,
+		size: 8,
+		key: ['maridia', 'redDoors', 'greenDoors'],
+		bits: {
+			0: ['maridia', 'redDoor'],
+			2: ['maridia', 'greenDoor'],
+		},
+	},
+	{
+		offset: 0x104,
+		size: 8,
+		key: ['tourian', 'redDoors'],
+		bits: {
+			7: ['tourian', 'redDoor'],
+		},
+	},
+	{
+		offset: 0x105,
+		size: 8,
+		key: ['tourian', 'redDoors'],
+		bits: {
+			1: ['tourian', 'redDoor'],
+		},
+	},
+	{
 		offset: 0x148,
 		size: 8,
 		key: ['crateria', 'map'],
