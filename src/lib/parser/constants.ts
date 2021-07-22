@@ -4,11 +4,11 @@ export const offsets = [
 		size: 8,
 		key: ['itemEquipped'],
 		bits: {
-			0: ['variaSuit'],
-			1: ['springBall'],
-			2: ['morphBall'],
-			3: ['screwAttack'],
-			5: ['gravitySuit'],
+			0: ['itemEquipped', 'variaSuit'],
+			1: ['itemEquipped', 'springBall'],
+			2: ['itemEquipped', 'morphBall'],
+			3: ['itemEquipped', 'screwAttack'],
+			5: ['itemEquipped', 'gravitySuit'],
 		},
 	},
 	{
@@ -16,12 +16,12 @@ export const offsets = [
 		size: 8,
 		key: ['itemEquipped'],
 		bits: {
-			highJumpBoots: 0,
-			spaceJump: 1,
-			bombs: 2,
-			speedBooster: 5,
-			grapplingBeam: 6,
-			xRayScope: 7,
+			0: ['itemEquipped', 'highJumpBoots'],
+			1: ['itemEquipped', 'spaceJump'],
+			2: ['itemEquipped', 'bombs'],
+			5: ['itemEquipped', 'speedBooster'],
+			6: ['itemEquipped', 'grapplingBeam'],
+			7: ['itemEquipped', 'xRayScope'],
 		},
 	},
 	{
@@ -29,11 +29,11 @@ export const offsets = [
 		size: 8,
 		key: ['itemInInventory'],
 		bits: {
-			0: ['variaSuit'],
-			1: ['springBall'],
-			2: ['morphBall'],
-			3: ['screwAttack'],
-			5: ['gravitySuit'],
+			0: ['itemInInventory', 'variaSuit'],
+			1: ['itemInInventory', 'springBall'],
+			2: ['itemInInventory', 'morphBall'],
+			3: ['itemInInventory', 'screwAttack'],
+			5: ['itemInInventory', 'gravitySuit'],
 		},
 	},
 	{
@@ -41,12 +41,12 @@ export const offsets = [
 		size: 8,
 		key: ['itemInInventory'],
 		bits: {
-			0: ['highJumpBoots'],
-			1: ['spaceJump'],
-			3: ['bombs'],
-			5: ['speedBooster'],
-			6: ['grapplingBeam'],
-			7: ['xRayScope'],
+			0: ['itemInInventory', 'highJumpBoots'],
+			1: ['itemInInventory', 'spaceJump'],
+			3: ['itemInInventory', 'bombs'],
+			5: ['itemInInventory', 'speedBooster'],
+			6: ['itemInInventory', 'grapplingBeam'],
+			7: ['itemInInventory', 'xRayScope'],
 		},
 	},
 	{
@@ -54,10 +54,10 @@ export const offsets = [
 		size: 8,
 		key: ['itemEquipped'],
 		bits: {
-			0: ['waveBeam'],
-			1: ['iceBeam'],
-			2: ['spazer'],
-			3: ['plazmaBeam'],
+			0: ['itemEquipped', 'waveBeam'],
+			1: ['itemEquipped', 'iceBeam'],
+			2: ['itemEquipped', 'spazer'],
+			3: ['itemEquipped', 'plazmaBeam'],
 		},
 	},
 	{
@@ -65,7 +65,7 @@ export const offsets = [
 		size: 8,
 		key: ['itemEquipped'],
 		bits: {
-			4: ['chargeBeam'],
+			4: ['itemEquipped', 'chargeBeam'],
 		},
 	},
 	{
@@ -73,10 +73,10 @@ export const offsets = [
 		size: 8,
 		key: ['itemInInventory'],
 		bits: {
-			0: ['waveBeam'],
-			1: ['iceBeam'],
-			2: ['spazer'],
-			3: ['plasmaBeam'],
+			0: ['itemInInventory', 'waveBeam'],
+			1: ['itemInInventory', 'iceBeam'],
+			2: ['itemInInventory', 'spazer'],
+			3: ['itemInInventory', 'plasmaBeam'],
 		},
 	},
 	{
@@ -84,7 +84,7 @@ export const offsets = [
 		size: 8,
 		key: ['itemInInventory'],
 		bits: {
-			4: ['chargeBeam'],
+			4: ['itemInInventory', 'chargeBeam'],
 		},
 	},
 	{
@@ -177,7 +177,7 @@ export const offsets = [
 		size: 8,
 		key: ['config', 'language'],
 		bits: {
-			0: ['englishOrJapanese'],
+			0: ['config', 'englishOrJapanese'],
 		},
 	},
 	{
@@ -185,7 +185,7 @@ export const offsets = [
 		size: 8,
 		key: ['config', 'moonwalk'],
 		bits: {
-			0: ['moonwalkOffOrOn'],
+			0: ['config', 'moonwalkOffOrOn'],
 		},
 	},
 	{
@@ -193,7 +193,7 @@ export const offsets = [
 		size: 8,
 		key: ['config', 'icon cancel'],
 		bits: {
-			0: ['iconCancelManualOrAutomatic'],
+			0: ['config', 'iconCancelManualOrAutomatic'],
 		},
 	},
 	{
