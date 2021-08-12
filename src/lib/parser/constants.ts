@@ -201,9 +201,9 @@ export const offsets = [
 		size: 8,
 		key: ['bossStatueBroken', 'zebetites'],
 		bits: {
-			0: ['zebetiteBit0'],
-			1: ['zebetiteBit1'],
-			2: ['zebetiteBit2'],
+			0: ['zebetites', 'zebetiteBit0'],
+			1: ['zebetites', 'zebetiteBit1'],
+			2: ['zebetites', 'zebetiteBit2'],
 			6: ['bossStatueBroken', 'phantoon'],
 			7: ['bossStatueBroken', 'ridley'],
 		},
@@ -225,10 +225,10 @@ export const offsets = [
 		size: 8,
 		key: ['metroidRooms'],
 		bits: {
-			0: ['metroidRoom0'],
-			1: ['metroidRoom1'],
-			2: ['metroidRoom2'],
-			3: ['metroidRoom3'],
+			0: ['metroidRoom', 'metroidRoom0'],
+			1: ['metroidRoom', 'metroidRoom1'],
+			2: ['metroidRoom', 'metroidRoom2'],
+			3: ['metroidRoom', 'metroidRoom3'],
 		},
 	},
 	{
