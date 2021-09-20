@@ -41,9 +41,11 @@ function Cell({
 
 function HexView({ className, data }: HexViewProps) {
 	let curOffset = 0;
-	const cells: ReactNode[] = [...offsets]
-		.sort((a, b) => a.offset - b.offset)
-		.reduce<ReactNode[]>((building, offset) => {
+
+	const sortedOffsets = [...offsets].sort((a, b) => a.offset - b.offset);
+
+	const cells: ReactNode[] = sortedOffsets.reduce<ReactNode[]>(
+		(building, offset) => {
 			const nodes = [];
 
 			while (curOffset < offset.offset) {
@@ -73,15 +75,29 @@ function HexView({ className, data }: HexViewProps) {
 			}
 
 			return building.concat(nodes);
-		}, []);
+		},
+		[]
+	);
 
-	data.forEach((byte, i) => {
+	const lastOffset = offsets[offsets.length - 1];
+	let restOfDataStart = lastOffset.offset + 1;
+
+	if (lastOffset.size === 16) {
+		restOfDataStart += 1;
+	}
+
+	data.slice(restOfDataStart).forEach((byte, i) => {
 		cells.push(
-			<div key={i} className="p-0.5 border border-gray-400 font-mono">
+			<div
+				key={restOfDataStart + i}
+				className="p-0.5 border border-gray-400 font-mono"
+			>
 				{toHexString(byte)}
 			</div>
 		);
 	});
+
+	console.log('cells.length', cells.length);
 
 	return (
 		<div className={clsx(className, 'flex flex-row flex-wrap')}>{cells}</div>

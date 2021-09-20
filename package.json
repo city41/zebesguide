@@ -4,16 +4,24 @@
 		"develop": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"type-check": "tsc --noemit"
+		"type-check": "tsc --noemit",
+		"run-ts-node": "yarn ts-node --compiler-options '{ \"module\": \"commonjs\", \"jsx\": \"react\" }'"
 	},
 	"dependencies": {
+		"@types/mkdirp": "^1.0.2",
 		"@types/react": "^17.0.14",
 		"@types/react-dom": "^17.0.9",
+		"canvas": "^2.8.0",
 		"clsx": "^1.1.1",
+		"ignore-styles": "^5.0.1",
+		"js-sha1": "^0.6.0",
+		"mkdirp": "^1.0.4",
 		"next": "latest",
 		"prettier": "^2.3.2",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
+		"robotjs": "^0.6.0",
+		"ts-node": "^10.2.1",
 		"typescript": "^4.3.5"
 	},
 	"devDependencies": {

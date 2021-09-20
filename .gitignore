@@ -36,3 +36,6 @@ yarn-error.log*
 /saveFiles
 /maps
 /rom
+
+# dumped stuff
+automation/screenshots

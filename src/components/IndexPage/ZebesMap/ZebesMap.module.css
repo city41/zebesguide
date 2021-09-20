@@ -6,6 +6,6 @@
 	display: grid;
 	grid-template-columns: repeat(70, var(--cell-size));
 	grid-template-rows: repeat(58, var(--cell-size));
-	width: calc(var(--cell-size) * 70);
+	width: calc(var(--cell-size) * 68);
 	height: calc(var(--cell-size) * 58);
 }
