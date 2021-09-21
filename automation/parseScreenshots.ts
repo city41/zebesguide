@@ -12,9 +12,11 @@ type Point = {
 
 type ParseResult = {
 	screenshotFileName: string;
+	area: string;
+	savePoint: number;
 	byte: number;
 	bit: number;
-	cell: Point;
+	mapCell: Point;
 };
 
 const PINK = [222, 57, 148] as const;
@@ -71,7 +73,9 @@ function getByteBit(name: string): { byte: number; bit: number } {
 
 function parseScreenshot(
 	screenshotPath: string,
-	mapSaveSpotPoint: Point
+	mapSaveSpotPoint: Point,
+	area: string,
+	savePoint: number
 ): ParseResult | undefined {
 	const screenshotFileName = path.basename(screenshotPath);
 	const buffer = fs.readFileSync(screenshotPath);
@@ -100,7 +104,7 @@ function parseScreenshot(
 		y: pinkCell.y - saveCell.y,
 	};
 
-	const cell = {
+	const mapCell = {
 		x: mapSaveSpotPoint.x + deltaFromSave.x,
 		y: mapSaveSpotPoint.y + deltaFromSave.y,
 	};
@@ -109,7 +113,9 @@ function parseScreenshot(
 
 	return {
 		screenshotFileName,
-		cell,
+		area,
+		savePoint,
+		mapCell,
 		byte,
 		bit,
 	};
@@ -118,16 +124,22 @@ function parseScreenshot(
 function main() {
 	const screenshotDir = process.argv[2];
 	const saveSpotPointStr = process.argv[3];
+	const area = process.argv[4];
+	const savePointStr = process.argv[5];
 
-	if (!screenshotDir || !saveSpotPointStr) {
+	if (!screenshotDir || !saveSpotPointStr || !area || !savePointStr) {
 		console.error(
-			'usage: node parseScreenshots <screenshot-dir> <save-spot-point>'
+			'usage: node parseScreenshots <screenshot-dir> <save-spot-point> <save-area> <save-point>'
 		);
 		console.error('the point should be parsable JSON, ie: { "x": 1, "y": 2 }');
+		console.error(
+			'example: node parseScreenshots my-screenshots/ \'{ "x": 1, "y": 2 }\' crateria 1'
+		);
 		process.exit(1);
 	}
 
 	const saveSpotPoint = JSON.parse(saveSpotPointStr);
+	const savePoint = parseInt(savePointStr, 10);
 
 	const screenshotDirPath = path.resolve(process.cwd(), screenshotDir);
 	const screenshotFiles = fs.readdirSync(screenshotDirPath).filter((s) => {
@@ -138,7 +150,9 @@ function main() {
 		(building, screenshotFile) => {
 			const parseResult = parseScreenshot(
 				path.resolve(screenshotDirPath, screenshotFile),
-				saveSpotPoint
+				saveSpotPoint,
+				area,
+				savePoint
 			);
 
 			if (parseResult) {
@@ -152,19 +166,22 @@ function main() {
 
 	const uniqueResult = uniqBy(
 		result,
-		(r) => `${r.byte}-${r.bit}-${r.cell.x}-${r.cell.y}`
+		(r) => `${r.byte}-${r.bit}-${r.mapCell.x}-${r.mapCell.y}`
 	);
 
-	const uniqueOnlyByCell = uniqBy(result, (r) => `${r.cell.x}-${r.cell.y}`);
+	const uniqueOnlyByCell = uniqBy(
+		result,
+		(r) => `${r.mapCell.x}-${r.mapCell.y}`
+	);
 
 	console.log(JSON.stringify(uniqueResult, null, 2));
-	console.log('count:', uniqueResult.length);
 
 	if (uniqueResult.length !== uniqueOnlyByCell.length) {
 		console.warn('multiple byte/bit combos point to the same cell');
 		const overlaps = result.filter((r, _, a) => {
 			const same = a.filter(
-				(other) => other.cell.x === r.cell.x && other.cell.y === r.cell.y
+				(other) =>
+					other.mapCell.x === r.mapCell.x && other.mapCell.y === r.mapCell.y
 			);
 
 			return same.length > 1;
