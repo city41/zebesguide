@@ -3,6 +3,7 @@ import { DropZone } from '../DropZone';
 import { ZebesMap } from './ZebesMap';
 import { getStartingCells } from '../../lib/parser/cells/getStartingCells';
 import { parseCells } from '../../lib/parser/cells/parseCells';
+import { getFirstSave } from '../../lib/getFirstSave';
 
 function IndexPage() {
 	const [data, setData] = useState<null | Uint8Array>(null);
@@ -10,7 +11,7 @@ function IndexPage() {
 
 	useEffect(() => {
 		if (data) {
-			const saveCells = parseCells(data);
+			const saveCells = parseCells(getFirstSave(data));
 			setCells(saveCells);
 		}
 	}, [data]);
