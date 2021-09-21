@@ -1,12 +1,12 @@
 import { MAP_COLS, MAP_ROWS, MAP_SHIP_POINT } from './constants';
-import { crateria0 } from './mapBits';
+import { cells } from './mapBits';
 
 function isExposed(c: Point, save: Uint8Array): boolean {
 	if (MAP_SHIP_POINT.x === c.x && MAP_SHIP_POINT.y === c.y) {
 		return true;
 	}
 
-	const mapCellEntry = crateria0.find(
+	const mapCellEntry = cells.find(
 		(mce) => mce.mapCell.x === c.x && mce.mapCell.y === c.y
 	);
 
