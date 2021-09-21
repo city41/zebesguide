@@ -836,3 +836,5 @@ export const offsets = [
 		key: ['save spot', 'area'],
 	},
 ] as const;
+
+export const START_OF_MAP_BYTES = 0x15a;

@@ -2,6 +2,8 @@ import 'ignore-styles';
 import fs from 'fs';
 import path from 'path';
 import { createCanvas, Image } from 'canvas';
+import uniqBy from 'lodash/uniqBy';
+import { START_OF_MAP_BYTES } from '../src/lib/parser/constants';
 
 type Point = {
 	x: number;
@@ -10,7 +12,9 @@ type Point = {
 
 type ParseResult = {
 	screenshotFileName: string;
-	deltaFromSave: Point;
+	byte: number;
+	bit: number;
+	cell: Point;
 };
 
 const PINK = [222, 57, 148] as const;
@@ -37,7 +41,7 @@ function getCell(
 
 	const colorIndex = dataA.findIndex((_, index, array) => {
 		return (
-			array[index] === color[0] &&
+			array[index + 0] === color[0] &&
 			array[index + 1] === color[1] &&
 			array[index + 2] === color[2] &&
 			array[index + 3] === 255
@@ -48,8 +52,8 @@ function getCell(
 		return undefined;
 	}
 
-	const pixelY = colorIndex / 4 / context.canvas.width;
-	const pixelX = (colorIndex / 4) % context.canvas.width;
+	const pixelY = colorIndex / 4 / GRID_WIDTH;
+	const pixelX = (colorIndex / 4) % GRID_WIDTH;
 
 	return {
 		x: Math.floor(pixelX / CELL_SIZE),
@@ -57,7 +61,18 @@ function getCell(
 	};
 }
 
-function parseScreenshot(screenshotPath: string): ParseResult | undefined {
+function getByteBit(name: string): { byte: number; bit: number } {
+	const pieces = name.split('_');
+	const byte = START_OF_MAP_BYTES + parseInt(pieces[1], 10);
+	const bit = parseInt(pieces[2]);
+
+	return { byte, bit };
+}
+
+function parseScreenshot(
+	screenshotPath: string,
+	mapSaveSpotPoint: Point
+): ParseResult | undefined {
 	const screenshotFileName = path.basename(screenshotPath);
 	const buffer = fs.readFileSync(screenshotPath);
 	const image = new Image();
@@ -85,19 +100,34 @@ function parseScreenshot(screenshotPath: string): ParseResult | undefined {
 		y: pinkCell.y - saveCell.y,
 	};
 
+	const cell = {
+		x: mapSaveSpotPoint.x + deltaFromSave.x,
+		y: mapSaveSpotPoint.y + deltaFromSave.y,
+	};
+
+	const { byte, bit } = getByteBit(screenshotFileName);
+
 	return {
 		screenshotFileName,
-		deltaFromSave,
+		cell,
+		byte,
+		bit,
 	};
 }
 
 function main() {
 	const screenshotDir = process.argv[2];
+	const saveSpotPointStr = process.argv[3];
 
-	if (!screenshotDir) {
-		console.error('usage: node parseScreenshots <screenshot-dir>');
+	if (!screenshotDir || !saveSpotPointStr) {
+		console.error(
+			'usage: node parseScreenshots <screenshot-dir> <save-spot-point>'
+		);
+		console.error('the point should be parsable JSON, ie: { "x": 1, "y": 2 }');
 		process.exit(1);
 	}
+
+	const saveSpotPoint = JSON.parse(saveSpotPointStr);
 
 	const screenshotDirPath = path.resolve(process.cwd(), screenshotDir);
 	const screenshotFiles = fs.readdirSync(screenshotDirPath).filter((s) => {
@@ -107,7 +137,8 @@ function main() {
 	const result = screenshotFiles.reduce<ParseResult[]>(
 		(building, screenshotFile) => {
 			const parseResult = parseScreenshot(
-				path.resolve(screenshotDirPath, screenshotFile)
+				path.resolve(screenshotDirPath, screenshotFile),
+				saveSpotPoint
 			);
 
 			if (parseResult) {
@@ -119,8 +150,29 @@ function main() {
 		[]
 	);
 
-	console.log(JSON.stringify(result, null, 2));
-	console.log('count:', result.length);
+	const uniqueResult = uniqBy(
+		result,
+		(r) => `${r.byte}-${r.bit}-${r.cell.x}-${r.cell.y}`
+	);
+
+	const uniqueOnlyByCell = uniqBy(result, (r) => `${r.cell.x}-${r.cell.y}`);
+
+	console.log(JSON.stringify(uniqueResult, null, 2));
+	console.log('count:', uniqueResult.length);
+
+	if (uniqueResult.length !== uniqueOnlyByCell.length) {
+		console.warn('multiple byte/bit combos point to the same cell');
+		const overlaps = result.filter((r, _, a) => {
+			const same = a.filter(
+				(other) => other.cell.x === r.cell.x && other.cell.y === r.cell.y
+			);
+
+			return same.length > 1;
+		});
+
+		console.log('overlaps');
+		console.log(JSON.stringify(overlaps, null, 2));
+	}
 }
 
 main();

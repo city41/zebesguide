@@ -8,6 +8,7 @@
 		"run-ts-node": "yarn ts-node --compiler-options '{ \"module\": \"commonjs\", \"jsx\": \"react\" }'"
 	},
 	"dependencies": {
+		"@types/lodash": "^4.14.173",
 		"@types/mkdirp": "^1.0.2",
 		"@types/react": "^17.0.14",
 		"@types/react-dom": "^17.0.9",
@@ -15,6 +16,7 @@
 		"clsx": "^1.1.1",
 		"ignore-styles": "^5.0.1",
 		"js-sha1": "^0.6.0",
+		"lodash": "^4.17.21",
 		"mkdirp": "^1.0.4",
 		"next": "latest",
 		"prettier": "^2.3.2",
