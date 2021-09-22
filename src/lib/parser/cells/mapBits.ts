@@ -1,10 +1,11 @@
 import { crateria0 } from './crateria0';
 import { crateria1 } from './crateria1';
 import { brinstar0 } from './brinstar0';
+import { wreckedShip0 } from './wreckedShip0';
 
 import uniqBy from 'lodash/uniqBy';
 
-const inputs = [crateria0, crateria1, brinstar0];
+const inputs = [crateria0, crateria1, brinstar0, wreckedShip0];
 
 const nonDedupedCells = inputs.reduce((building, input) => {
 	// eslint-disable-next-line no-console
