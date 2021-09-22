@@ -20,6 +20,7 @@ type ParseResult = {
 };
 
 const PINK = [222, 57, 148] as const;
+// @ts-ignore
 const SHIP_GREEN = [0, 255, 90] as const;
 const CELL_SIZE = 8;
 
@@ -63,6 +64,23 @@ function getCell(
 	};
 }
 
+function getSaveCellViaWhiteSquare(
+	context: CanvasRenderingContext2D
+): Point | undefined {
+	const cell = getCell(context, [255, 255, 255]);
+
+	// if we found a cell that contains white, then it must be the white
+	// square pointing out Samus's current location, as nothing else on
+	// the map grid is white.
+	if (cell) {
+		return {
+			...cell,
+			// the square sticks out to the left a bit, so need to nudge x
+			x: cell.x + 1,
+		};
+	}
+}
+
 function getByteBit(name: string): { byte: number; bit: number } {
 	const pieces = name.split('_');
 	const byte = START_OF_MAP_BYTES + parseInt(pieces[1], 10);
@@ -93,7 +111,8 @@ function parseScreenshot(
 		return undefined;
 	}
 
-	const saveCell = getCell(context, SHIP_GREEN);
+	// const saveCell = getCell(context, SHIP_GREEN);
+	const saveCell = getSaveCellViaWhiteSquare(context);
 
 	if (!saveCell) {
 		throw new Error('Failed to find the save cell for: ' + screenshotFileName);
