@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { getFirstSave } from '../../lib/getFirstSave';
 import { DropZone } from '../DropZone';
 import { HexView } from './HexView';
@@ -12,7 +12,14 @@ function HexPage() {
 				onData={(saveFile) => {
 					setData(getFirstSave(saveFile));
 				}}
-			/>
+			>
+				{(clickToChoose) => (
+					<>
+						<div>Drag a Super Metroid file here</div>
+						{clickToChoose}
+					</>
+				)}
+			</DropZone>
 			{data && <HexView data={data} />}
 		</div>
 	);

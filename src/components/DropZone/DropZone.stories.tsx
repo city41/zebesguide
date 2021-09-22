@@ -7,4 +7,8 @@ export default {
 	component: DropZone,
 };
 
-export const basic = () => <DropZone onData={() => {}} />;
+export const basic = () => (
+	<DropZone onData={() => {}}>
+		{(clickToChoose) => <div>children with {clickToChoose}</div>}
+	</DropZone>
+);

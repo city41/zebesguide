@@ -7,4 +7,4 @@ export default {
 	component: Planet,
 };
 
-export const basic = () => <Planet />;
+export const basic = () => <Planet onData={() => {}} />;

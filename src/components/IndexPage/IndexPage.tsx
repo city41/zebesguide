@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { DropZone } from '../DropZone';
+import React, { useEffect, useState } from 'react';
 import { ZebesMap } from './ZebesMap';
 import { parseCells } from '../../lib/parser/cells/parseCells';
 import { getFirstSave } from '../../lib/getFirstSave';

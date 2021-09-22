@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import clsx from 'clsx';
 import { offsets } from '../../lib/parser/constants';
 
@@ -96,8 +96,6 @@ function HexView({ className, data }: HexViewProps) {
 			</div>
 		);
 	});
-
-	console.log('cells.length', cells.length);
 
 	return (
 		<div className={clsx(className, 'flex flex-row flex-wrap')}>{cells}</div>

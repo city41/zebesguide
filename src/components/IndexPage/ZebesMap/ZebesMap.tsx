@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
 import clsx from 'clsx';
 
 import styles from './ZebesMap.module.css';
