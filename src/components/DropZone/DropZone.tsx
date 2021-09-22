@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { CSSProperties, ReactNode, useState } from 'react';
 import clsx from 'clsx';
 
 type DropZoneProps = {
+	className?: string;
+	style?: CSSProperties;
 	onData: (data: Uint8Array) => void;
+	children: (clickToChoose: ReactNode) => ReactNode;
 };
 
-function DropZone({ onData }: DropZoneProps) {
+function DropZone({ className, style, onData, children }: DropZoneProps) {
 	const [fileOver, setFileOver] = useState(false);
 
 	function handleFileChosen(file: File) {
@@ -17,14 +20,28 @@ function DropZone({ onData }: DropZoneProps) {
 		reader.readAsArrayBuffer(file);
 	}
 
+	const orClickToChoose = (
+		<label className="xinline-block bg-gray-500 px-3">
+			or, click here to choose
+			<input
+				style={{ width: 0.01, height: 0.01 }}
+				type="file"
+				onChange={(e) => {
+					const file = e.target.files?.[0];
+					if (file) {
+						handleFileChosen(file);
+					}
+				}}
+			/>
+		</label>
+	);
+
 	return (
 		<div
-			className={clsx(
-				'h-full w-full px-6 py-4 flex flex-col items-center justify-center bg-gray-600 border border-dashed border-gray-100',
-				{
-					'bg-gray-400': fileOver,
-				}
-			)}
+			className={clsx(className, {
+				'bg-gray-400': fileOver,
+			})}
+			style={style}
 			onDragOver={(e) => {
 				e.preventDefault();
 				setFileOver(true);
@@ -42,20 +59,7 @@ function DropZone({ onData }: DropZoneProps) {
 				}
 			}}
 		>
-			Drag a Super Metroid save file here,{' '}
-			<label className="inline-block bg-gray-500 p-0.5">
-				or, click here to choose
-				<input
-					style={{ width: 0.01, height: 0.01 }}
-					type="file"
-					onChange={(e) => {
-						const file = e.target.files?.[0];
-						if (file) {
-							handleFileChosen(file);
-						}
-					}}
-				/>
-			</label>
+			{children(orClickToChoose)}
 		</div>
 	);
 }

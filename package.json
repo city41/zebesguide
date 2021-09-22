@@ -5,7 +5,9 @@
 		"build": "next build",
 		"start": "next start",
 		"type-check": "tsc --noemit",
-		"run-ts-node": "yarn ts-node --compiler-options '{ \"module\": \"commonjs\", \"jsx\": \"react\" }'"
+		"run-ts-node": "yarn ts-node --compiler-options '{ \"module\": \"commonjs\", \"jsx\": \"react\" }'",
+		"storybook": "start-storybook -p 6006",
+		"build-storybook": "build-storybook"
 	},
 	"dependencies": {
 		"@types/lodash": "^4.14.173",
@@ -15,10 +17,16 @@
 		"canvas": "^2.8.0",
 		"clsx": "^1.1.1",
 		"ignore-styles": "^5.0.1",
+		"imagemin-mozjpeg": "^9.0.0",
+		"imagemin-optipng": "^8.0.0",
+		"imagemin-svgo": "^10.0.0",
 		"js-sha1": "^0.6.0",
 		"lodash": "^4.17.21",
 		"mkdirp": "^1.0.4",
 		"next": "latest",
+		"next-compose-plugins": "^2.2.1",
+		"next-optimized-classnames": "^1.0.2",
+		"next-optimized-images": "^2.6.2",
 		"prettier": "^2.3.2",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
@@ -27,8 +35,17 @@
 		"typescript": "^4.3.5"
 	},
 	"devDependencies": {
+		"@babel/core": "^7.15.5",
+		"@storybook/addon-actions": "^6.3.8",
+		"@storybook/addon-essentials": "^6.3.8",
+		"@storybook/addon-links": "^6.3.8",
+		"@storybook/react": "^6.3.8",
 		"autoprefixer": "^10.2.6",
+		"babel-loader": "^8.2.2",
 		"postcss": "^8.3.5",
 		"tailwindcss": "^2.2.4"
+	},
+	"resolutions": {
+		"postcss": "^8.3.5"
 	}
 }
