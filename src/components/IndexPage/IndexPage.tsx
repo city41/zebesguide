@@ -25,6 +25,7 @@ function IndexPage() {
 			setSaveFile(saveFile);
 		} else {
 			setCells(null);
+			setSaveFile(null);
 		}
 	}, [data]);
 

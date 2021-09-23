@@ -1,0 +1,12 @@
+.root::after {
+	@apply absolute bg-loadout-section-pink-dark rounded-2xl;
+
+	--offset: 11px;
+
+	content: '';
+	top: calc(-1 * var(--offset));
+	left: calc(-1 * var(--offset));
+	z-index: -1;
+	width: calc(100% + 2 * var(--offset));
+	height: calc(100% + 2 * var(--offset));
+}

@@ -12,6 +12,10 @@ module.exports = {
 				'hud-purple': {
 					DEFAULT: '#400088',
 				},
+				'loadout-section-pink': {
+					DEFAULT: '#d098d8',
+					dark: '#606060',
+				},
 			},
 		},
 	},

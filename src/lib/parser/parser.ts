@@ -111,9 +111,8 @@ function getItemStatus(saveFileView: DataView, itemKey: string): ItemStatus {
  * Reads a Super Metroid SRAM save file and returns
  * the first save parsed out into an object
  */
-function parse(saveFile: Uint8Array): SaveFile {
-	const firstSave = getFirstSave(saveFile);
-	const view = new DataView(firstSave.buffer);
+function parse(save: Uint8Array): SaveFile {
+	const view = new DataView(save.buffer);
 
 	return {
 		energy: {

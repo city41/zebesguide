@@ -11,6 +11,7 @@
 		"lint": "yarn type-check && yarn eslint --max-warnings 1 src"
 	},
 	"dependencies": {
+		"@storybook/addon-postcss": "^2.0.0",
 		"@types/lodash": "^4.14.173",
 		"@types/mkdirp": "^1.0.2",
 		"@types/react": "^17.0.14",
