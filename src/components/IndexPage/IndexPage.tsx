@@ -4,6 +4,7 @@ import { parseCells } from '../../lib/parser/cells/parseCells';
 import { getFirstSave } from '../../lib/getFirstSave';
 import { Planet } from './Planet';
 import { HudNavButton } from '../HudNavButton/HudNavButton';
+import { ResetButton } from '../ResetButton';
 
 type Mode = 'planet' | 'map' | 'samus';
 
@@ -16,6 +17,8 @@ function IndexPage() {
 		if (data) {
 			const saveCells = parseCells(getFirstSave(data));
 			setCells(saveCells);
+		} else {
+			setCells(null);
 		}
 	}, [data]);
 
@@ -68,7 +71,20 @@ function IndexPage() {
 		}
 	}
 
-	return <div className="w-screen h-screen">{body}</div>;
+	return (
+		<div className="w-screen h-screen">
+			{body}
+			{mode !== 'planet' && (
+				<ResetButton
+					className="fixed top-2 right-2"
+					onClick={() => {
+						setData(null);
+						setMode('planet');
+					}}
+				/>
+			)}
+		</div>
+	);
 }
 
 export { IndexPage };
