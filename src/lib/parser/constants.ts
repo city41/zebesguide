@@ -30,7 +30,7 @@ export const offsets: Offset[] = [
 		bits: {
 			0: ['itemEquipped', 'hiJumpBoots'],
 			1: ['itemEquipped', 'spaceJump'],
-			2: ['itemEquipped', 'bombs'],
+			4: ['itemEquipped', 'bombs'],
 			5: ['itemEquipped', 'speedBooster'],
 			6: ['itemEquipped', 'grapplingBeam'],
 			7: ['itemEquipped', 'xRayScope'],
@@ -55,7 +55,7 @@ export const offsets: Offset[] = [
 		bits: {
 			0: ['itemInInventory', 'hiJumpBoots'],
 			1: ['itemInInventory', 'spaceJump'],
-			3: ['itemInInventory', 'bombs'],
+			4: ['itemInInventory', 'bombs'],
 			5: ['itemInInventory', 'speedBooster'],
 			6: ['itemInInventory', 'grapplingBeam'],
 			7: ['itemInInventory', 'xRayScope'],
