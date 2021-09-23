@@ -5,6 +5,8 @@ import { getFirstSave } from '../../lib/getFirstSave';
 import { Planet } from './Planet';
 import { HudNavButton } from '../HudNavButton/HudNavButton';
 import { ResetButton } from '../ResetButton';
+import { SamusLoadOut } from './SamusLoadOut/SamusLoadOut';
+import { parse, SaveFile } from '../../lib/parser';
 
 type Mode = 'planet' | 'map' | 'samus';
 
@@ -12,11 +14,15 @@ function IndexPage() {
 	const [mode, setMode] = useState<Mode>('planet');
 	const [data, setData] = useState<null | Uint8Array>(null);
 	const [cells, setCells] = useState<CellMatrix | null>(null);
+	const [saveFile, setSaveFile] = useState<SaveFile | null>(null);
 
 	useEffect(() => {
 		if (data) {
-			const saveCells = parseCells(getFirstSave(data));
+			const firstSave = getFirstSave(data);
+			const saveCells = parseCells(firstSave);
 			setCells(saveCells);
+			const saveFile = parse(firstSave);
+			setSaveFile(saveFile);
 		} else {
 			setCells(null);
 		}
@@ -44,7 +50,7 @@ function IndexPage() {
 		case 'samus': {
 			body = (
 				<div className="relative w-full h-full">
-					samus
+					<SamusLoadOut saveFile={saveFile!} />
 					<HudNavButton
 						className="absolute left-2 bottom-2"
 						onClick={() => {

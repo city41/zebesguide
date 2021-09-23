@@ -1,4 +1,16 @@
-export const offsets = [
+type ByteOffset = {
+	offset: number;
+	size: 8 | 16;
+	key: string[];
+};
+
+type BitOffset = ByteOffset & {
+	bits: Record<number, string[]>;
+};
+
+type Offset = ByteOffset | BitOffset;
+
+export const offsets: Offset[] = [
 	{
 		offset: 0x0,
 		size: 8,
@@ -6,7 +18,7 @@ export const offsets = [
 		bits: {
 			0: ['itemEquipped', 'variaSuit'],
 			1: ['itemEquipped', 'springBall'],
-			2: ['itemEquipped', 'morphBall'],
+			2: ['itemEquipped', 'morphingBall'],
 			3: ['itemEquipped', 'screwAttack'],
 			5: ['itemEquipped', 'gravitySuit'],
 		},
@@ -16,7 +28,7 @@ export const offsets = [
 		size: 8,
 		key: ['itemEquipped'],
 		bits: {
-			0: ['itemEquipped', 'highJumpBoots'],
+			0: ['itemEquipped', 'hiJumpBoots'],
 			1: ['itemEquipped', 'spaceJump'],
 			2: ['itemEquipped', 'bombs'],
 			5: ['itemEquipped', 'speedBooster'],
@@ -31,7 +43,7 @@ export const offsets = [
 		bits: {
 			0: ['itemInInventory', 'variaSuit'],
 			1: ['itemInInventory', 'springBall'],
-			2: ['itemInInventory', 'morphBall'],
+			2: ['itemInInventory', 'morphingBall'],
 			3: ['itemInInventory', 'screwAttack'],
 			5: ['itemInInventory', 'gravitySuit'],
 		},
@@ -41,7 +53,7 @@ export const offsets = [
 		size: 8,
 		key: ['itemInInventory'],
 		bits: {
-			0: ['itemInInventory', 'highJumpBoots'],
+			0: ['itemInInventory', 'hiJumpBoots'],
 			1: ['itemInInventory', 'spaceJump'],
 			3: ['itemInInventory', 'bombs'],
 			5: ['itemInInventory', 'speedBooster'],
@@ -57,7 +69,7 @@ export const offsets = [
 			0: ['itemEquipped', 'waveBeam'],
 			1: ['itemEquipped', 'iceBeam'],
 			2: ['itemEquipped', 'spazer'],
-			3: ['itemEquipped', 'plazmaBeam'],
+			3: ['itemEquipped', 'plasmaBeam'],
 		},
 	},
 	{
@@ -151,6 +163,16 @@ export const offsets = [
 		offset: 0x2a,
 		size: 16,
 		key: ['maxSuperMissiles'],
+	},
+	{
+		offset: 0x2c,
+		size: 8,
+		key: ['currentPowerBombs'],
+	},
+	{
+		offset: 0x2e,
+		size: 8,
+		key: ['maxPowerBombs'],
 	},
 	{
 		offset: 0x32,
@@ -352,7 +374,7 @@ export const offsets = [
 		bits: {
 			0: ['brinstar', 'powerBombPack'],
 			1: ['brinstar', 'missilePack'],
-			2: ['itemAcquired', 'morphBall'],
+			2: ['itemAcquired', 'morphingBall'],
 			3: ['brinstar', 'powerBombPack'],
 			4: ['brinstar', 'missilePack'],
 			5: ['brinstar', 'energyTank'],
@@ -408,7 +430,7 @@ export const offsets = [
 			2: ['itemAcquired', 'iceBeam'],
 			3: ['norfair', 'missilePack'],
 			4: ['norfair', 'energyTank'],
-			5: ['itemAcquired', 'highJumpBoots'],
+			5: ['itemAcquired', 'hiJumpBoots'],
 			6: ['norfair', 'missilePack'],
 			7: ['norfair', 'missilePack'],
 		},
@@ -835,6 +857,11 @@ export const offsets = [
 		size: 8,
 		key: ['save spot', 'area'],
 	},
-] as const;
+];
+
+export function isBitOffset(o: Offset): o is BitOffset {
+	return 'bits' in o;
+}
 
 export const START_OF_MAP_BYTES = 0x15a;
+export type { Offset, BitOffset, ByteOffset };
