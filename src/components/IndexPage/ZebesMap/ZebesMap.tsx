@@ -12,7 +12,7 @@ function CellCover({ exposed }: { exposed: boolean }) {
 	return (
 		<div
 			className={clsx('w-full h-full', {
-				'bg-black': !exposed,
+				'bg-blue-900 opacity-90': !exposed,
 			})}
 		/>
 	);
