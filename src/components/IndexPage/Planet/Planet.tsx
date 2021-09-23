@@ -15,7 +15,7 @@ function Planet({ className, onData }: PlanetProps) {
 			className={clsx(
 				className,
 				styles.root,
-				'relative w-screen h-screen grid place-items-center bg-cover bg-black'
+				'relative w-full h-screen grid place-items-center bg-cover bg-black'
 			)}
 		>
 			<DropZone

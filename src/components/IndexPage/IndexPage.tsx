@@ -79,7 +79,7 @@ function IndexPage() {
 	}
 
 	return (
-		<div className="w-screen h-screen">
+		<div className="w-screen h-screen mx-auto" style={{ maxWidth: 1088 }}>
 			{body}
 			{mode !== 'planet' && (
 				<ResetButton
