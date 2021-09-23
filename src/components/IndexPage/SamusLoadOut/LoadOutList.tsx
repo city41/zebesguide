@@ -21,11 +21,18 @@ type BulbProps = {
 function Bulb({ equipped }: BulbProps) {
 	return (
 		<div
-			className={clsx('w-3 h-3 rounded-full', {
+			className={clsx('relative w-3 h-3 rounded-full border-r border-black', {
 				'bg-red-600': equipped,
 				'bg-gray-300': !equipped,
 			})}
-		/>
+		>
+			<div
+				className={clsx('absolute top-0.5 left-0.5 w-1 h-1 rounded-full', {
+					'bg-white': equipped,
+					'bg-gray-400': !equipped,
+				})}
+			/>
+		</div>
 	);
 }
 

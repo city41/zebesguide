@@ -14,7 +14,7 @@ function SamusLoadOut({ className, saveFile }: SamusLoadOutProps) {
 		<div className={clsx(className, 'px-8 pt-32 flex flex-row')}>
 			<div className="w-1/3 flex flex-col gap-y-8">
 				<LoadOutSection title="SUPPLY">mode auto</LoadOutSection>
-				<LoadOutSection title="BEAM">
+				<LoadOutSection title="BEAM" style={{ width: '70%', margin: '0 auto' }}>
 					<LoadOutList>
 						<LoadOutListEntry
 							label="CHARGE"
