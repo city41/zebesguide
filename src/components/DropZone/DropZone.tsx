@@ -21,7 +21,7 @@ function DropZone({ className, style, onData, children }: DropZoneProps) {
 	}
 
 	const orClickToChoose = (
-		<label className="xinline-block bg-gray-500 px-3">
+		<label className="xinline-block bg-gray-500 px-3 cursor-pointer">
 			or, click here to choose
 			<input
 				style={{ width: 0.01, height: 0.01 }}
