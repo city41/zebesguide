@@ -26,7 +26,7 @@ function ZebesMap({ className, matrix }: ZebesMapProps) {
 		return <Fragment key={`row-${y}`}>{rowCells}</Fragment>;
 	});
 
-	return <div className={clsx(className, styles.root)}>{rows}</div>;
+	return <div className={clsx(className, styles.root, 'relative')}>{rows}</div>;
 }
 
 export { ZebesMap };
