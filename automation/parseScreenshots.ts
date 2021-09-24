@@ -115,7 +115,8 @@ function parseScreenshot(
 	const saveCell = getSaveCellViaWhiteSquare(context);
 
 	if (!saveCell) {
-		throw new Error('Failed to find the save cell for: ' + screenshotFileName);
+		console.warn('Failed to find the save cell for: ' + screenshotFileName);
+		return undefined;
 	}
 
 	const deltaFromSave = {
