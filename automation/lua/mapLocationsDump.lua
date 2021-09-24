@@ -1,26 +1,17 @@
--- this script requires either the bsnes or bsnes115 core
--- in my experience, the bsnes core is much faster and prefered
-
-
--- bsnes 115
--- "0": "CARTRIDGE_RAM"
--- "1": "WRAM"
--- "2": "APURAM"
--- "3": "VRAM"
--- "4": "CGRAM"
--- "5": "CARTRIDGE_ROM"
--- "6": "System Bus"
--- "7": "Waterbox PageData"
-
---  $700000-$707FFF, $710000-$717FFF, $720000-$727FFF and $730000-$737FFF
-
+-- this script requires the bsnes115 core
 
 local SRAM_BASE = 0x700000;
 local SRAM_OFFSET = 0x10;
 local SRAM_SAVE_SIZE = 0x65c;
 
 local CRATERIA = 0;
+local NORFAIR = 2;
 local WRECKED_SHIP = 3;
+local MARIDIA = 4;
+local TOURIAN = 5;
+
+local CURRENT_SAVE_AREA = MARIDIA;
+local CURRENT_SAVE_POINT = 0;
 
 -- these are using the start of the save as zero, to match the sram-doc
 -- so to use these, usually need to do SRAM_BASE + SRAM_OFFSET + <value>
@@ -28,7 +19,6 @@ local SAVE_AREA = 0x158;
 local SAVE_POINT = 0x156;
 local START_OF_MAP_OFFSET = 0x15a;
 local END_OF_MAP_OFFSET = SRAM_SAVE_SIZE;
-
 
 memory.usememorydomain("System Bus");
 
@@ -89,9 +79,10 @@ local byteIndex = 0
 
 local function patch_sram()
 	-- set the save location
-	memory.writebyte(SRAM_BASE + SRAM_OFFSET + SAVE_AREA, CRATERIA);
-	memory.writebyte(SRAM_BASE + SRAM_OFFSET + SAVE_POINT, 0);
-	
+	memory.writebyte(SRAM_BASE + SRAM_OFFSET + SAVE_AREA, CURRENT_SAVE_AREA);
+	memory.writebyte(SRAM_BASE + SRAM_OFFSET + SAVE_POINT, CURRENT_SAVE_POINT);
+
+	-- set the current map bit we are dumping
 	for i = START_OF_MAP_OFFSET, END_OF_MAP_OFFSET, 1 do
 		byteToWrite = 0;
 		if (i - START_OF_MAP_OFFSET) == byteIndex then
@@ -106,9 +97,6 @@ end
 
 local myinput = {};
 myinput['P1 Start'] = true;
-
---local frames = { 300, 400, 500, 600, 800, 900 };
---local SCREENSHOT_FRAME = 980;
 
 local frames = { 300, 380, 420, 520, 720, 820 };
 local SCREENSHOT_FRAME = 900;
@@ -135,13 +123,15 @@ while true do
 			byteIndex = byteIndex + 1;
 		end
 		
-		if byteIndex < END_OF_MAP_OFFSET then
+		if byteIndex < (END_OF_MAP_OFFSET - START_OF_MAP_OFFSET) then
 			client.reboot_core();
 		else
 			client.exit();
 		end
 	end
 	
+	-- skip ahead 20 frames
+	-- not using a loop in hopes this is a smidge faster
 	emu.frameadvance();
 	emu.frameadvance();
 	emu.frameadvance();
