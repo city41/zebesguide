@@ -1,16 +1,17 @@
 const withPlugins = require('next-compose-plugins');
-// const withOptimizedImages = require('next-optimized-images');
+const withOptimizedImages = require('next-optimized-images');
 const withOptimizedClassnames = require('next-optimized-classnames');
 
 module.exports = withPlugins(
 	[
 		withOptimizedClassnames,
-		// [
-		// 	withOptimizedImages,
-		// 	{
-		// 		inlineImageLimit: -1,
-		// 	},
-		// ],
+		[
+			withOptimizedImages,
+			{
+				handleImages: ['svg'],
+				inlineImageLimit: -1,
+			},
+		],
 	],
 	{
 		redirects() {

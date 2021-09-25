@@ -4,6 +4,8 @@ import { SaveFile } from '../../../lib/parser';
 import { LoadOutList, LoadOutListEntry } from './LoadOutList';
 import { LoadOutSection } from './LoadOutSection';
 
+import samusBaseSuitSvg from './samusBaseSuit.svg';
+
 type SamusLoadOutProps = {
 	className?: string;
 	saveFile: SaveFile;
@@ -11,7 +13,16 @@ type SamusLoadOutProps = {
 
 function SamusLoadOut({ className, saveFile }: SamusLoadOutProps) {
 	return (
-		<div className={clsx(className, 'px-8 pt-32 flex flex-row')}>
+		<div
+			className={clsx(
+				className,
+				'h-full px-8 pt-32 flex flex-row border-l-4 border-r-4 border-hud-purple'
+			)}
+			style={{
+				backgroundImage: 'url(/grid-background.png)',
+				backgroundSize: '28px',
+			}}
+		>
 			<div className="w-1/3 flex flex-col gap-y-8">
 				<LoadOutSection title="SUPPLY">mode auto</LoadOutSection>
 				<LoadOutSection title="BEAM" style={{ width: '70%', margin: '0 auto' }}>
@@ -44,7 +55,13 @@ function SamusLoadOut({ className, saveFile }: SamusLoadOutProps) {
 					</LoadOutList>
 				</LoadOutSection>
 			</div>
-			<div className="w-1/3">samus</div>
+			<div className="w-1/3">
+				<img
+					className="mx-auto"
+					src={samusBaseSuitSvg}
+					alt="samus base suit illustration"
+				/>
+			</div>
 			<div className="w-1/3 flex flex-col gap-y-8">
 				<LoadOutSection title="SUIT">
 					<LoadOutList>
