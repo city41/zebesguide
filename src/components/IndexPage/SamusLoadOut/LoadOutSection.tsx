@@ -31,8 +31,8 @@ function LoadOutSection({
 					'border-4 border-loadout-section-pink-dark rounded-xl p-3 -m-1 bg-black overflow-hidden'
 				)}
 			>
-				<h2 className="absolute -top-6 left-0 w-full text-center">
-					<span className="inline-block bg-black px-2 font-bold text-white text-2xl">
+				<h2 className="absolute -top-7 left-0 w-full text-center">
+					<span className="inline-block bg-black px-2 font-bold text-white text-3xl">
 						{title}
 					</span>
 				</h2>

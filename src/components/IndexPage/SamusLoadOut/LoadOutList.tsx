@@ -46,7 +46,7 @@ function LoadOutListEntry({
 		<li
 			className={clsx(
 				className,
-				'w-full flex flex-row gap-x-2 px-2 items-center justify-start font-bold',
+				'w-full flex flex-row gap-x-2 px-2 items-center justify-start font-bold text-2xl',
 				{
 					invisible: !inInventory,
 					'bg-hud-yellow text-black': equipped,

@@ -23,7 +23,7 @@ function SamusLoadOut({ className, saveFile }: SamusLoadOutProps) {
 				backgroundSize: '28px',
 			}}
 		>
-			<div className="w-1/3 flex flex-col gap-y-8">
+			<div className="w-1/3 flex flex-col gap-y-8 mt-8">
 				<LoadOutSection title="SUPPLY">mode auto</LoadOutSection>
 				<LoadOutSection title="BEAM" style={{ width: '70%', margin: '0 auto' }}>
 					<LoadOutList>
@@ -62,7 +62,7 @@ function SamusLoadOut({ className, saveFile }: SamusLoadOutProps) {
 					alt="samus base suit illustration"
 				/>
 			</div>
-			<div className="w-1/3 flex flex-col gap-y-8">
+			<div className="w-1/3 flex flex-col gap-y-8 mt-8">
 				<LoadOutSection title="SUIT">
 					<LoadOutList>
 						<LoadOutListEntry
