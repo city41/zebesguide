@@ -1,4 +1,5 @@
 import { brinstar0 } from './brinstar0';
+import { brinstar3 } from './brinstar3';
 import { crateria0 } from './crateria0';
 import { crateria1 } from './crateria1';
 import { maridia0 } from './maridia0';
@@ -11,6 +12,7 @@ import uniqBy from 'lodash/uniqBy';
 
 const inputs = [
 	brinstar0,
+	brinstar3,
 	crateria0,
 	crateria1,
 	maridia0,
