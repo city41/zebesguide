@@ -15,20 +15,22 @@ function Intro({ className, onData }: IntroProps) {
 			className={clsx(
 				className,
 				styles.root,
-				'relative w-full h-screen grid place-items-center bg-cover bg-black'
+				'relative mx-auto max-w-6xl h-screen grid grid-cols-2 grid-rows-2 place-items-center'
 			)}
 		>
+			<div>
+				<h1>Zebes Guide</h1>
+			</div>
+			<div className="row-span-2">metroid graphic</div>
 			<DropZone
-				className="py-2 px-4 max-w-md text-center bg-black border border-white z-10"
-				style={{ marginTop: '25%' }}
+				className="p-8 max-w-md text-center bg-black border border-dashed border-white z-10"
 				onData={onData}
 			>
 				{(clickToChoose) => (
 					<>
-						<h1 className="font-bold text-xl text-white text-center my-2">
-							Zebes Guide
-						</h1>
-						<div>drag a Super Metroid save file here to begin</div>
+						<div className="text-2xl">
+							drag a Super Metroid save file here to begin
+						</div>
 						{clickToChoose}
 						<p className="text-gray-600 text-xs italic mt-8">
 							No spoilers! You will see the same info you see when pausing the

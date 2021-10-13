@@ -8,10 +8,10 @@ import { ResetButton } from '../ResetButton';
 import { SamusLoadOut } from './SamusLoadOut/SamusLoadOut';
 import { parse, SaveFile } from '../../lib/parser';
 
-type Mode = 'intro' | 'choose-save' | 'map' | 'samus';
+type Mode = 'choose-save' | 'map' | 'samus';
 
 function IndexPage() {
-	const [mode, setMode] = useState<Mode>('intro');
+	const [mode, setMode] = useState<Mode>('choose-save');
 	const [data, setData] = useState<null | Uint8Array>(null);
 	const [cells, setCells] = useState<CellMatrix | null>(null);
 	const [saveFile, setSaveFile] = useState<SaveFile | null>(null);
@@ -64,7 +64,7 @@ function IndexPage() {
 			);
 			break;
 		}
-		case 'intro':
+		case 'choose-save':
 		default: {
 			body = (
 				<Intro
@@ -81,12 +81,12 @@ function IndexPage() {
 	return (
 		<div className="w-screen h-screen mx-auto" style={{ maxWidth: 1088 }}>
 			{body}
-			{mode !== 'intro' && (
+			{mode !== 'choose-save' && (
 				<ResetButton
 					className="fixed top-2 right-2"
 					onClick={() => {
 						setData(null);
-						setMode('intro');
+						setMode('choose-save');
 					}}
 				/>
 			)}
