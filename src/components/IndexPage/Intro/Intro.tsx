@@ -2,14 +2,14 @@ import clsx from 'clsx';
 import React from 'react';
 import { DropZone } from '../../DropZone';
 
-import styles from './Planet.module.css';
+import styles from './Intro.module.css';
 
-type PlanetProps = {
+type IntroProps = {
 	className?: string;
 	onData: (data: Uint8Array) => void;
 };
 
-function Planet({ className, onData }: PlanetProps) {
+function Intro({ className, onData }: IntroProps) {
 	return (
 		<div
 			className={clsx(
@@ -42,4 +42,4 @@ function Planet({ className, onData }: PlanetProps) {
 	);
 }
 
-export { Planet };
+export { Intro };

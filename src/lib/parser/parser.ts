@@ -1,4 +1,3 @@
-import { getFirstSave } from '../getFirstSave';
 import { BitOffset, isBitOffset, offsets } from './constants';
 import isEqual from 'lodash/isEqual';
 

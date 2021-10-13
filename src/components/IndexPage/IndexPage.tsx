@@ -2,16 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { ZebesMap } from './ZebesMap';
 import { parseCells } from '../../lib/parser/cells/parseCells';
 import { getFirstSave } from '../../lib/getFirstSave';
-import { Planet } from './Planet';
+import { Intro } from './Intro';
 import { HudNavButton } from '../HudNavButton/HudNavButton';
 import { ResetButton } from '../ResetButton';
 import { SamusLoadOut } from './SamusLoadOut/SamusLoadOut';
 import { parse, SaveFile } from '../../lib/parser';
 
-type Mode = 'planet' | 'map' | 'samus';
+type Mode = 'intro' | 'choose-save' | 'map' | 'samus';
 
 function IndexPage() {
-	const [mode, setMode] = useState<Mode>('planet');
+	const [mode, setMode] = useState<Mode>('intro');
 	const [data, setData] = useState<null | Uint8Array>(null);
 	const [cells, setCells] = useState<CellMatrix | null>(null);
 	const [saveFile, setSaveFile] = useState<SaveFile | null>(null);
@@ -64,10 +64,10 @@ function IndexPage() {
 			);
 			break;
 		}
-		case 'planet':
+		case 'intro':
 		default: {
 			body = (
-				<Planet
+				<Intro
 					onData={(f) => {
 						setData(f);
 						setMode('map');
@@ -81,12 +81,12 @@ function IndexPage() {
 	return (
 		<div className="w-screen h-screen mx-auto" style={{ maxWidth: 1088 }}>
 			{body}
-			{mode !== 'planet' && (
+			{mode !== 'intro' && (
 				<ResetButton
 					className="fixed top-2 right-2"
 					onClick={() => {
 						setData(null);
-						setMode('planet');
+						setMode('intro');
 					}}
 				/>
 			)}
