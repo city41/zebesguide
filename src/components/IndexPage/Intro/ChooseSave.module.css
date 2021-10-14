@@ -5,3 +5,11 @@
 .saveRow:hover .helmet {
 	filter: none;
 }
+
+.fullTank {
+	@apply border-l border-t border-white bg-red-500;
+}
+
+.emptyTank {
+	@apply border-l border-t border-red-100 bg-gray-500;
+}

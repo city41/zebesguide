@@ -21,3 +21,7 @@ I created two save files, one with one game and one with two games. All games ar
 Just see if the first 6 bytes are `0xffff` or not. Beyond that, no idea yet what data is in this header.
 
 Sometimes the dummy bytes seem to be `0x6060` instead.
+
+# How energy is reported on the save file screen
+
+It uses max energy to determine how many energy tanks to render, and current energy to render the actual current energy, with energy tanks empty as needed. There are seven energy tanks per row, starting from the bottom.

@@ -1,6 +1,7 @@
 import { BitOffset, isBitOffset, offsets } from './constants';
 import isEqual from 'lodash/isEqual';
 import { parseCells } from './cells/parseCells';
+import { getSave } from '../getFirstSave';
 
 type Quantity = {
 	current: number;
@@ -100,7 +101,7 @@ function getNumber(saveFileView: DataView, key: string): number {
 	// TODO: little or big endian?
 	return matchingOffset.size === 8
 		? saveFileView.getUint8(matchingOffset.offset)
-		: saveFileView.getUint16(matchingOffset.offset);
+		: saveFileView.getUint16(matchingOffset.offset, true);
 }
 
 function getItemStatus(saveFileView: DataView, itemKey: string): ItemStatus {
@@ -122,12 +123,11 @@ function getItemStatus(saveFileView: DataView, itemKey: string): ItemStatus {
  *
  * @param gameSave {Uint8Array} An array containing one game's data from a SM save file
  */
-function parse(gameSave: Uint8Array): GameSave {
+function parseGameSave(gameSave: Uint8Array, active: boolean): GameSave {
 	const view = new DataView(gameSave.buffer);
 
 	return {
-		// TODO: actually determine this
-		active: true,
+		active,
 
 		energy: {
 			current: getNumber(view, 'currentEnergy'),
@@ -189,6 +189,15 @@ function getUsedGameSlots(saveFile: Uint8Array): [boolean, boolean, boolean] {
 	}
 
 	return inUse;
+}
+
+function parse(saveFile: Uint8Array): GameSave[] {
+	const inUse = getUsedGameSlots(saveFile);
+
+	return inUse.map((active, i) => {
+		const gameSaveData = getSave(saveFile, i);
+		return parseGameSave(gameSaveData, active);
+	});
 }
 
 export { parse, getUsedGameSlots };
