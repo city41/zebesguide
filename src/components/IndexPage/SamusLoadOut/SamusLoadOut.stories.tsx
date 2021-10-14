@@ -53,6 +53,10 @@ const FULLY_EQUIPPED: GameSave = {
 		spazer: EQUIPPED,
 		plasma: EQUIPPED,
 	},
+	time: {
+		hours: 1,
+		minutes: 0,
+	},
 
 	mapCells: [],
 };

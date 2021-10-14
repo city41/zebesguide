@@ -47,6 +47,10 @@ type GameSave = {
 		spazer: ItemStatus;
 		plasma: ItemStatus;
 	};
+	time: {
+		hours: number;
+		minutes: number;
+	};
 
 	mapCells: CellMatrix;
 };
@@ -98,7 +102,6 @@ function getNumber(saveFileView: DataView, key: string): number {
 		throw new Error(`parser,getBoolean: no offset found for: ${key}`);
 	}
 
-	// TODO: little or big endian?
 	return matchingOffset.size === 8
 		? saveFileView.getUint8(matchingOffset.offset)
 		: saveFileView.getUint16(matchingOffset.offset, true);
@@ -165,6 +168,10 @@ function parseGameSave(gameSave: Uint8Array, active: boolean): GameSave {
 			wave: getItemStatus(view, 'waveBeam'),
 			spazer: getItemStatus(view, 'spazer'),
 			plasma: getItemStatus(view, 'plasmaBeam'),
+		},
+		time: {
+			hours: getNumber(view, 'Hours'),
+			minutes: getNumber(view, 'Minutes'),
 		},
 		mapCells: parseCells(gameSave),
 	};

@@ -75,6 +75,12 @@ function ChooseSave({ className, saveFile, onSave }: ChooseSaveProps) {
 	return (
 		<div className={clsx(className, 'flex flex-col w-full gap-y-8')}>
 			{gameSaves.map((gameSave, i) => {
+				let minutes = gameSave.time.minutes.toString();
+
+				if (gameSave.time.minutes < 10) {
+					minutes = '0' + minutes;
+				}
+
 				return (
 					<div
 						key={i}
@@ -101,7 +107,9 @@ function ChooseSave({ className, saveFile, onSave }: ChooseSaveProps) {
 									<Energy energy={gameSave.energy} />
 									<div className="flex flex-col">
 										<div className="text-sm">TIME</div>
-										<div>1:23</div>
+										<div>
+											{gameSave.time.hours}:{minutes}
+										</div>
 									</div>
 								</>
 							) : (
