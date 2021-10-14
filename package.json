@@ -21,6 +21,7 @@
 		"canvas": "^2.8.0",
 		"clsx": "^1.1.1",
 		"eslint": "^7.32.0",
+		"eslint-config-next": "^11.1.2",
 		"eslint-plugin-react": "^7.26.0",
 		"ignore-styles": "^5.0.1",
 		"imagemin-mozjpeg": "^9.0.0",
