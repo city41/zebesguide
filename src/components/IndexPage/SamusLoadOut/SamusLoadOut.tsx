@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import { SaveFile } from '../../../lib/parser';
+import { GameSave } from '../../../lib/parser';
 import { LoadOutList, LoadOutListEntry } from './LoadOutList';
 import { LoadOutSection } from './LoadOutSection';
 
@@ -8,10 +8,10 @@ import samusBaseSuitSvg from './samusBaseSuit.svg';
 
 type SamusLoadOutProps = {
 	className?: string;
-	saveFile: SaveFile;
+	gameSave: GameSave;
 };
 
-function SamusLoadOut({ className, saveFile }: SamusLoadOutProps) {
+function SamusLoadOut({ className, gameSave }: SamusLoadOutProps) {
 	return (
 		<div
 			className={clsx(
@@ -29,28 +29,28 @@ function SamusLoadOut({ className, saveFile }: SamusLoadOutProps) {
 					<LoadOutList>
 						<LoadOutListEntry
 							label="CHARGE"
-							inInventory={saveFile.beam.charge.inInventory}
-							equipped={saveFile.beam.charge.equipped}
+							inInventory={gameSave.beam.charge.inInventory}
+							equipped={gameSave.beam.charge.equipped}
 						/>
 						<LoadOutListEntry
 							label="ICE"
-							inInventory={saveFile.beam.ice.inInventory}
-							equipped={saveFile.beam.ice.equipped}
+							inInventory={gameSave.beam.ice.inInventory}
+							equipped={gameSave.beam.ice.equipped}
 						/>
 						<LoadOutListEntry
 							label="WAVE"
-							inInventory={saveFile.beam.wave.inInventory}
-							equipped={saveFile.beam.wave.equipped}
+							inInventory={gameSave.beam.wave.inInventory}
+							equipped={gameSave.beam.wave.equipped}
 						/>
 						<LoadOutListEntry
 							label="SPAZER"
-							inInventory={saveFile.beam.spazer.inInventory}
-							equipped={saveFile.beam.spazer.equipped}
+							inInventory={gameSave.beam.spazer.inInventory}
+							equipped={gameSave.beam.spazer.equipped}
 						/>
 						<LoadOutListEntry
 							label="PLASMA"
-							inInventory={saveFile.beam.plasma.inInventory}
-							equipped={saveFile.beam.plasma.equipped}
+							inInventory={gameSave.beam.plasma.inInventory}
+							equipped={gameSave.beam.plasma.equipped}
 						/>
 					</LoadOutList>
 				</LoadOutSection>
@@ -67,13 +67,13 @@ function SamusLoadOut({ className, saveFile }: SamusLoadOutProps) {
 					<LoadOutList>
 						<LoadOutListEntry
 							label="VARIA SUIT"
-							inInventory={saveFile.suits.varia.inInventory}
-							equipped={saveFile.suits.varia.equipped}
+							inInventory={gameSave.suits.varia.inInventory}
+							equipped={gameSave.suits.varia.equipped}
 						/>
 						<LoadOutListEntry
 							label="GRAVITY SUIT"
-							inInventory={saveFile.suits.gravity.inInventory}
-							equipped={saveFile.suits.gravity.equipped}
+							inInventory={gameSave.suits.gravity.inInventory}
+							equipped={gameSave.suits.gravity.equipped}
 						/>
 					</LoadOutList>
 				</LoadOutSection>
@@ -81,18 +81,18 @@ function SamusLoadOut({ className, saveFile }: SamusLoadOutProps) {
 					<LoadOutList>
 						<LoadOutListEntry
 							label="MORPHING BALL"
-							inInventory={saveFile.misc.morphingBall.inInventory}
-							equipped={saveFile.misc.morphingBall.equipped}
+							inInventory={gameSave.misc.morphingBall.inInventory}
+							equipped={gameSave.misc.morphingBall.equipped}
 						/>
 						<LoadOutListEntry
 							label="BOMB"
-							inInventory={saveFile.misc.bombs.inInventory}
-							equipped={saveFile.misc.bombs.equipped}
+							inInventory={gameSave.misc.bombs.inInventory}
+							equipped={gameSave.misc.bombs.equipped}
 						/>
 						<LoadOutListEntry
 							label="SCREW ATTACK"
-							inInventory={saveFile.misc.screwAttack.inInventory}
-							equipped={saveFile.misc.screwAttack.equipped}
+							inInventory={gameSave.misc.screwAttack.inInventory}
+							equipped={gameSave.misc.screwAttack.equipped}
 						/>
 					</LoadOutList>
 				</LoadOutSection>
@@ -100,18 +100,18 @@ function SamusLoadOut({ className, saveFile }: SamusLoadOutProps) {
 					<LoadOutList>
 						<LoadOutListEntry
 							label="HI-JUMP BOOTS"
-							inInventory={saveFile.boots.hiJumpBoots.inInventory}
-							equipped={saveFile.boots.hiJumpBoots.equipped}
+							inInventory={gameSave.boots.hiJumpBoots.inInventory}
+							equipped={gameSave.boots.hiJumpBoots.equipped}
 						/>
 						<LoadOutListEntry
 							label="SPACE JUMP"
-							inInventory={saveFile.boots.spaceJump.inInventory}
-							equipped={saveFile.boots.spaceJump.equipped}
+							inInventory={gameSave.boots.spaceJump.inInventory}
+							equipped={gameSave.boots.spaceJump.equipped}
 						/>
 						<LoadOutListEntry
 							label="SPEED BOOSTER"
-							inInventory={saveFile.boots.speedBooster.inInventory}
-							equipped={saveFile.boots.speedBooster.equipped}
+							inInventory={gameSave.boots.speedBooster.inInventory}
+							equipped={gameSave.boots.speedBooster.equipped}
 						/>
 					</LoadOutList>
 				</LoadOutSection>

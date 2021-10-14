@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import clsx from 'clsx';
-import { getUsedGameSlots } from '../../../lib/parser';
+import { parse, GameSave } from '../../../lib/parser';
 import { getSave } from '../../../lib/getFirstSave';
 
 import styles from './ChooseSave.module.css';
@@ -10,15 +10,22 @@ import samusSideHelmetSvg from './samusSideHelmet.svg';
 type ChooseSaveProps = {
 	className?: string;
 	saveFile: Uint8Array;
-	onSave: (save: Uint8Array) => void;
+	onSave: (save: GameSave) => void;
 };
 
 function ChooseSave({ className, saveFile, onSave }: ChooseSaveProps) {
-	const inUse = getUsedGameSlots(saveFile);
+	const gameSaves = useMemo(() => {
+		const saves = [];
+		for (let i = 0; i < 3; ++i) {
+			saves.push(parse(getSave(saveFile, i)));
+		}
+
+		return saves;
+	}, [saveFile]);
 
 	return (
 		<div className={clsx(className, 'flex flex-col w-full gap-y-8')}>
-			{inUse.map((u, i) => {
+			{gameSaves.map((gameSave, i) => {
 				return (
 					<div
 						key={i}
@@ -30,7 +37,6 @@ function ChooseSave({ className, saveFile, onSave }: ChooseSaveProps) {
 							e.preventDefault();
 							e.stopPropagation();
 
-							const gameSave = getSave(saveFile, i);
 							onSave(gameSave);
 						}}
 					>
@@ -41,7 +47,7 @@ function ChooseSave({ className, saveFile, onSave }: ChooseSaveProps) {
 							alt="Samus's helmet from the side"
 						/>
 						<div className="flex-1 flex flex-row justify-between">
-							{u ? (
+							{gameSave.active ? (
 								<>
 									<div className="flex flex-col">
 										<div className="text-sm">ENERGY</div>

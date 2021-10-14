@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { SamusLoadOut } from './SamusLoadOut';
-import { SaveFile } from '../../../lib/parser';
+import { GameSave } from '../../../lib/parser';
 
 export default {
 	title: 'SamusLoadOut/SamusLoadOut',
@@ -13,7 +13,9 @@ const EQUIPPED = {
 	equipped: true,
 };
 
-const FULLY_EQUIPPED: SaveFile = {
+const FULLY_EQUIPPED: GameSave = {
+	active: true,
+
 	energy: {
 		current: 99,
 		max: 99,
@@ -51,6 +53,8 @@ const FULLY_EQUIPPED: SaveFile = {
 		spazer: EQUIPPED,
 		plasma: EQUIPPED,
 	},
+
+	mapCells: [],
 };
 
-export const FullyEquipped = () => <SamusLoadOut saveFile={FULLY_EQUIPPED} />;
+export const FullyEquipped = () => <SamusLoadOut gameSave={FULLY_EQUIPPED} />;

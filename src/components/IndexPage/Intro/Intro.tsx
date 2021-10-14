@@ -7,10 +7,11 @@ import styles from './Intro.module.css';
 
 import metroidContainmentPng from './metroidContainment.png';
 import zgLogoSvg from './zgLogo.svg';
+import { GameSave } from '../../../lib/parser';
 
 type IntroProps = {
 	className?: string;
-	onSave: (saveData: Uint8Array) => void;
+	onSave: (gameSave: GameSave) => void;
 };
 
 function Intro({ className, onSave }: IntroProps) {

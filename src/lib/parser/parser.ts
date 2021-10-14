@@ -1,5 +1,6 @@
 import { BitOffset, isBitOffset, offsets } from './constants';
 import isEqual from 'lodash/isEqual';
+import { parseCells } from './cells/parseCells';
 
 type Quantity = {
 	current: number;
@@ -11,7 +12,14 @@ type ItemStatus = {
 	equipped: boolean;
 };
 
-type SaveFile = {
+type GameSave = {
+	/**
+	 * If true, this save has info pertaining to a played
+	 * game. If false, this save came from a slot in the save file
+	 * that has not yet been used for a game
+	 */
+	active: boolean;
+
 	energy: Quantity;
 	missiles: Quantity;
 	superMissiles: Quantity;
@@ -38,6 +46,8 @@ type SaveFile = {
 		spazer: ItemStatus;
 		plasma: ItemStatus;
 	};
+
+	mapCells: CellMatrix;
 };
 
 function getBoolean(
@@ -112,10 +122,13 @@ function getItemStatus(saveFileView: DataView, itemKey: string): ItemStatus {
  *
  * @param gameSave {Uint8Array} An array containing one game's data from a SM save file
  */
-function parse(gameSave: Uint8Array): SaveFile {
+function parse(gameSave: Uint8Array): GameSave {
 	const view = new DataView(gameSave.buffer);
 
 	return {
+		// TODO: actually determine this
+		active: true,
+
 		energy: {
 			current: getNumber(view, 'currentEnergy'),
 			max: getNumber(view, 'maxEnergy'),
@@ -153,6 +166,7 @@ function parse(gameSave: Uint8Array): SaveFile {
 			spazer: getItemStatus(view, 'spazer'),
 			plasma: getItemStatus(view, 'plasmaBeam'),
 		},
+		mapCells: parseCells(gameSave),
 	};
 }
 
@@ -178,4 +192,4 @@ function getUsedGameSlots(saveFile: Uint8Array): [boolean, boolean, boolean] {
 }
 
 export { parse, getUsedGameSlots };
-export type { SaveFile };
+export type { GameSave };
