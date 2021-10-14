@@ -26,7 +26,7 @@
 		"ignore-styles": "^5.0.1",
 		"imagemin-mozjpeg": "^9.0.0",
 		"imagemin-optipng": "^8.0.0",
-		"imagemin-svgo": "^10.0.0",
+		"imagemin-svgo": "^9.0.0",
 		"js-sha1": "^0.6.0",
 		"lodash": "^4.17.21",
 		"mkdirp": "^1.0.4",
