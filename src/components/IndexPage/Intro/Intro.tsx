@@ -49,7 +49,7 @@ function Intro({ className, onSave }: IntroProps) {
 			<div className="row-span-2 w-full -my-8">
 				<img className="w-full h-full" src={metroidContainmentPng.src} />
 			</div>
-			<div className="p-8 w-full text-center bg-black border border-gray-500 rounded-2xl z-10">
+			<div className="p-8 w-full text-center bg-black border border-gray-500 rounded-2xl z-10 shadow-xl">
 				{body}
 			</div>
 		</div>

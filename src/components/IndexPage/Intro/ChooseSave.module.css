@@ -1,0 +1,7 @@
+.helmet {
+	filter: drop-shadow(0 0 1px white);
+}
+
+.saveRow:hover .helmet {
+	filter: none;
+}

@@ -3,6 +3,8 @@ import clsx from 'clsx';
 import { getUsedGameSlots } from '../../../lib/parser';
 import { getSave } from '../../../lib/getFirstSave';
 
+import styles from './ChooseSave.module.css';
+
 import samusSideHelmetSvg from './samusSideHelmet.svg';
 
 type ChooseSaveProps = {
@@ -20,7 +22,10 @@ function ChooseSave({ className, saveFile, onSave }: ChooseSaveProps) {
 				return (
 					<div
 						key={i}
-						className="flex flex-row items-center font-bold text-xl gap-x-8 p-2 hover:bg-gray-700 cursor-pointer"
+						className={clsx(
+							styles.saveRow,
+							'flex flex-row items-center font-bold text-xl gap-x-8 p-2 hover:bg-gray-700 cursor-pointer'
+						)}
 						onClick={(e) => {
 							e.preventDefault();
 							e.stopPropagation();
@@ -30,7 +35,11 @@ function ChooseSave({ className, saveFile, onSave }: ChooseSaveProps) {
 						}}
 					>
 						<div>SAMUS {String.fromCharCode('A'.charCodeAt(0) + i)}</div>
-						<img src={samusSideHelmetSvg} alt="Samus's helmet from the side" />
+						<img
+							className={styles.helmet}
+							src={samusSideHelmetSvg}
+							alt="Samus's helmet from the side"
+						/>
 						<div className="flex-1 flex flex-row justify-between">
 							{u ? (
 								<>
