@@ -27,10 +27,6 @@ function Intro({ className, onSave }: IntroProps) {
 						drag a Super Metroid save file here to begin
 					</div>
 					{clickToChoose}
-					<p className="text-gray-600 text-xs italic mt-8">
-						No spoilers! You will see the same info you see when pausing the
-						game
-					</p>
 				</>
 			)}
 		</DropZone>
@@ -44,8 +40,11 @@ function Intro({ className, onSave }: IntroProps) {
 				'relative mx-auto max-w-7xl h-screen p-8 border-l border-r border-gray-500 grid grid-cols-2 grid-rows-2 gap-x-8 place-items-center overflow-hidden'
 			)}
 		>
-			<div>
-				<img src={zgLogoSvg} />
+			<div className="h-full flex flex-col items-center justify-center">
+				<img src={zgLogoSvg} width={447} height={143} />
+				<p className="text-gray-300 text-sm mt-8">
+					Shows your progress in Super Metroid, and lets you ask for hints
+				</p>
 			</div>
 			<div className="row-span-2 w-full -my-8">
 				<img className="w-full h-full" src={metroidContainmentPng.src} />
