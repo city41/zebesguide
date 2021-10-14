@@ -67,7 +67,7 @@ function IndexPage() {
 	}
 
 	return (
-		<div className="w-screen h-screen mx-auto" style={{ maxWidth: 1088 }}>
+		<div className="w-screen h-screen mx-auto max-w-6xl">
 			{body}
 			{mode !== 'choose-save' && (
 				<ResetButton

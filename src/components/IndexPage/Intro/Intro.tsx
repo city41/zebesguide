@@ -5,6 +5,8 @@ import { ChooseSave } from './ChooseSave';
 
 import styles from './Intro.module.css';
 
+import metroidContainmentPng from './metroidContainment.png';
+
 type IntroProps = {
 	className?: string;
 	onSave: (saveData: Uint8Array) => void;
@@ -40,13 +42,15 @@ function Intro({ className, onSave }: IntroProps) {
 			className={clsx(
 				className,
 				styles.root,
-				'relative mx-auto max-w-6xl h-screen grid grid-cols-2 grid-rows-2 place-items-center'
+				'relative mx-auto max-w-6xl h-screen grid grid-cols-2 grid-rows-2 gap-x-8 place-items-center'
 			)}
 		>
 			<div>
 				<h1>Zebes Guide</h1>
 			</div>
-			<div className="row-span-2">metroid graphic</div>
+			<div className="row-span-2 w-full h-full">
+				<img className="w-full h-full" src={metroidContainmentPng.src} />
+			</div>
 			{body}
 		</div>
 	);
