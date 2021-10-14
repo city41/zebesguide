@@ -6,8 +6,6 @@ body {
 	@apply w-full h-full bg-black text-white;
 	image-rendering: pixelated;
 	image-rendering: crisp-edges;
-
-	background-image: linear-gradient(black 30%, black 31%, #005858);
 }
 
 .ReactModalPortal {

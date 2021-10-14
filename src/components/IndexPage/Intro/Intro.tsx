@@ -6,6 +6,7 @@ import { ChooseSave } from './ChooseSave';
 import styles from './Intro.module.css';
 
 import metroidContainmentPng from './metroidContainment.png';
+import zgLogoSvg from './zgLogo.svg';
 
 type IntroProps = {
 	className?: string;
@@ -18,10 +19,7 @@ function Intro({ className, onSave }: IntroProps) {
 	const body = saveFileData ? (
 		<ChooseSave saveFile={saveFileData} onSave={onSave} />
 	) : (
-		<DropZone
-			className="p-8 max-w-md text-center bg-black border border-dashed border-white z-10"
-			onData={setSaveFileData}
-		>
+		<DropZone onData={setSaveFileData}>
 			{(clickToChoose) => (
 				<>
 					<div className="text-2xl">
@@ -42,16 +40,18 @@ function Intro({ className, onSave }: IntroProps) {
 			className={clsx(
 				className,
 				styles.root,
-				'relative mx-auto max-w-6xl h-screen grid grid-cols-2 grid-rows-2 gap-x-8 place-items-center'
+				'relative mx-auto max-w-7xl h-screen p-8 border-l border-r border-gray-500 grid grid-cols-2 grid-rows-2 gap-x-8 place-items-center overflow-hidden'
 			)}
 		>
 			<div>
-				<h1>Zebes Guide</h1>
+				<img src={zgLogoSvg} />
 			</div>
-			<div className="row-span-2 w-full h-full">
+			<div className="row-span-2 w-full -my-8">
 				<img className="w-full h-full" src={metroidContainmentPng.src} />
 			</div>
-			{body}
+			<div className="p-8 w-full text-center bg-black border border-gray-500 rounded-2xl z-10">
+				{body}
+			</div>
 		</div>
 	);
 }
