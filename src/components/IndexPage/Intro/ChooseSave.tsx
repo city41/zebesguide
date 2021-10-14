@@ -17,7 +17,7 @@ function EnergyTank({ style, full }: { style?: CSSProperties; full: boolean }) {
 	return (
 		<div
 			style={style}
-			className={clsx('w-2 h-2', {
+			className={clsx('w-4 h-4', {
 				[styles.fullTank]: full,
 				[styles.emptyTank]: !full,
 			})}
@@ -95,7 +95,6 @@ function ChooseSave({ className, saveFile, onSave }: ChooseSaveProps) {
 							onSave(gameSave);
 						}}
 					>
-						<div>SAMUS {String.fromCharCode('A'.charCodeAt(0) + i)}</div>
 						<img
 							className={styles.helmet}
 							src={samusSideHelmetSvg}
