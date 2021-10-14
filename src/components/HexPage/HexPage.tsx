@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getFirstSave } from '../../lib/getFirstSave';
+import { getSave } from '../../lib/getFirstSave';
 import { DropZone } from '../DropZone';
 import { HexView } from './HexView';
 
@@ -10,7 +10,7 @@ function HexPage() {
 		<div>
 			<DropZone
 				onData={(saveFile) => {
-					setData(getFirstSave(saveFile));
+					setData(getSave(saveFile, 0));
 				}}
 			>
 				{(clickToChoose) => (

@@ -1,8 +1,8 @@
-const FIRST_SAVE_OFFSET = 0x10;
 const SAVE_SLOT_SIZE = 0x65c;
+const SAVE_OFFSETS = [0x10, 0x10 + SAVE_SLOT_SIZE, 0x10 + 2 * SAVE_SLOT_SIZE];
 
-function getFirstSave(data: Uint8Array): Uint8Array {
-	return data.slice(FIRST_SAVE_OFFSET, FIRST_SAVE_OFFSET + SAVE_SLOT_SIZE);
+function getSave(data: Uint8Array, index: number): Uint8Array {
+	return data.slice(SAVE_OFFSETS[index], SAVE_OFFSETS[index] + SAVE_SLOT_SIZE);
 }
 
-export { getFirstSave, FIRST_SAVE_OFFSET, SAVE_SLOT_SIZE };
+export { getSave, SAVE_OFFSETS, SAVE_SLOT_SIZE };

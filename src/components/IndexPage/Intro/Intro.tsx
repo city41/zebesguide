@@ -1,15 +1,40 @@
+import React, { useState } from 'react';
 import clsx from 'clsx';
-import React from 'react';
 import { DropZone } from '../../DropZone';
+import { ChooseSave } from './ChooseSave';
 
 import styles from './Intro.module.css';
 
 type IntroProps = {
 	className?: string;
-	onData: (data: Uint8Array) => void;
+	onSave: (saveData: Uint8Array) => void;
 };
 
-function Intro({ className, onData }: IntroProps) {
+function Intro({ className, onSave }: IntroProps) {
+	const [saveFileData, setSaveFileData] = useState<Uint8Array | null>(null);
+
+	const body = saveFileData ? (
+		<ChooseSave saveFile={saveFileData} onSave={onSave} />
+	) : (
+		<DropZone
+			className="p-8 max-w-md text-center bg-black border border-dashed border-white z-10"
+			onData={setSaveFileData}
+		>
+			{(clickToChoose) => (
+				<>
+					<div className="text-2xl">
+						drag a Super Metroid save file here to begin
+					</div>
+					{clickToChoose}
+					<p className="text-gray-600 text-xs italic mt-8">
+						No spoilers! You will see the same info you see when pausing the
+						game
+					</p>
+				</>
+			)}
+		</DropZone>
+	);
+
 	return (
 		<div
 			className={clsx(
@@ -22,24 +47,7 @@ function Intro({ className, onData }: IntroProps) {
 				<h1>Zebes Guide</h1>
 			</div>
 			<div className="row-span-2">metroid graphic</div>
-			<DropZone
-				className="p-8 max-w-md text-center bg-black border border-dashed border-white z-10"
-				onData={onData}
-			>
-				{(clickToChoose) => (
-					<>
-						<div className="text-2xl">
-							drag a Super Metroid save file here to begin
-						</div>
-						{clickToChoose}
-						<p className="text-gray-600 text-xs italic mt-8">
-							No spoilers! You will see the same info you see when pausing the
-							game
-						</p>
-					</>
-				)}
-			</DropZone>
-			<div className="absolute top-0 left-0 w-full h-full bg-black opacity-75" />
+			{body}
 		</div>
 	);
 }

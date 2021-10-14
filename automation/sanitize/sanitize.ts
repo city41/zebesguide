@@ -1,4 +1,4 @@
-import { FIRST_SAVE_OFFSET, SAVE_SLOT_SIZE } from '../../src/lib/getFirstSave';
+import { SAVE_OFFSETS, SAVE_SLOT_SIZE } from '../../src/lib/getFirstSave';
 
 /**
  * recalculates the check sums for all the saves
@@ -8,7 +8,7 @@ import { FIRST_SAVE_OFFSET, SAVE_SLOT_SIZE } from '../../src/lib/getFirstSave';
  */
 function sanitize(save: Uint8Array): Uint8Array {
 	for (let game = 0; game < 3; ++game) {
-		let ptr = FIRST_SAVE_OFFSET + SAVE_SLOT_SIZE * game;
+		let ptr = SAVE_OFFSETS[game];
 		let high = 0;
 		let low = 0;
 

@@ -1,10 +1,10 @@
 import fs from 'fs';
 import path from 'path';
-import { FIRST_SAVE_OFFSET, SAVE_SLOT_SIZE } from '../src/lib/getFirstSave';
+import { SAVE_OFFSETS, SAVE_SLOT_SIZE } from '../src/lib/getFirstSave';
 import { sanitize } from './sanitize/sanitize';
 
-const startOfMapArea = FIRST_SAVE_OFFSET + 0x15a;
-const endOfMapArea = FIRST_SAVE_OFFSET + SAVE_SLOT_SIZE;
+const startOfMapArea = SAVE_OFFSETS[0] + 0x15a;
+const endOfMapArea = SAVE_OFFSETS[0] + SAVE_SLOT_SIZE;
 
 function main() {
 	const outPath = process.argv[2];
@@ -21,9 +21,9 @@ function main() {
 	const view = new DataView(saveFileTemplateData.buffer);
 
 	// save spot crateria (start of game)
-	view.setUint8(FIRST_SAVE_OFFSET + 0x158, 0);
+	view.setUint8(SAVE_OFFSETS[0] + 0x158, 0);
 	// first save area
-	view.setUint8(FIRST_SAVE_OFFSET + 0x156, 0);
+	view.setUint8(SAVE_OFFSETS[0] + 0x156, 0);
 
 	// set the one bit we are focused on
 	for (let i = startOfMapArea; i < endOfMapArea; ++i) {

@@ -107,11 +107,13 @@ function getItemStatus(saveFileView: DataView, itemKey: string): ItemStatus {
 }
 
 /**
- * Reads a Super Metroid SRAM save file and returns
- * the first save parsed out into an object
+ * Reads a Super Metroid SRAM game save and returns
+ * it parsed out into an object
+ *
+ * @param gameSave {Uint8Array} An array containing one game's data from a SM save file
  */
-function parse(save: Uint8Array): SaveFile {
-	const view = new DataView(save.buffer);
+function parse(gameSave: Uint8Array): SaveFile {
+	const view = new DataView(gameSave.buffer);
 
 	return {
 		energy: {
@@ -154,5 +156,26 @@ function parse(save: Uint8Array): SaveFile {
 	};
 }
 
-export { parse };
+// seems SM save files either use 0xff or 0x60 for empty bytes
+// probably depends on which emulator is used
+const DUMMY_BYTES = [0xff, 0x60];
+
+/**
+ * Determines which, if any, game slots in a SM save file are in use
+ *
+ * @param saveFile {Uint8Array} an entire SM save file
+ */
+function getUsedGameSlots(saveFile: Uint8Array): [boolean, boolean, boolean] {
+	const inUse: [boolean, boolean, boolean] = [false, false, false];
+
+	for (let i = 0; i < 3; ++i) {
+		inUse[i] =
+			!DUMMY_BYTES.includes(saveFile[i * 2]) &&
+			!DUMMY_BYTES.includes(saveFile[i * 2 + 1]);
+	}
+
+	return inUse;
+}
+
+export { parse, getUsedGameSlots };
 export type { SaveFile };

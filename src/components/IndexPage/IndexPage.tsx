@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { ZebesMap } from './ZebesMap';
 import { parseCells } from '../../lib/parser/cells/parseCells';
-import { getFirstSave } from '../../lib/getFirstSave';
 import { Intro } from './Intro';
 import { HudNavButton } from '../HudNavButton/HudNavButton';
 import { ResetButton } from '../ResetButton';
@@ -12,22 +11,8 @@ type Mode = 'choose-save' | 'map' | 'samus';
 
 function IndexPage() {
 	const [mode, setMode] = useState<Mode>('choose-save');
-	const [data, setData] = useState<null | Uint8Array>(null);
 	const [cells, setCells] = useState<CellMatrix | null>(null);
 	const [saveFile, setSaveFile] = useState<SaveFile | null>(null);
-
-	useEffect(() => {
-		if (data) {
-			const firstSave = getFirstSave(data);
-			const saveCells = parseCells(firstSave);
-			setCells(saveCells);
-			const saveFile = parse(firstSave);
-			setSaveFile(saveFile);
-		} else {
-			setCells(null);
-			setSaveFile(null);
-		}
-	}, [data]);
 
 	let body;
 
@@ -68,8 +53,11 @@ function IndexPage() {
 		default: {
 			body = (
 				<Intro
-					onData={(f) => {
-						setData(f);
+					onSave={(gameSave) => {
+						const saveCells = parseCells(gameSave);
+						setCells(saveCells);
+						const saveFile = parse(gameSave);
+						setSaveFile(saveFile);
 						setMode('map');
 					}}
 				/>
@@ -85,7 +73,6 @@ function IndexPage() {
 				<ResetButton
 					className="fixed top-2 right-2"
 					onClick={() => {
-						setData(null);
 						setMode('choose-save');
 					}}
 				/>
