@@ -86,17 +86,25 @@ function ChooseSave({ className, saveFile, onSave }: ChooseSaveProps) {
 						key={i}
 						className={clsx(
 							styles.saveRow,
-							'flex flex-row items-center font-bold text-xl gap-x-8 p-2 hover:bg-gray-700 cursor-pointer'
+							'flex flex-row items-center font-bold text-xl gap-x-8 p-2 cursor-pointer',
+							{
+								'opacity-40': !gameSave.active,
+								'hover:bg-gray-700': gameSave.active,
+							}
 						)}
 						onClick={(e) => {
 							e.preventDefault();
 							e.stopPropagation();
 
-							onSave(gameSave);
+							if (gameSave.active) {
+								onSave(gameSave);
+							}
 						}}
 					>
 						<img
-							className={styles.helmet}
+							className={clsx({
+								[styles.helmet]: gameSave.active,
+							})}
 							src={samusSideHelmetSvg}
 							alt="Samus's helmet from the side"
 						/>
