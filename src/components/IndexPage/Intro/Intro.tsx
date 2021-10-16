@@ -20,13 +20,15 @@ function Intro({ className, onSave }: IntroProps) {
 	const body = saveFileData ? (
 		<ChooseSave saveFile={saveFileData} onSave={onSave} />
 	) : (
-		<DropZone onData={setSaveFileData}>
+		<DropZone className="h-40 grid place-items-center" onData={setSaveFileData}>
 			{(clickToChoose) => (
 				<>
 					<div className="text-2xl">
 						drag a Super Metroid save file here to begin
 					</div>
-					{clickToChoose}
+					<div className="rounded-lg border border-gray-500 bg-gray-600 hover:bg-gray-500">
+						{clickToChoose}
+					</div>
 				</>
 			)}
 		</DropZone>
