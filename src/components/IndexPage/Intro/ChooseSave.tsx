@@ -1,6 +1,8 @@
-import React, { CSSProperties, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import clsx from 'clsx';
 import { parse, GameSave } from '../../../lib/parser';
+import { EnergyTanks } from '../Energy/EnergyTanks';
+import { EnergyLabel } from '../Energy/EnergyLabel';
 
 import styles from './ChooseSave.module.css';
 
@@ -12,58 +14,6 @@ type ChooseSaveProps = {
 	saveFile: Uint8Array;
 	onSave: (save: GameSave) => void;
 };
-
-function EnergyTank({ style, full }: { style?: CSSProperties; full: boolean }) {
-	return (
-		<div
-			style={style}
-			className={clsx('w-4 h-4', {
-				[styles.fullTank]: full,
-				[styles.emptyTank]: !full,
-			})}
-		/>
-	);
-}
-
-function Energy({ energy }: { energy: { current: number; max: number } }) {
-	const totalTankCount = (energy.max - 99) / 100;
-	// TODO: is ceil right here?
-	const fullTankCount = Math.ceil((energy.current - 99) / 100);
-
-	const currentBaseEnergy = energy.current % 100;
-
-	const tanks = [];
-	for (let i = 0; i < totalTankCount; ++i) {
-		const gridRow = i < 7 ? '2' : '1';
-		const gridColumn = ((i % 7) + 2).toString();
-
-		tanks.push(
-			<EnergyTank
-				key={i}
-				full={i < fullTankCount}
-				style={{
-					gridColumn,
-					gridRow,
-				}}
-			/>
-		);
-	}
-
-	return (
-		<div
-			className="grid grid-rows-2 gap-x-1 place-items-center"
-			style={{ gridTemplateColumns: 'max-content repeat(7, 1fr)' }}
-		>
-			<div style={{ gridColumn: '1', gridRow: '1' }} className="text-sm mr-2">
-				ENERGY
-			</div>
-			<div style={{ gridColumn: '1', gridRow: '2' }} className="mr-2">
-				{currentBaseEnergy}
-			</div>
-			{tanks}
-		</div>
-	);
-}
 
 function ChooseSave({ className, saveFile, onSave }: ChooseSaveProps) {
 	const gameSaves = useMemo(() => {
@@ -111,7 +61,8 @@ function ChooseSave({ className, saveFile, onSave }: ChooseSaveProps) {
 						<div className="flex-1 flex flex-row justify-between items-center">
 							{gameSave.active ? (
 								<>
-									<Energy energy={gameSave.energy} />
+									<EnergyLabel energy={gameSave.energy} />
+									<EnergyTanks energy={gameSave.energy} className="gap-1" />
 									<div className="flex flex-col">
 										<div className="text-sm">TIME</div>
 										<div>

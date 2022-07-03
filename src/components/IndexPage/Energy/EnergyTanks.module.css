@@ -1,0 +1,7 @@
+.fullTank {
+	@apply border-l-2 border-t-2 border-white bg-red-500;
+}
+
+.emptyTank {
+	@apply border-l-2 border-t-2 border-red-100 bg-gray-500;
+}
