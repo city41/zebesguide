@@ -13,7 +13,7 @@ function CellCover({ exposed }: { exposed: boolean }) {
 	return (
 		<div
 			className={clsx('w-full h-full', {
-				'xbg-blue-900 xopacity-90': !exposed,
+				[styles.unexposedMapCell]: !exposed,
 			})}
 		/>
 	);

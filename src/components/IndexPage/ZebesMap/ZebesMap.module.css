@@ -8,3 +8,8 @@
 	width: calc(var(--cell-size) * (var(--col-count, 70) - 2));
 	height: calc(var(--cell-size) * var(--row-count, 58));
 }
+
+.unexposedMapCell {
+	background-image: url(./unexposedMapCell.png);
+	background-size: cover;
+}
