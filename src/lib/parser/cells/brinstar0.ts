@@ -363,17 +363,6 @@ export const brinstar0 = [
 		bit: 4,
 	},
 	{
-		screenshotFileName: 'screenshot_108_5.png',
-		area: 'brinstar',
-		savePoint: 0,
-		mapCell: {
-			x: 6,
-			y: 29,
-		},
-		byte: 454,
-		bit: 5,
-	},
-	{
 		screenshotFileName: 'screenshot_108_6.png',
 		area: 'brinstar',
 		savePoint: 0,

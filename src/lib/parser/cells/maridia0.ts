@@ -396,17 +396,6 @@ export const maridia0 = [
 		bit: 7,
 	},
 	{
-		screenshotFileName: 'screenshot_276_4.png',
-		area: 'maridia',
-		savePoint: 0,
-		mapCell: {
-			x: 52,
-			y: 32,
-		},
-		byte: 622,
-		bit: 4,
-	},
-	{
 		screenshotFileName: 'screenshot_276_5.png',
 		area: 'maridia',
 		savePoint: 0,
@@ -548,17 +537,6 @@ export const maridia0 = [
 		},
 		byte: 624,
 		bit: 7,
-	},
-	{
-		screenshotFileName: 'screenshot_279_4.png',
-		area: 'maridia',
-		savePoint: 0,
-		mapCell: {
-			x: 52,
-			y: 33,
-		},
-		byte: 625,
-		bit: 4,
 	},
 	{
 		screenshotFileName: 'screenshot_279_5.png',
@@ -966,17 +944,6 @@ export const maridia0 = [
 		},
 		byte: 630,
 		bit: 7,
-	},
-	{
-		screenshotFileName: 'screenshot_285_4.png',
-		area: 'maridia',
-		savePoint: 0,
-		mapCell: {
-			x: 52,
-			y: 35,
-		},
-		byte: 631,
-		bit: 4,
 	},
 	{
 		screenshotFileName: 'screenshot_285_5.png',

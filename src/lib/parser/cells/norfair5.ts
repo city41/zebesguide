@@ -2585,17 +2585,6 @@ export const norfair5 = [
 		bit: 3,
 	},
 	{
-		screenshotFileName: 'screenshot_216_2.png',
-		area: 'norfair',
-		savePoint: 5,
-		mapCell: {
-			x: 64,
-			y: 48,
-		},
-		byte: 562,
-		bit: 2,
-	},
-	{
 		screenshotFileName: 'screenshot_216_3.png',
 		area: 'norfair',
 		savePoint: 5,
@@ -2651,28 +2640,6 @@ export const norfair5 = [
 		bit: 7,
 	},
 	{
-		screenshotFileName: 'screenshot_217_2.png',
-		area: 'norfair',
-		savePoint: 5,
-		mapCell: {
-			x: 64,
-			y: 49,
-		},
-		byte: 563,
-		bit: 2,
-	},
-	{
-		screenshotFileName: 'screenshot_217_3.png',
-		area: 'norfair',
-		savePoint: 5,
-		mapCell: {
-			x: 63,
-			y: 49,
-		},
-		byte: 563,
-		bit: 3,
-	},
-	{
 		screenshotFileName: 'screenshot_217_4.png',
 		area: 'norfair',
 		savePoint: 5,
@@ -2715,28 +2682,6 @@ export const norfair5 = [
 		},
 		byte: 563,
 		bit: 7,
-	},
-	{
-		screenshotFileName: 'screenshot_218_2.png',
-		area: 'norfair',
-		savePoint: 5,
-		mapCell: {
-			x: 64,
-			y: 50,
-		},
-		byte: 564,
-		bit: 2,
-	},
-	{
-		screenshotFileName: 'screenshot_218_3.png',
-		area: 'norfair',
-		savePoint: 5,
-		mapCell: {
-			x: 63,
-			y: 50,
-		},
-		byte: 564,
-		bit: 3,
 	},
 	{
 		screenshotFileName: 'screenshot_218_4.png',
