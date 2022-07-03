@@ -10,6 +10,9 @@
 }
 
 .unexposedMapCell {
-	background-image: url(./unexposedMapCell.png);
+	/* unexposedMapCell.png converted to a data url
+	  this image should be a data url so it will always load before map.png,
+	  otherwise visitors may see a brief flash of the map */
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAABg2lDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV8TpSKVDmYQcchQnSyIijhqFYpQIdQKrTqYXPoFTSxJiouj4Fpw8GOx6uDirKuDqyAIfoA4OjkpukiJ/0sKLWI8OO7Hu3uPu3eA0Kgww+4aAwzTsdLJhJzNrcjhV4QhQkIUosrs6qyipBA4vu4R4utdnGcFn/tz9Ol5mwEhmXiGVS2HeJ14atOpct4nllhJ1YnPiUctuiDxI9c1n984Fz0WeKZkZdJzxBKxXOxgrYNZyTKIJ4ljumFSvpD1Wee8xdmo1FjrnvyFkby5vMR1mkNIYgGLUCBDQw1lVOAgTqtJio007ScC/IOeXyGXRq4yGDnmsQEDqucH/4Pf3dqFiXE/KZIAul9c92MYCO8Czbrrfh+7bvMEEJ+BK7Pt32gA05+k19ta7AiIbgMX121N2wMud4CBp6pqqZ4k0hQKBeD9jL4pB/TfAr2rfm+tfZw+ABnqKnUDHBwCI0XKXgt4d09nb/+eafX3A+dGcm9wN9/6AAAABmJLR0QAqgDOAN45jnjRAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH5gcDFBATeQ954gAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAAAAlSURBVBjTY3Bg6PjPwMDwHxfNyMDA8J8BD2ByYOjAJ88wJEwAAOk7EXeHNkv6AAAAAElFTkSuQmCC);
 	background-size: cover;
 }
