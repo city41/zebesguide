@@ -28,7 +28,7 @@ function MapDump() {
 				>
 					{cell && (
 						<span>
-							{cell.byte.toString(36)}
+							{cell.byte.toString(16)}
 							{cell.bit}
 						</span>
 					)}
