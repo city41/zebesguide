@@ -13,6 +13,7 @@ import { tourian1 } from './tourian1';
 import { wreckedShip0 } from './wreckedShip0';
 
 import uniqBy from 'lodash/uniqBy';
+import difference from 'lodash/difference';
 
 const inputs = [
 	brinstar0,
@@ -36,7 +37,17 @@ const nonDedupedCells = inputs.reduce((building, input) => {
 	return building.concat(input);
 }, []);
 
-const cells = uniqBy(nonDedupedCells, (c) => `${c.mapCell.x}-${c.mapCell.y}`);
+const cellsUniqueByXY = uniqBy(
+	nonDedupedCells,
+	(c) => `${c.mapCell.x}-${c.mapCell.y}`
+);
+
+const cells = uniqBy(cellsUniqueByXY, (c) => `${c.byte}-${c.bit}`);
+
+const thrownAway = difference(nonDedupedCells, cells);
+
+console.log('these were thrown away, likely bad data', thrownAway);
+
 // eslint-disable-next-line no-console
 console.log('total cells', cells.length);
 
