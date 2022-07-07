@@ -30,11 +30,11 @@ function HUD({ className, gameSave }: HUDProps) {
 					energy={gameSave.energy}
 				/>
 			</div>
-			<Missile className="col-span-2" />
-			<Missile className="col-span-1" />
-			<Missile className="col-span-1" />
-			<Missile className="col-span-1" />
-			<Missile className="col-span-1" />
+			<Missile className="col-span-2" missiles={gameSave.missiles} />
+			<div />
+			<div />
+			<div />
+			<div />
 			<HUDMap className="col-span-2 overflow-hidden" />
 		</div>
 	);

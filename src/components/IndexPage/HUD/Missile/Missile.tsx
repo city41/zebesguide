@@ -5,9 +5,14 @@ import missileSvg from './missile.svg';
 
 type MissileProps = {
 	className?: string;
+	missiles?: { current: number };
 };
 
-function Missile({ className }: MissileProps) {
+function Missile({ className, missiles }: MissileProps) {
+	if (!missiles) {
+		return null;
+	}
+
 	return (
 		<div className="flex flex-col items-center h-full">
 			<div
@@ -18,7 +23,7 @@ function Missile({ className }: MissileProps) {
 			>
 				<img src={missileSvg} className="w-full h-full" alt="missile icon" />
 			</div>
-			<div className="font-bold">23</div>
+			<div className="font-bold">{missiles.current}</div>
 		</div>
 	);
 }
