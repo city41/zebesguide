@@ -5,7 +5,10 @@ type DropZoneProps = {
 	className?: string;
 	style?: CSSProperties;
 	onData: (data: Uint8Array) => void;
-	children: (clickToChoose: ReactNode) => ReactNode;
+	children: (
+		clickToChoose: ReactNode,
+		clickToChooseDemo: ReactNode
+	) => ReactNode;
 };
 
 function DropZone({ className, style, onData, children }: DropZoneProps) {
@@ -18,6 +21,13 @@ function DropZone({ className, style, onData, children }: DropZoneProps) {
 			onData(data);
 		});
 		reader.readAsArrayBuffer(file);
+	}
+
+	async function handleDemoChosen() {
+		const response = await fetch('/demo.srm');
+		const data = await response.arrayBuffer();
+
+		onData(new Uint8Array(data));
 	}
 
 	const orClickToChoose = (
@@ -34,6 +44,12 @@ function DropZone({ className, style, onData, children }: DropZoneProps) {
 				}}
 			/>
 		</label>
+	);
+
+	const orClickToChooseDemo = (
+		<div className="px-3 cursor-pointer" onClick={handleDemoChosen}>
+			or, no save file handy? click here to use the demo save file
+		</div>
 	);
 
 	return (
@@ -59,7 +75,7 @@ function DropZone({ className, style, onData, children }: DropZoneProps) {
 				}
 			}}
 		>
-			{children(orClickToChoose)}
+			{children(orClickToChoose, orClickToChooseDemo)}
 		</div>
 	);
 }

@@ -33,7 +33,12 @@ const inputs = [
 
 const nonDedupedCells = inputs.reduce((building, input) => {
 	// eslint-disable-next-line no-console
-	console.log(input[0].area, input[0].savePoint ?? 'manual', input.length);
+	console.log(
+		input[0].area,
+		// @ts-ignore
+		input[0].savePoint ?? 'manual',
+		input.length
+	);
 	return building.concat(input);
 }, []);
 
@@ -42,9 +47,7 @@ const cells = uniqBy(nonDedupedCells, (c) => `${c.mapCell.x} -${c.mapCell.y}`);
 const groupedByBit = groupBy(cells, (c) => `${c.byte}-${c.bit}`);
 const dupeByBit = Object.values(groupedByBit).filter((v) => v.length > 1);
 
+// eslint-disable-next-line no-console
 console.log('dupeByBit', dupeByBit);
-
-const a = cells.filter((c) => c.byte === 0x274 && c.bit == 4);
-console.log('a', a);
 
 export { cells };
