@@ -74,12 +74,16 @@ function IndexPage() {
 		<div className="w-screen h-screen mx-auto max-w-6xl">
 			{body}
 			{mode !== 'choose-save' && (
-				<ResetButton
-					className="fixed top-2 right-2"
-					onClick={() => {
-						setMode('choose-save');
-					}}
-				/>
+				<div className="fixed top-2 right-2 flex flex-col items-center">
+					<ResetButton
+						onClick={() => {
+							setMode('choose-save');
+						}}
+					/>
+					<a className="text-blue-100 text-xs" href="/about">
+						about
+					</a>
+				</div>
 			)}
 		</div>
 	);
