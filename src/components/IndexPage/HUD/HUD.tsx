@@ -19,14 +19,14 @@ function HUD({ className, gameSave }: HUDProps) {
 				'grid grid-cols-10 place-items-center h-28 p-2'
 			)}
 		>
-			<div className="col-span-2 flex flex-col justify-start">
+			<div className="col-span-2 h-20 flex flex-col justify-start">
 				<EnergyTanks
 					energy={gameSave.energy}
 					size={24}
-					className="gap-y-1 -mx-1"
+					className="gap-y-1 -mx-1 flex-1"
 				/>
 				<EnergyLabel
-					className="flex justify-between font-bold"
+					className="flex justify-between gap-x-2 font-bold"
 					energy={gameSave.energy}
 				/>
 			</div>
