@@ -9,11 +9,11 @@ import { maridiam } from './maridiam';
 import { norfair0 } from './norfair0';
 import { norfair5 } from './norfair5';
 import { norfairm } from './norfairm';
-import { tourian1 } from './tourian1';
+import { tourian0 } from './tourian0';
 import { wreckedShip0 } from './wreckedShip0';
 
+import groupBy from 'lodash/groupBy';
 import uniqBy from 'lodash/uniqBy';
-import difference from 'lodash/difference';
 
 const inputs = [
 	brinstar0,
@@ -27,28 +27,24 @@ const inputs = [
 	norfair0,
 	norfair5,
 	norfairm,
-	tourian1,
+	tourian0,
 	wreckedShip0,
 ];
 
 const nonDedupedCells = inputs.reduce((building, input) => {
 	// eslint-disable-next-line no-console
-	console.log(input[0].area, input[0].savePoint, input.length);
+	console.log(input[0].area, input[0].savePoint ?? 'manual', input.length);
 	return building.concat(input);
 }, []);
 
-const cellsUniqueByXY = uniqBy(
-	nonDedupedCells,
-	(c) => `${c.mapCell.x}-${c.mapCell.y}`
-);
+const cells = uniqBy(nonDedupedCells, (c) => `${c.mapCell.x} -${c.mapCell.y}`);
 
-const cells = uniqBy(cellsUniqueByXY, (c) => `${c.byte}-${c.bit}`);
+const groupedByBit = groupBy(cells, (c) => `${c.byte}-${c.bit}`);
+const dupeByBit = Object.values(groupedByBit).filter((v) => v.length > 1);
 
-const thrownAway = difference(nonDedupedCells, cells);
+console.log('dupeByBit', dupeByBit);
 
-console.log('these were thrown away, likely bad data', thrownAway);
-
-// eslint-disable-next-line no-console
-console.log('total cells', cells.length);
+const a = cells.filter((c) => c.byte === 0x274 && c.bit == 4);
+console.log('a', a);
 
 export { cells };

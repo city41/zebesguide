@@ -1665,8 +1665,8 @@ export const norfair0 = [
 		area: 'norfair',
 		savePoint: 0,
 		mapCell: {
-			x: 38,
-			y: 49,
+			x: 47,
+			y: 48,
 		},
 		byte: 527,
 		bit: 3,

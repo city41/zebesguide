@@ -1,8 +1,8 @@
-export const tourian1 = [
+export const tourian0 = [
 	{
 		screenshotFileName: 'screenshot_309_3.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 16,
 			y: 10,
@@ -13,7 +13,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_310_3.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 16,
 			y: 11,
@@ -24,7 +24,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_311_3.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 16,
 			y: 12,
@@ -35,7 +35,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_312_0.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 11,
 			y: 13,
@@ -46,7 +46,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_312_1.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 10,
 			y: 13,
@@ -57,7 +57,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_312_2.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 9,
 			y: 13,
@@ -68,7 +68,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_313_2.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 17,
 			y: 13,
@@ -79,7 +79,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_313_3.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 16,
 			y: 13,
@@ -90,7 +90,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_313_4.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 15,
 			y: 13,
@@ -101,7 +101,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_313_5.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 14,
 			y: 13,
@@ -112,7 +112,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_313_6.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 13,
 			y: 13,
@@ -123,7 +123,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_313_7.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 12,
 			y: 13,
@@ -134,7 +134,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_314_0.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 11,
 			y: 14,
@@ -145,7 +145,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_314_1.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 10,
 			y: 14,
@@ -156,7 +156,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_314_2.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 9,
 			y: 14,
@@ -167,7 +167,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_315_3.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 16,
 			y: 14,
@@ -178,7 +178,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_315_4.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 15,
 			y: 14,
@@ -189,7 +189,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_315_5.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 14,
 			y: 14,
@@ -200,7 +200,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_315_6.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 13,
 			y: 14,
@@ -211,7 +211,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_315_7.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 12,
 			y: 14,
@@ -222,7 +222,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_316_3.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 16,
 			y: 15,
@@ -233,7 +233,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_317_0.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 11,
 			y: 16,
@@ -244,7 +244,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_317_1.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 10,
 			y: 16,
@@ -255,7 +255,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_317_2.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 9,
 			y: 16,
@@ -266,7 +266,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_317_3.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 8,
 			y: 16,
@@ -277,7 +277,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_318_3.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 16,
 			y: 16,
@@ -288,7 +288,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_318_4.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 15,
 			y: 16,
@@ -299,7 +299,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_318_5.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 14,
 			y: 16,
@@ -310,7 +310,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_318_6.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 13,
 			y: 16,
@@ -321,7 +321,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_318_7.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 12,
 			y: 16,
@@ -332,7 +332,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_319_0.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 11,
 			y: 17,
@@ -343,7 +343,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_319_1.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 10,
 			y: 17,
@@ -354,7 +354,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_319_2.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 9,
 			y: 17,
@@ -365,7 +365,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_319_3.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 8,
 			y: 17,
@@ -376,7 +376,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_319_4.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 7,
 			y: 17,
@@ -387,7 +387,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_320_3.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 16,
 			y: 17,
@@ -398,7 +398,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_320_4.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 15,
 			y: 17,
@@ -409,7 +409,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_320_5.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 14,
 			y: 17,
@@ -420,7 +420,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_320_6.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 13,
 			y: 17,
@@ -431,7 +431,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_320_7.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 12,
 			y: 17,
@@ -442,7 +442,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_321_3.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 16,
 			y: 18,
@@ -453,7 +453,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_321_4.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 15,
 			y: 18,
@@ -464,7 +464,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_321_5.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 14,
 			y: 18,
@@ -475,7 +475,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_321_6.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 13,
 			y: 18,
@@ -486,7 +486,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_321_7.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 12,
 			y: 18,
@@ -497,7 +497,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_322_0.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 11,
 			y: 19,
@@ -508,7 +508,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_322_1.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 10,
 			y: 19,
@@ -519,7 +519,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_322_2.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 9,
 			y: 19,
@@ -530,7 +530,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_322_3.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 8,
 			y: 19,
@@ -541,7 +541,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_322_4.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 7,
 			y: 19,
@@ -552,7 +552,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_323_3.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 16,
 			y: 19,
@@ -563,7 +563,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_323_4.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 15,
 			y: 19,
@@ -574,7 +574,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_323_5.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 14,
 			y: 19,
@@ -585,7 +585,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_323_6.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 13,
 			y: 19,
@@ -596,7 +596,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_323_7.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 12,
 			y: 19,
@@ -607,7 +607,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_324_0.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 11,
 			y: 20,
@@ -618,7 +618,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_324_1.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 10,
 			y: 20,
@@ -629,7 +629,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_324_2.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 9,
 			y: 20,
@@ -640,7 +640,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_324_3.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 8,
 			y: 20,
@@ -651,7 +651,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_324_4.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 7,
 			y: 20,
@@ -662,7 +662,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_325_3.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 16,
 			y: 20,
@@ -673,7 +673,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_325_4.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 15,
 			y: 20,
@@ -684,7 +684,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_325_5.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 14,
 			y: 20,
@@ -695,7 +695,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_325_6.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 13,
 			y: 20,
@@ -706,7 +706,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_325_7.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 12,
 			y: 20,
@@ -717,7 +717,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_326_0.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 11,
 			y: 21,
@@ -728,7 +728,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_326_1.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 10,
 			y: 21,
@@ -739,7 +739,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_326_2.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 9,
 			y: 21,
@@ -750,7 +750,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_326_3.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 8,
 			y: 21,
@@ -761,7 +761,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_326_4.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 7,
 			y: 21,
@@ -772,7 +772,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_327_3.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 16,
 			y: 21,
@@ -783,7 +783,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_327_4.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 15,
 			y: 21,
@@ -794,7 +794,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_327_5.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 14,
 			y: 21,
@@ -805,7 +805,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_327_6.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 13,
 			y: 21,
@@ -816,7 +816,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_327_7.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 12,
 			y: 21,
@@ -827,7 +827,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_328_3.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 16,
 			y: 22,
@@ -838,7 +838,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_328_4.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 15,
 			y: 22,
@@ -849,7 +849,7 @@ export const tourian1 = [
 	{
 		screenshotFileName: 'screenshot_328_5.png',
 		area: 'tourian',
-		savePoint: 1,
+		savePoint: 0,
 		mapCell: {
 			x: 14,
 			y: 22,

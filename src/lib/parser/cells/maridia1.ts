@@ -4,7 +4,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 51,
+			x: 52,
 			y: 19,
 		},
 		byte: 588,
@@ -15,7 +15,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 50,
+			x: 51,
 			y: 19,
 		},
 		byte: 588,
@@ -26,14 +26,36 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 49,
+			x: 50,
 			y: 19,
 		},
 		byte: 588,
 		bit: 5,
 	},
 	{
+		screenshotFileName: 'screenshot_242_6.png',
+		area: 'maridia',
+		savePoint: 1,
+		mapCell: {
+			x: 49,
+			y: 19,
+		},
+		byte: 588,
+		bit: 6,
+	},
+	{
 		screenshotFileName: 'screenshot_243_3.png',
+		area: 'maridia',
+		savePoint: 1,
+		mapCell: {
+			x: 52,
+			y: 20,
+		},
+		byte: 589,
+		bit: 3,
+	},
+	{
+		screenshotFileName: 'screenshot_243_4.png',
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
@@ -41,7 +63,18 @@ export const maridia1 = [
 			y: 20,
 		},
 		byte: 589,
-		bit: 3,
+		bit: 4,
+	},
+	{
+		screenshotFileName: 'screenshot_243_6.png',
+		area: 'maridia',
+		savePoint: 1,
+		mapCell: {
+			x: 49,
+			y: 20,
+		},
+		byte: 589,
+		bit: 6,
 	},
 	{
 		screenshotFileName: 'screenshot_244_0.png',
@@ -59,18 +92,29 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 51,
+			x: 52,
 			y: 21,
 		},
 		byte: 591,
 		bit: 3,
 	},
 	{
+		screenshotFileName: 'screenshot_245_4.png',
+		area: 'maridia',
+		savePoint: 1,
+		mapCell: {
+			x: 51,
+			y: 21,
+		},
+		byte: 591,
+		bit: 4,
+	},
+	{
 		screenshotFileName: 'screenshot_245_6.png',
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 48,
+			x: 49,
 			y: 21,
 		},
 		byte: 591,
@@ -103,7 +147,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 48,
+			x: 49,
 			y: 22,
 		},
 		byte: 593,
@@ -224,7 +268,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 48,
+			x: 49,
 			y: 23,
 		},
 		byte: 596,
@@ -367,7 +411,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 54,
+			x: 55,
 			y: 24,
 		},
 		byte: 599,
@@ -378,7 +422,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 53,
+			x: 54,
 			y: 24,
 		},
 		byte: 599,
@@ -389,7 +433,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 52,
+			x: 53,
 			y: 24,
 		},
 		byte: 599,
@@ -400,7 +444,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 51,
+			x: 52,
 			y: 24,
 		},
 		byte: 599,
@@ -411,7 +455,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 50,
+			x: 51,
 			y: 24,
 		},
 		byte: 599,
@@ -422,7 +466,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 49,
+			x: 50,
 			y: 24,
 		},
 		byte: 599,
@@ -433,7 +477,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 48,
+			x: 49,
 			y: 24,
 		},
 		byte: 599,
@@ -521,7 +565,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 54,
+			x: 55,
 			y: 25,
 		},
 		byte: 602,
@@ -532,7 +576,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 53,
+			x: 54,
 			y: 25,
 		},
 		byte: 602,
@@ -543,7 +587,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 52,
+			x: 53,
 			y: 25,
 		},
 		byte: 602,
@@ -554,7 +598,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 51,
+			x: 52,
 			y: 25,
 		},
 		byte: 602,
@@ -565,7 +609,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 50,
+			x: 51,
 			y: 25,
 		},
 		byte: 602,
@@ -576,7 +620,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 49,
+			x: 50,
 			y: 25,
 		},
 		byte: 602,
@@ -587,7 +631,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 48,
+			x: 49,
 			y: 25,
 		},
 		byte: 602,
@@ -675,7 +719,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 54,
+			x: 55,
 			y: 26,
 		},
 		byte: 605,
@@ -686,7 +730,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 53,
+			x: 54,
 			y: 26,
 		},
 		byte: 605,
@@ -697,7 +741,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 52,
+			x: 53,
 			y: 26,
 		},
 		byte: 605,
@@ -708,7 +752,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 51,
+			x: 52,
 			y: 26,
 		},
 		byte: 605,
@@ -719,7 +763,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 50,
+			x: 51,
 			y: 26,
 		},
 		byte: 605,
@@ -730,7 +774,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 49,
+			x: 50,
 			y: 26,
 		},
 		byte: 605,
@@ -741,7 +785,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 48,
+			x: 49,
 			y: 26,
 		},
 		byte: 605,
@@ -829,7 +873,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 54,
+			x: 55,
 			y: 27,
 		},
 		byte: 608,
@@ -840,7 +884,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 53,
+			x: 54,
 			y: 27,
 		},
 		byte: 608,
@@ -851,7 +895,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 52,
+			x: 53,
 			y: 27,
 		},
 		byte: 608,
@@ -862,7 +906,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 51,
+			x: 52,
 			y: 27,
 		},
 		byte: 608,
@@ -873,7 +917,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 50,
+			x: 51,
 			y: 27,
 		},
 		byte: 608,
@@ -884,7 +928,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 49,
+			x: 50,
 			y: 27,
 		},
 		byte: 608,
@@ -895,7 +939,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 48,
+			x: 49,
 			y: 27,
 		},
 		byte: 608,
@@ -1060,18 +1104,29 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 52,
+			x: 53,
 			y: 28,
 		},
 		byte: 611,
 		bit: 2,
 	},
 	{
+		screenshotFileName: 'screenshot_265_3.png',
+		area: 'maridia',
+		savePoint: 1,
+		mapCell: {
+			x: 52,
+			y: 28,
+		},
+		byte: 611,
+		bit: 3,
+	},
+	{
 		screenshotFileName: 'screenshot_265_6.png',
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 48,
+			x: 49,
 			y: 28,
 		},
 		byte: 611,
@@ -1247,7 +1302,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 52,
+			x: 53,
 			y: 29,
 		},
 		byte: 614,
@@ -1258,7 +1313,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 51,
+			x: 52,
 			y: 29,
 		},
 		byte: 614,
@@ -1269,7 +1324,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 50,
+			x: 51,
 			y: 29,
 		},
 		byte: 614,
@@ -1280,7 +1335,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 49,
+			x: 50,
 			y: 29,
 		},
 		byte: 614,
@@ -1291,7 +1346,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 48,
+			x: 49,
 			y: 29,
 		},
 		byte: 614,
@@ -1445,7 +1500,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 48,
+			x: 49,
 			y: 30,
 		},
 		byte: 617,
@@ -1709,11 +1764,22 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 50,
+			x: 51,
 			y: 32,
 		},
 		byte: 622,
 		bit: 4,
+	},
+	{
+		screenshotFileName: 'screenshot_276_5.png',
+		area: 'maridia',
+		savePoint: 1,
+		mapCell: {
+			x: 50,
+			y: 32,
+		},
+		byte: 622,
+		bit: 5,
 	},
 	{
 		screenshotFileName: 'screenshot_277_0.png',
@@ -1852,11 +1918,22 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 50,
+			x: 51,
 			y: 33,
 		},
 		byte: 625,
 		bit: 4,
+	},
+	{
+		screenshotFileName: 'screenshot_279_5.png',
+		area: 'maridia',
+		savePoint: 1,
+		mapCell: {
+			x: 50,
+			y: 33,
+		},
+		byte: 625,
+		bit: 5,
 	},
 	{
 		screenshotFileName: 'screenshot_279_7.png',
@@ -2028,7 +2105,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 54,
+			x: 55,
 			y: 34,
 		},
 		byte: 628,
@@ -2039,7 +2116,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 53,
+			x: 54,
 			y: 34,
 		},
 		byte: 628,
@@ -2050,7 +2127,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 52,
+			x: 53,
 			y: 34,
 		},
 		byte: 628,
@@ -2061,7 +2138,7 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 51,
+			x: 52,
 			y: 34,
 		},
 		byte: 628,
@@ -2072,11 +2149,22 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 50,
+			x: 51,
 			y: 34,
 		},
 		byte: 628,
 		bit: 4,
+	},
+	{
+		screenshotFileName: 'screenshot_282_5.png',
+		area: 'maridia',
+		savePoint: 1,
+		mapCell: {
+			x: 50,
+			y: 34,
+		},
+		byte: 628,
+		bit: 5,
 	},
 	{
 		screenshotFileName: 'screenshot_282_7.png',
@@ -2248,18 +2336,29 @@ export const maridia1 = [
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 50,
+			x: 51,
 			y: 35,
 		},
 		byte: 631,
 		bit: 4,
 	},
 	{
+		screenshotFileName: 'screenshot_285_5.png',
+		area: 'maridia',
+		savePoint: 1,
+		mapCell: {
+			x: 50,
+			y: 35,
+		},
+		byte: 631,
+		bit: 5,
+	},
+	{
 		screenshotFileName: 'screenshot_285_6.png',
 		area: 'maridia',
 		savePoint: 1,
 		mapCell: {
-			x: 48,
+			x: 49,
 			y: 35,
 		},
 		byte: 631,
