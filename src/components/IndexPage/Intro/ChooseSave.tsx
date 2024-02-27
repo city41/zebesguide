@@ -55,7 +55,7 @@ function ChooseSave({ className, saveFile, onSave }: ChooseSaveProps) {
 							className={clsx({
 								[styles.helmet]: gameSave.active,
 							})}
-							src={samusSideHelmetSvg}
+							src={samusSideHelmetSvg.src}
 							alt="Samus's helmet from the side"
 						/>
 						<div className="flex-1 flex flex-row justify-between items-center">

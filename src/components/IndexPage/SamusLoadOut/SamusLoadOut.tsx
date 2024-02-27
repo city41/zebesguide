@@ -65,7 +65,7 @@ function SamusLoadOut({ className, style, gameSave }: SamusLoadOutProps) {
 				<div className="w-1/3">
 					<img
 						className="mx-auto"
-						src={samusBaseSuitSvg}
+						src={samusBaseSuitSvg.src}
 						alt="samus base suit illustration"
 					/>
 				</div>
