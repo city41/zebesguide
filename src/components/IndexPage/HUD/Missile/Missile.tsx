@@ -21,7 +21,11 @@ function Missile({ className, missiles }: MissileProps) {
 					'w-24 h-16 p-2 bg-pink-800 border-4 border-pink-600 rounded-md'
 				)}
 			>
-				<img src={missileSvg} className="w-full h-full" alt="missile icon" />
+				<img
+					src={missileSvg.src}
+					className="w-full h-full"
+					alt="missile icon"
+				/>
 			</div>
 			<div className="font-bold">{missiles.current}</div>
 		</div>

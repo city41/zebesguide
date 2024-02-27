@@ -66,7 +66,7 @@ function Intro({ className, onSave }: IntroProps) {
 			)}
 		>
 			<div className="h-full flex flex-col items-center justify-center">
-				<img src={zgLogoSvg} width={447} height={143} />
+				<img src={zgLogoSvg.src} width={447} height={143} />
 				<p className="text-gray-300 text-sm mt-8">
 					Shows your progress in Super Metroid, and lets you ask for hints
 				</p>
