@@ -4,13 +4,9 @@ import { AppState } from '../../../store';
 import { Intro, PublicIntroProps } from './Intro';
 
 function ConnectedIntro(props: PublicIntroProps) {
-	const { saveFiles } = useSelector((state: AppState) => {
-		return state;
+	const saveFiles = useSelector((state: AppState) => {
+		return state.saveFiles;
 	});
-
-	if (!saveFiles?.length) {
-		return null;
-	}
 
 	return <Intro {...props} saveFiles={saveFiles} />;
 }
