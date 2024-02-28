@@ -18,7 +18,7 @@ I created two save files, one with one game and one with two games. All games ar
 
 ## How to know how many games a save has
 
-Just see if the first 6 bytes are `0xffff` or not. Beyond that, no idea yet what data is in this header.
+Just see if the first 6 words are `0xffff` or not. Beyond that, no idea yet what data is in this header.
 
 Sometimes the dummy bytes seem to be `0x6060` instead.
 

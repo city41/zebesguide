@@ -21,7 +21,11 @@ function MapByteBlock() {
 			gridColumn: (i + 1).toString(),
 		};
 		return (
-			<div key={`${b}-${i}`} className="text-xs" style={style}>
+			<div
+				key={`${b}-${i}`}
+				className="text-xs border border-red-400"
+				style={style}
+			>
 				{b.toString(16)}
 			</div>
 		);

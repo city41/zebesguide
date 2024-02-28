@@ -1,7 +1,17 @@
+/**
+ * Parse a screenshot of the entire Super Metroid map.
+ * A screenshot can be found at src/components/IndexPage/ZebesMap/map.png
+ */
 import 'ignore-styles';
 import fs from 'fs';
 import path from 'path';
-import { createCanvas, Image } from 'canvas';
+import { createCanvas, Image, CanvasRenderingContext2D } from 'canvas';
+
+type MapCell = {
+	x: number;
+	y: number;
+	region: string | null;
+};
 
 const CELL_SIZE = 8;
 
@@ -46,10 +56,10 @@ function parseMap(mapPath: string) {
 	// @ts-ignore
 	context.drawImage(image, 0, 0, image.width, image.height);
 
-	const rows = [];
+	const rows: MapCell[][] = [];
 
 	for (let y = 0; y < image.height; y += CELL_SIZE) {
-		const row = [];
+		const row: MapCell[] = [];
 		for (let x = 0; x < image.width; x += CELL_SIZE) {
 			const imageData = context.getImageData(x, y, CELL_SIZE, CELL_SIZE).data;
 			const region = determineRegion(imageData);
@@ -70,7 +80,7 @@ function parseMap(mapPath: string) {
 function main() {
 	const mapPngRelativePath = process.argv[2];
 	if (!mapPngRelativePath) {
-		console.error('usage: node parseMapPng <map-png-path>');
+		console.error('usage: ts-node parseMapPng <map-png-path>');
 		process.exit(1);
 	}
 
@@ -82,3 +92,5 @@ function main() {
 }
 
 main();
+
+export {};
