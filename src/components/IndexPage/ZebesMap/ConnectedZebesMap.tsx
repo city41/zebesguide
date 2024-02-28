@@ -1,33 +1,18 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
-import { AppState, dispatch } from '../../../store';
+import { AppState } from '../../../store';
 import { ZebesMap, PublicZebesMapProps } from './ZebesMap';
-import { setGameSave } from './mapSlice';
-import { GameSave } from '../../../lib/parser';
 
-type ConnectedZebesMapProps = {
-	gameSave: GameSave;
-};
-
-function ConnectedZebesMap({
-	gameSave,
-	...rest
-}: PublicZebesMapProps & ConnectedZebesMapProps) {
-	useEffect(() => {
-		dispatch(setGameSave(gameSave));
-	}, []);
-
+function ConnectedZebesMap(props: PublicZebesMapProps) {
 	const { matrix } = useSelector((state: AppState) => {
-		return state.map;
+		return state;
 	});
 
 	if (!matrix) {
 		return null;
 	}
 
-	console.log('matrix', matrix);
-
-	return <ZebesMap {...rest} matrix={matrix} />;
+	return <ZebesMap {...props} matrix={matrix} />;
 }
 
 export { ConnectedZebesMap };

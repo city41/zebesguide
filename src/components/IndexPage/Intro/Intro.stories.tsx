@@ -7,4 +7,4 @@ export default {
 	component: Intro,
 };
 
-export const basic = () => <Intro onSave={() => {}} />;
+export const basic = () => <Intro onSaveFileChosen={() => {}} />;

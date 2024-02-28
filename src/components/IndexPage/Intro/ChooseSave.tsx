@@ -12,10 +12,14 @@ import _ from 'lodash';
 type ChooseSaveProps = {
 	className?: string;
 	saveFile: Uint8Array;
-	onSave: (save: GameSave) => void;
+	onSaveFileChosen: (save: GameSave) => void;
 };
 
-function ChooseSave({ className, saveFile, onSave }: ChooseSaveProps) {
+function ChooseSave({
+	className,
+	saveFile,
+	onSaveFileChosen,
+}: ChooseSaveProps) {
 	const gameSaves = useMemo(() => {
 		const saves = parse(saveFile);
 
@@ -47,7 +51,7 @@ function ChooseSave({ className, saveFile, onSave }: ChooseSaveProps) {
 							e.stopPropagation();
 
 							if (gameSave.active) {
-								onSave(gameSave);
+								onSaveFileChosen(gameSave);
 							}
 						}}
 					>

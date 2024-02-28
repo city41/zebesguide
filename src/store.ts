@@ -1,18 +1,12 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import {
-	reducer as mapReducer,
-	MapState,
-} from './components/IndexPage/ZebesMap/mapSlice';
+	reducer as zebesReducer,
+	ZebesState,
+} from './components/IndexPage/zebesSlice';
 
-type AppState = {
-	map: MapState;
-};
+type AppState = ZebesState;
 
-const rootReducer = combineReducers({
-	map: mapReducer,
-});
-
-const store = configureStore({ reducer: rootReducer });
+const store = configureStore({ reducer: zebesReducer });
 
 const dispatch = store.dispatch;
 

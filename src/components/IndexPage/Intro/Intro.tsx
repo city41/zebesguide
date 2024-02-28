@@ -7,15 +7,14 @@ import styles from './Intro.module.css';
 
 import metroidContainmentPng from './metroidContainment.png';
 import zgLogoSvg from './zgLogo.svg';
-import { GameSave } from '../../../lib/parser';
 import { patchInBeenEverywhere } from '../../../lib/debug/patchInBeenEverywhere';
 
 type IntroProps = {
 	className?: string;
-	onSave: (gameSave: GameSave) => void;
+	onSaveFileData: (data: Uint8Array) => void;
 };
 
-function Intro({ className, onSave }: IntroProps) {
+function Intro({ className, onSaveFileData }: IntroProps) {
 	const [saveFileData, setSaveFileData] = useState<Uint8Array | null>(null);
 	const [patchInEverywhere, setPatchInEverywhere] = useState(false);
 
@@ -24,7 +23,7 @@ function Intro({ className, onSave }: IntroProps) {
 			saveFile={
 				patchInEverywhere ? patchInBeenEverywhere(saveFileData) : saveFileData
 			}
-			onSave={onSave}
+			onSaveFileChosen={onSaveFileChosen}
 		/>
 	) : (
 		<DropZone className="h-40 grid place-items-center" onData={setSaveFileData}>
