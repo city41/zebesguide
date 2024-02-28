@@ -6,7 +6,17 @@ import {
 
 type AppState = ZebesState;
 
-const store = configureStore({ reducer: zebesReducer });
+const store = configureStore({
+	reducer: zebesReducer,
+
+	middleware: (getDefaultMiddleware) => {
+		return getDefaultMiddleware({
+			thunk: true,
+			// this app passes around Uint8Arrays
+			serializableCheck: false,
+		});
+	},
+});
 
 const dispatch = store.dispatch;
 
