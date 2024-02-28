@@ -3,9 +3,12 @@ import clsx from 'clsx';
 
 import styles from './ZebesMap.module.css';
 
-type ZebesMapProps = {
+type PublicZebesMapProps = {
 	className?: string;
 	style?: CSSProperties;
+};
+
+type InternalZebesMapProps = {
 	matrix: CellMatrix;
 };
 
@@ -26,7 +29,11 @@ function CellCover({
 	);
 }
 
-function ZebesMap({ className, style, matrix }: ZebesMapProps) {
+function ZebesMap({
+	className,
+	style,
+	matrix,
+}: PublicZebesMapProps & InternalZebesMapProps) {
 	const [showUnvisited, setShowUnvisited] = useState(false);
 
 	const rows = matrix.map((row, y) => {
@@ -75,4 +82,5 @@ function ZebesMap({ className, style, matrix }: ZebesMapProps) {
 	);
 }
 
+export type { PublicZebesMapProps };
 export { ZebesMap };
