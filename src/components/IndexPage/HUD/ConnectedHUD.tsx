@@ -4,8 +4,8 @@ import { AppState } from '../../../store';
 import { HUD } from './HUD';
 
 function ConnectedHUD() {
-	const { chosenSaveFile } = useSelector((state: AppState) => {
-		return state;
+	const chosenSaveFile = useSelector((state: AppState) => {
+		return state.chosenSaveFile;
 	});
 
 	if (!chosenSaveFile) {

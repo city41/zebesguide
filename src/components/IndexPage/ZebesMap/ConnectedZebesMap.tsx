@@ -4,8 +4,8 @@ import { AppState } from '../../../store';
 import { ZebesMap, PublicZebesMapProps } from './ZebesMap';
 
 function ConnectedZebesMap(props: PublicZebesMapProps) {
-	const { chosenSaveFile } = useSelector((state: AppState) => {
-		return state;
+	const chosenSaveFile = useSelector((state: AppState) => {
+		return state.chosenSaveFile;
 	});
 
 	if (!chosenSaveFile) {

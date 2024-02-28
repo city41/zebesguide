@@ -67,7 +67,10 @@ function IndexPage({
 			body = (
 				<Intro
 					onSaveFileData={onSaveFileData}
-					onSaveIndexChosen={onSaveIndexChosen}
+					onSaveIndexChosen={(index) => {
+						onSaveIndexChosen(index);
+						setMode('map');
+					}}
 				/>
 			);
 			break;
