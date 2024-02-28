@@ -15,7 +15,7 @@ function ConnectedZebesMap({
 }: PublicZebesMapProps & ConnectedZebesMapProps) {
 	useEffect(() => {
 		dispatch(setGameSave(gameSave));
-	});
+	}, []);
 
 	const { matrix } = useSelector((state: AppState) => {
 		return state.map;
@@ -24,6 +24,8 @@ function ConnectedZebesMap({
 	if (!matrix) {
 		return null;
 	}
+
+	console.log('matrix', matrix);
 
 	return <ZebesMap {...rest} matrix={matrix} />;
 }
