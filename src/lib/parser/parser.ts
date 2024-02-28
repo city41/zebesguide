@@ -17,7 +17,9 @@ type GameSave = {
 	/**
 	 * If true, this save has info pertaining to a played
 	 * game. If false, this save came from a slot in the save file
-	 * that has not yet been used for a game
+	 * that has not yet been used for a game. This is needed because
+	 * a save file might have say just the second save file used. We need to
+	 * properly communicate that the first and third are untouched
 	 */
 	active: boolean;
 
@@ -198,13 +200,13 @@ function getUsedGameSlots(saveFile: Uint8Array): [boolean, boolean, boolean] {
 	return inUse;
 }
 
-function parse(saveFile: Uint8Array): GameSave[] {
+function parse(saveFile: Uint8Array): [GameSave, GameSave, GameSave] {
 	const inUse = getUsedGameSlots(saveFile);
 
 	return inUse.map((active, i) => {
 		const gameSaveData = getSave(saveFile, i);
 		return parseGameSave(gameSaveData, active);
-	});
+	}) as [GameSave, GameSave, GameSave];
 }
 
 export { parse, getUsedGameSlots };

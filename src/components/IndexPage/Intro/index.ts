@@ -1,1 +1,1 @@
-export * from './Intro';
+export { ConnectedIntro as Intro } from './ConnectedIntro';

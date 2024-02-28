@@ -6,13 +6,20 @@ import { LoadOutSection } from './LoadOutSection';
 
 import samusBaseSuitSvg from './samusBaseSuit.svg';
 
-type SamusLoadOutProps = {
+type PublicSamusLoadOutProps = {
 	className?: string;
 	style?: CSSProperties;
+};
+
+type InternalSamusLoadOutProps = {
 	gameSave: GameSave;
 };
 
-function SamusLoadOut({ className, style, gameSave }: SamusLoadOutProps) {
+function SamusLoadOut({
+	className,
+	style,
+	gameSave,
+}: PublicSamusLoadOutProps & InternalSamusLoadOutProps) {
 	return (
 		<div
 			className={clsx(className, 'border-8 border-white rounded-xl')}
@@ -128,4 +135,5 @@ function SamusLoadOut({ className, style, gameSave }: SamusLoadOutProps) {
 	);
 }
 
+export type { PublicSamusLoadOutProps };
 export { SamusLoadOut };

@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../../store';
-import { ZebesMap, PublicZebesMapProps } from './ZebesMap';
+import { HUD } from './HUD';
 
-function ConnectedZebesMap(props: PublicZebesMapProps) {
+function ConnectedHUD() {
 	const { chosenSaveFile } = useSelector((state: AppState) => {
 		return state;
 	});
@@ -12,7 +12,7 @@ function ConnectedZebesMap(props: PublicZebesMapProps) {
 		return null;
 	}
 
-	return <ZebesMap {...props} matrix={chosenSaveFile.mapCells} />;
+	return <HUD gameSave={chosenSaveFile} />;
 }
 
-export { ConnectedZebesMap };
+export { ConnectedHUD };

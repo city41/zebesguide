@@ -7,54 +7,62 @@ import styles from './Intro.module.css';
 
 import metroidContainmentPng from './metroidContainment.png';
 import zgLogoSvg from './zgLogo.svg';
-import { patchInBeenEverywhere } from '../../../lib/debug/patchInBeenEverywhere';
+import { GameSave } from '../../../lib/parser';
 
-type IntroProps = {
+type PublicIntroProps = {
 	className?: string;
 	onSaveFileData: (data: Uint8Array) => void;
+	onSaveIndexChosen: (index: 0 | 1 | 2) => void;
 };
 
-function Intro({ className, onSaveFileData }: IntroProps) {
-	const [saveFileData, setSaveFileData] = useState<Uint8Array | null>(null);
+type InternalIntroProps = {
+	saveFiles: [GameSave, GameSave, GameSave] | null;
+};
+
+function Intro({
+	className,
+	saveFiles,
+	onSaveFileData,
+	onSaveIndexChosen,
+}: PublicIntroProps & InternalIntroProps) {
 	const [patchInEverywhere, setPatchInEverywhere] = useState(false);
 
-	const body = saveFileData ? (
-		<ChooseSave
-			saveFile={
-				patchInEverywhere ? patchInBeenEverywhere(saveFileData) : saveFileData
-			}
-			onSaveFileChosen={onSaveFileChosen}
-		/>
-	) : (
-		<DropZone className="h-40 grid place-items-center" onData={setSaveFileData}>
-			{(clickToChoose, clickToChooseDemo) => (
-				<>
-					<div className="text-2xl">
-						drag a Super Metroid save file here to begin
-					</div>
-					<div className="rounded-lg border border-gray-500 bg-gray-600 hover:bg-gray-500 p-1">
-						{clickToChoose}
-					</div>
-					<div className="rounded-lg border border-gray-500 bg-green-600 hover:bg-green-500 p-2">
-						{clickToChooseDemo}
-					</div>
-					<div>
-						<label>
-							<input
-								className="mr-2"
-								type="checkbox"
-								checked={patchInEverywhere}
-								onChange={() => {
-									setPatchInEverywhere((pie) => !pie);
-								}}
-							/>
-							DEBUG: make Samus have gone everywhere
-						</label>
-					</div>
-				</>
-			)}
-		</DropZone>
-	);
+	const body =
+		saveFiles?.length === 3 ? (
+			<ChooseSave saveFiles={saveFiles} onSaveIndexChosen={onSaveIndexChosen} />
+		) : (
+			<DropZone
+				className="h-40 grid place-items-center"
+				onData={onSaveFileData}
+			>
+				{(clickToChoose, clickToChooseDemo) => (
+					<>
+						<div className="text-2xl">
+							drag a Super Metroid save file here to begin
+						</div>
+						<div className="rounded-lg border border-gray-500 bg-gray-600 hover:bg-gray-500 p-1">
+							{clickToChoose}
+						</div>
+						<div className="rounded-lg border border-gray-500 bg-green-600 hover:bg-green-500 p-2">
+							{clickToChooseDemo}
+						</div>
+						<div>
+							<label>
+								<input
+									className="mr-2"
+									type="checkbox"
+									checked={patchInEverywhere}
+									onChange={() => {
+										setPatchInEverywhere((pie) => !pie);
+									}}
+								/>
+								DEBUG: make Samus have gone everywhere
+							</label>
+						</div>
+					</>
+				)}
+			</DropZone>
+		);
 
 	return (
 		<div
@@ -80,4 +88,5 @@ function Intro({ className, onSaveFileData }: IntroProps) {
 	);
 }
 
+export type { PublicIntroProps };
 export { Intro };

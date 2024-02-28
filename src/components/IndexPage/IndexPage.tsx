@@ -3,16 +3,20 @@ import { ZebesMap } from './ZebesMap';
 import { Intro } from './Intro';
 import { HudNavButton } from '../HudNavButton/HudNavButton';
 import { ResetButton } from '../ResetButton';
-import { SamusLoadOut } from './SamusLoadOut/SamusLoadOut';
+import { SamusLoadOut } from './SamusLoadOut';
 import { HUD } from './HUD';
 
 type Mode = 'choose-save' | 'map' | 'samus';
 
 type InternalIndexPageProps = {
 	onSaveFileData: (data: Uint8Array) => void;
+	onSaveIndexChosen: (index: 0 | 1 | 2) => void;
 };
 
-function IndexPage({ onSaveFileData }: InternalIndexPageProps) {
+function IndexPage({
+	onSaveFileData,
+	onSaveIndexChosen,
+}: InternalIndexPageProps) {
 	const [mode, setMode] = useState<Mode>('choose-save');
 
 	let body;
@@ -22,8 +26,8 @@ function IndexPage({ onSaveFileData }: InternalIndexPageProps) {
 			body = (
 				<>
 					<div className="relative w-full flex flex-col">
-						<HUD gameSave={gameSave!} />
-						<ZebesMap style={{ height: '80vh' }} gameSave={gameSave!} />
+						<HUD />
+						<ZebesMap style={{ height: '80vh' }} />
 					</div>
 					<div className="mt-4 text-right">
 						<HudNavButton
@@ -42,8 +46,8 @@ function IndexPage({ onSaveFileData }: InternalIndexPageProps) {
 			body = (
 				<>
 					<div className="relative w-full flex flex-col">
-						<HUD gameSave={gameSave!} />
-						<SamusLoadOut style={{ height: '80vh' }} gameSave={gameSave!} />
+						<HUD />
+						<SamusLoadOut style={{ height: '80vh' }} />
 					</div>
 					<div className="mt-4">
 						<HudNavButton
@@ -60,7 +64,12 @@ function IndexPage({ onSaveFileData }: InternalIndexPageProps) {
 		}
 		case 'choose-save':
 		default: {
-			body = <Intro onSaveFileData={onSaveFileData} />;
+			body = (
+				<Intro
+					onSaveFileData={onSaveFileData}
+					onSaveIndexChosen={onSaveIndexChosen}
+				/>
+			);
 			break;
 		}
 	}
