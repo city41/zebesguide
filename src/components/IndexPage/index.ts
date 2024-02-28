@@ -1,1 +1,1 @@
-export * from './IndexPage';
+export { ConnectedIndexPage as IndexPage } from './ConnectedIndexPage';

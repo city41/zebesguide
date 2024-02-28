@@ -3,25 +3,45 @@ import { ZebesMap } from './ZebesMap';
 import { Intro } from './Intro';
 import { HudNavButton } from '../HudNavButton/HudNavButton';
 import { ResetButton } from '../ResetButton';
-import { SamusLoadOut } from './SamusLoadOut/SamusLoadOut';
-import { GameSave } from '../../lib/parser';
+import { SamusLoadOut } from './SamusLoadOut';
 import { HUD } from './HUD';
 
-type Mode = 'choose-save' | 'map' | 'samus';
+type Mode = 'map' | 'samus';
 
-function IndexPage() {
-	const [mode, setMode] = useState<Mode>('choose-save');
-	const [gameSave, setGameSave] = useState<GameSave | null>(null);
+type InternalIndexPageProps = {
+	onSaveFileData: (data: Uint8Array) => void;
+	onSaveIndexChosen: (index: 0 | 1 | 2) => void;
+	onReset: () => void;
+	saveWasChosen: boolean;
+};
+
+function IndexPage({
+	onSaveFileData,
+	onSaveIndexChosen,
+	onReset,
+	saveWasChosen,
+}: InternalIndexPageProps) {
+	const [mode, setMode] = useState<Mode>('map');
 
 	let body;
 
-	switch (mode) {
-		case 'map': {
+	if (!saveWasChosen) {
+		body = (
+			<Intro
+				onSaveFileData={onSaveFileData}
+				onSaveIndexChosen={(index) => {
+					onSaveIndexChosen(index);
+					setMode('map');
+				}}
+			/>
+		);
+	} else {
+		if (mode === 'map') {
 			body = (
 				<>
 					<div className="relative w-full flex flex-col">
-						<HUD gameSave={gameSave!} />
-						<ZebesMap style={{ height: '80vh' }} matrix={gameSave!.mapCells} />
+						<HUD />
+						<ZebesMap style={{ height: '80vh' }} />
 					</div>
 					<div className="mt-4 text-right">
 						<HudNavButton
@@ -34,14 +54,12 @@ function IndexPage() {
 					</div>
 				</>
 			);
-			break;
-		}
-		case 'samus': {
+		} else {
 			body = (
 				<>
 					<div className="relative w-full flex flex-col">
-						<HUD gameSave={gameSave!} />
-						<SamusLoadOut style={{ height: '80vh' }} gameSave={gameSave!} />
+						<HUD />
+						<SamusLoadOut style={{ height: '80vh' }} />
 					</div>
 					<div className="mt-4">
 						<HudNavButton
@@ -54,30 +72,17 @@ function IndexPage() {
 					</div>
 				</>
 			);
-			break;
-		}
-		case 'choose-save':
-		default: {
-			body = (
-				<Intro
-					onSave={(gameSave) => {
-						setGameSave(gameSave);
-						setMode('map');
-					}}
-				/>
-			);
-			break;
 		}
 	}
 
 	return (
 		<div className="w-screen h-screen mx-auto max-w-6xl">
 			{body}
-			{mode !== 'choose-save' && (
+			{saveWasChosen && (
 				<div className="fixed top-2 right-2 flex flex-col items-center">
 					<ResetButton
 						onClick={() => {
-							setMode('choose-save');
+							onReset();
 						}}
 					/>
 					<a className="text-blue-100 text-xs" href="/about">

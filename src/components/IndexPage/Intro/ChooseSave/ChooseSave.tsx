@@ -1,30 +1,31 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import clsx from 'clsx';
-import { parse, GameSave } from '../../../lib/parser';
-import { EnergyTanks } from '../Energy/EnergyTanks';
-import { EnergyLabel } from '../Energy/EnergyLabel';
+import { EnergyTanks } from '../../Energy/EnergyTanks';
+import { EnergyLabel } from '../../Energy/EnergyLabel';
 
 import styles from './ChooseSave.module.css';
 
 import samusSideHelmetSvg from './samusSideHelmet.svg';
 import _ from 'lodash';
+import { GameSave } from '../../../../lib/parser';
 
-type ChooseSaveProps = {
+type PublicChooseSaveProps = {
 	className?: string;
-	saveFile: Uint8Array;
-	onSave: (save: GameSave) => void;
+	onSaveIndexChosen: (index: 0 | 1 | 2) => void;
 };
 
-function ChooseSave({ className, saveFile, onSave }: ChooseSaveProps) {
-	const gameSaves = useMemo(() => {
-		const saves = parse(saveFile);
+type InternalChooseSaveProps = {
+	saveFiles: [GameSave, GameSave, GameSave];
+};
 
-		return saves;
-	}, [saveFile]);
-
+function ChooseSave({
+	className,
+	saveFiles,
+	onSaveIndexChosen,
+}: PublicChooseSaveProps & InternalChooseSaveProps) {
 	return (
 		<div className={clsx(className, 'flex flex-col w-full gap-y-8')}>
-			{gameSaves.map((gameSave, i) => {
+			{saveFiles.map((gameSave, i) => {
 				let minutes = gameSave.time.minutes.toString();
 
 				if (gameSave.time.minutes < 10) {
@@ -47,7 +48,7 @@ function ChooseSave({ className, saveFile, onSave }: ChooseSaveProps) {
 							e.stopPropagation();
 
 							if (gameSave.active) {
-								onSave(gameSave);
+								onSaveIndexChosen(i as 0 | 1 | 2);
 							}
 						}}
 					>

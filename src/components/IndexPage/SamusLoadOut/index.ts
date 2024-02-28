@@ -1,1 +1,1 @@
-export * from './SamusLoadOut';
+export { ConnectedSamusLoadOut as SamusLoadOut } from './ConnectedSamusLoadOut';

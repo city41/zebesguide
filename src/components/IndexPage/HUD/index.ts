@@ -1,1 +1,1 @@
-export * from './HUD';
+export { ConnectedHUD as HUD } from './ConnectedHUD';

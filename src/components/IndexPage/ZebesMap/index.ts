@@ -1,1 +1,1 @@
-export * from './ZebesMap';
+export { ConnectedZebesMap as ZebesMap } from './ConnectedZebesMap';
