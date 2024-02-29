@@ -10,7 +10,7 @@ local MARIDIA = 4
 local TOURIAN = 5
 
 local CURRENT_SAVE_AREA = MARIDIA
-local CURRENT_SAVE_POINT = 0
+local CURRENT_SAVE_POINT = 3
 
 -- these are using the start of the save as zero, to match the sram-doc
 -- so to use these, usually need to do SRAM_BASE + SRAM_OFFSET + <value>

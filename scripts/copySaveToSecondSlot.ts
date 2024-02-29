@@ -11,7 +11,7 @@ function main() {
 
 	if (!sourceSaveRelPath || !destSaveRelPath) {
 		console.error(
-			'usage: node copySaveToSecondSlot <source-save-file> <dest-save-file>'
+			'usage: ts-node copySaveToSecondSlot <source-save-file> <dest-save-file>'
 		);
 		process.exit(1);
 	}
