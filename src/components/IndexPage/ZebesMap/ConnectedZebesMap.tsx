@@ -12,7 +12,13 @@ function ConnectedZebesMap(props: PublicZebesMapProps) {
 		return null;
 	}
 
-	return <ZebesMap {...props} matrix={chosenSaveFile.mapCells} />;
+	return (
+		<ZebesMap
+			{...props}
+			matrix={chosenSaveFile.mapCells}
+			samusLocation={chosenSaveFile.saveRoom.cell}
+		/>
+	);
 }
 
 export { ConnectedZebesMap };

@@ -59,6 +59,13 @@ const FULLY_EQUIPPED: GameSave = {
 	},
 
 	mapCells: [],
+	saveRoom: {
+		area: 'crateria',
+		cell: {
+			x: 0,
+			y: 0,
+		},
+	},
 };
 
 export const FullyEquipped = () => <SamusLoadOut gameSave={FULLY_EQUIPPED} />;

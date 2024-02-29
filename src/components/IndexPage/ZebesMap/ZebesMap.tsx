@@ -3,6 +3,8 @@ import clsx from 'clsx';
 
 import styles from './ZebesMap.module.css';
 
+import samusMarkerPng from './samusMarker.png';
+
 type PublicZebesMapProps = {
 	className?: string;
 	style?: CSSProperties;
@@ -10,6 +12,7 @@ type PublicZebesMapProps = {
 
 type InternalZebesMapProps = {
 	matrix: CellMatrix;
+	samusLocation: Point;
 };
 
 function CellCover({
@@ -76,6 +79,7 @@ function ZebesMap({
 	className,
 	style,
 	matrix,
+	samusLocation,
 }: PublicZebesMapProps & InternalZebesMapProps) {
 	const [showUnvisited, setShowUnvisited] = useState(false);
 
@@ -112,6 +116,17 @@ function ZebesMap({
 						className={clsx(styles.root, 'relative bg-cover')}
 					>
 						{rows}
+						<img
+							src={samusMarkerPng.src}
+							alt="samus marker"
+							className="absolute"
+							style={{
+								left: `calc(var(--cell-size) * ${samusLocation.x} + 1px)`,
+								top: `calc(var(--cell-size) * ${samusLocation.y} + 1px)`,
+								width: 'var(--cell-size)',
+								height: 'var(--cell-size)',
+							}}
+						/>
 					</div>
 				</div>
 				<button

@@ -55,6 +55,11 @@ type GameSave = {
 	};
 
 	mapCells: CellMatrix;
+
+	saveRoom: {
+		area: Area;
+		cell: Point;
+	};
 };
 
 function getBoolean(
@@ -122,6 +127,52 @@ function getItemStatus(saveFileView: DataView, itemKey: string): ItemStatus {
 	};
 }
 
+const SAVE_AREA = 0x158;
+const SAVE_ROOM_INDEX = 0x156;
+const areaToSaveAreaByteValue: Record<number, Area> = {
+	0: 'crateria',
+	1: 'brinstar',
+	2: 'norfair',
+	3: 'wreckedShip',
+	4: 'maridia',
+	5: 'tourian',
+};
+
+const areaAndIndexToCell: Record<string, Point> = {
+	'crateria-0': { x: 26, y: 5 },
+	'crateria-1': { x: 17, y: 7 },
+	'brinstar-0': { x: 12, y: 23 },
+	'brinstar-1': { x: 4, y: 24 },
+	'brinstar-2': { x: 1, y: 30 },
+	'brinstar-3': { x: 45, y: 37 },
+	'brinstar-4': { x: 34, y: 27 },
+	'norfair-0': { x: 39, y: 50 },
+	'norfair-1': { x: 48, y: 42 },
+	'norfair-2': { x: 0, y: 44 },
+	'norfair-3': { x: 43, y: 47 },
+	'norfair-4': { x: 47, y: 49 },
+	'norfair-5': { x: 63, y: 51 },
+	'wreckedShip-0': { x: 50, y: 5 },
+	'maridia-0': { x: 36, y: 38 },
+	'maridia-1': { x: 59, y: 23 },
+	'maridia-2': { x: 43, y: 30 },
+	'maridia-3': { x: 65, y: 25 },
+	'tourian-0': { x: 12, y: 18 },
+	'tourian-1': { x: 17, y: 13 },
+};
+
+function getSaveRoom(view: DataView) {
+	const saveAreaByte = view.getUint8(SAVE_AREA);
+	const saveRoomIndex = view.getUint8(SAVE_ROOM_INDEX);
+
+	const saveArea = areaToSaveAreaByteValue[saveAreaByte];
+
+	return {
+		area: saveArea,
+		cell: areaAndIndexToCell[`${saveArea}-${saveRoomIndex}`],
+	};
+}
+
 /**
  * Reads a Super Metroid SRAM game save and returns
  * it parsed out into an object
@@ -176,6 +227,7 @@ function parseGameSave(gameSave: Uint8Array, active: boolean): GameSave {
 			minutes: getNumber(view, 'Minutes'),
 		},
 		mapCells: parseCells(gameSave),
+		saveRoom: getSaveRoom(view),
 	};
 }
 
