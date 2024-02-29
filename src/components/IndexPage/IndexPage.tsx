@@ -5,6 +5,7 @@ import { HudNavButton } from '../HudNavButton/HudNavButton';
 import { ResetButton } from '../ResetButton';
 import { SamusLoadOut } from './SamusLoadOut';
 import { HUD } from './HUD';
+import { EarlyStarburst } from '../EarlyStarburst';
 
 type Mode = 'map' | 'samus';
 
@@ -76,21 +77,24 @@ function IndexPage({
 	}
 
 	return (
-		<div className="w-screen h-screen mx-auto max-w-6xl">
-			{body}
-			{saveWasChosen && (
-				<div className="fixed top-2 right-2 flex flex-col items-center">
-					<ResetButton
-						onClick={() => {
-							onReset();
-						}}
-					/>
-					<a className="text-blue-100 text-xs" href="/about">
-						about
-					</a>
-				</div>
-			)}
-		</div>
+		<>
+			<EarlyStarburst className="fixed top-4 left-4" />
+			<div className="w-screen h-screen mx-auto max-w-6xl">
+				{body}
+				{saveWasChosen && (
+					<div className="fixed top-2 right-2 flex flex-col items-center">
+						<ResetButton
+							onClick={() => {
+								onReset();
+							}}
+						/>
+						<a className="text-blue-100 text-xs" href="/about">
+							about
+						</a>
+					</div>
+				)}
+			</div>
+		</>
 	);
 }
 

@@ -77,6 +77,9 @@ function Intro({
 				<p className="text-gray-300 text-sm mt-8">
 					Shows your progress in Super Metroid, and lets you ask for hints
 				</p>
+				<p className="bg-red-700 text-white mt-4">
+					This site is not operational yet. Still being worked on.
+				</p>
 			</div>
 			<div className="row-span-2 w-full -my-8">
 				<img className="w-full h-full" src={metroidContainmentPng.src} />
