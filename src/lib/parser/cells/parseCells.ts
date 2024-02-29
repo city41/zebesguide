@@ -1,5 +1,6 @@
 import { MAP_COLS, MAP_ROWS, MAP_SHIP_POINT } from './constants';
 import { cells } from './mapBits';
+import { addFullElevatorExposure } from './elevators';
 
 function isExposed(c: Point, save: Uint8Array): boolean {
 	if (MAP_SHIP_POINT.x === c.x && MAP_SHIP_POINT.y === c.y) {
@@ -20,7 +21,7 @@ function isExposed(c: Point, save: Uint8Array): boolean {
 }
 
 function parseCells(save: Uint8Array): CellMatrix {
-	const matrix = [];
+	const matrixMinusElevators = [];
 
 	for (let y = 0; y < MAP_ROWS; ++y) {
 		const row = [];
@@ -29,10 +30,10 @@ function parseCells(save: Uint8Array): CellMatrix {
 				exposed: isExposed({ x, y }, save),
 			});
 		}
-		matrix.push(row);
+		matrixMinusElevators.push(row);
 	}
 
-	return matrix;
+	return addFullElevatorExposure(matrixMinusElevators);
 }
 
 export { parseCells };

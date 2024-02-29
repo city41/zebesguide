@@ -11,3 +11,11 @@ type Region = {
 	upperLeft: Point;
 	lowerRight: Point;
 };
+
+type Area =
+	| 'brinstar'
+	| 'crateria'
+	| 'maridia'
+	| 'norfair'
+	| 'tourian'
+	| 'wreckedShip';
