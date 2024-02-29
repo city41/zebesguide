@@ -29,6 +29,49 @@ function CellCover({
 	);
 }
 
+function AreaLabels() {
+	return (
+		<>
+			<div
+				className="absolute p-0.5 text-white"
+				style={{ left: 80, top: 80, backgroundColor: '#d83890' }}
+			>
+				Crateria
+			</div>
+			<div
+				className="absolute p-0.5 text-white"
+				style={{ left: 80, top: 570, backgroundColor: '#017e13' }}
+			>
+				Brinstar
+			</div>
+			<div
+				className="absolute p-0.5 text-white"
+				style={{ left: 900, top: 40, backgroundColor: '#d1b102' }}
+			>
+				Wrecked Ship
+			</div>
+			<div
+				className="absolute p-0.5 text-white"
+				style={{ left: 120, top: 180, backgroundColor: '#991b8c' }}
+			>
+				Tourian
+			</div>
+			<div
+				className="absolute p-0.5 text-white"
+				style={{ left: 900, top: 480, backgroundColor: '#283888' }}
+			>
+				Maridia
+			</div>
+			<div
+				className="absolute p-0.5 text-white"
+				style={{ left: 380, top: 750, backgroundColor: '#d42020' }}
+			>
+				Norfair
+			</div>
+		</>
+	);
+}
+
 function ZebesMap({
 	className,
 	style,
@@ -55,30 +98,33 @@ function ZebesMap({
 	} as CSSProperties;
 
 	return (
-		<div className={clsx(className, 'relative')}>
-			<div
-				className={clsx(
-					className,
-					'overflow-auto border-8 border-white rounded-xl'
-				)}
-				style={style}
-			>
+		<>
+			<div className={clsx(className, 'relative')}>
 				<div
-					style={gridStyle}
-					className={clsx(styles.root, 'relative bg-cover')}
+					className={clsx(
+						className,
+						'overflow-auto border-8 border-white rounded-xl'
+					)}
+					style={style}
 				>
-					{rows}
+					<div
+						style={gridStyle}
+						className={clsx(styles.root, 'relative bg-cover')}
+					>
+						{rows}
+					</div>
 				</div>
+				<button
+					className="absolute top-0 left-0 px-2 py-1 bg-white text-black text-xs cursor-pointer hover:bg-yellow-500"
+					onClick={() => {
+						setShowUnvisited((uv) => !uv);
+					}}
+				>
+					{showUnvisited ? 'hide' : 'show'} unvisited areas
+				</button>
+				{showUnvisited ? <AreaLabels /> : null}
 			</div>
-			<button
-				className="absolute top-0 left-0 px-2 py-1 bg-white text-black text-xs cursor-pointer hover:bg-yellow-500"
-				onClick={() => {
-					setShowUnvisited((uv) => !uv);
-				}}
-			>
-				{showUnvisited ? 'hide' : 'show'} unvisited areas
-			</button>
-		</div>
+		</>
 	);
 }
 
