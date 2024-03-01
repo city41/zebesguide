@@ -1,16 +1,19 @@
 -- this script requires the bsnes115 core
+require("getBitByte")
+
 local SRAM_BASE = 0x700000
 local SRAM_OFFSET = 0x10
 local SRAM_SAVE_SIZE = 0x65c
 
 local CRATERIA = 0
+local BRINSTAR = 1
 local NORFAIR = 2
 local WRECKED_SHIP = 3
 local MARIDIA = 4
 local TOURIAN = 5
 
-local CURRENT_SAVE_AREA = MARIDIA
-local CURRENT_SAVE_POINT = 3
+local CURRENT_SAVE_AREA = BRINSTAR
+local CURRENT_SAVE_POINT = 4
 
 -- these are using the start of the save as zero, to match the sram-doc
 -- so to use these, usually need to do SRAM_BASE + SRAM_OFFSET + <value>
@@ -44,7 +47,7 @@ local function sanitize()
 		high = high + value
 
 		if high > 0xff then
-			high = bit.band(high, 0xff)
+			high = high & 0xff
 			low = low + 1
 		end
 
@@ -53,15 +56,15 @@ local function sanitize()
 		low = low + value
 
 		if low > 0xff then
-			low = bit.band(low, 0xff)
+			low = low & 0xff
 		end
 	end
 
-	hb = bit.band(high, 0xff)
-	lb = bit.band(low, 0xff)
+	hb = high & 0xff
+	lb = low & 0xff
 
-	hc = bit.bxor(hb, 0xff)
-	lc = bit.bxor(lb, 0xff)
+	hc = hb ~ 0xff
+	lc = lb ~ 0xff
 
 	memory.writebyte(SRAM_BASE + 0, hb)
 	memory.writebyte(SRAM_BASE + 1, lb)
@@ -73,8 +76,12 @@ local function sanitize()
 	memory.writebyte(SRAM_BASE + 0x1ff9, lc)
 end
 
-local bitIndex = 0
-local byteIndex = 0
+local bitByte = {}
+bitByte.bitIndex = 0
+bitByte.byteIndex = tonumber(os.getenv("LUA_BYTE_INDEX"))
+bitByte = getBitByte(bitByte)
+
+local screenshotcount = 0
 
 local function patch_sram()
 	-- set the save location
@@ -83,9 +90,9 @@ local function patch_sram()
 
 	-- set the current map bit we are dumping
 	for i = START_OF_MAP_OFFSET, END_OF_MAP_OFFSET, 1 do
-		byteToWrite = 0
-		if (i - START_OF_MAP_OFFSET) == byteIndex then
-			byteToWrite = bit.lshift(1, bitIndex)
+		local byteToWrite = 0
+		if (i - START_OF_MAP_OFFSET) == bitByte.byteIndex then
+			byteToWrite = 1 << bitByte.bitIndex
 		end
 
 		memory.writebyte(SRAM_BASE + SRAM_OFFSET + i, byteToWrite)
@@ -101,6 +108,7 @@ local frames = { 300, 380, 420, 520, 720, 820 }
 local SCREENSHOT_FRAME = 900
 
 client.reboot_core()
+local savestateid = memorysavestate.savecorestate()
 
 while true do
 	if emu.framecount() == 20 then
@@ -114,17 +122,13 @@ while true do
 	end
 
 	if emu.framecount() == SCREENSHOT_FRAME then
-		client.screenshot("screenshot_" .. byteIndex .. "_" .. bitIndex .. ".png")
+		client.screenshot("screenshot_" .. bitByte.byteIndex .. "_" .. bitByte.bitIndex .. ".png")
+		screenshotcount = screenshotcount + 1
 
-		bitIndex = bitIndex + 1
+		bitByte = getBitByte(bitByte)
 
-		if bitIndex == 8 then
-			bitIndex = 0
-			byteIndex = byteIndex + 1
-		end
-
-		if byteIndex < (END_OF_MAP_OFFSET - START_OF_MAP_OFFSET) then
-			client.reboot_core()
+		if bitByte.byteIndex < (END_OF_MAP_OFFSET - START_OF_MAP_OFFSET) and screenshotcount < 64 then
+			memorysavestate.loadcorestate(savestateid)
 		else
 			client.exit()
 		end

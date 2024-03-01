@@ -1,7 +1,7 @@
 import 'ignore-styles';
 import fs from 'fs';
 import path from 'path';
-import { createCanvas, Image } from 'canvas';
+import { createCanvas, Image, CanvasRenderingContext2D } from 'canvas';
 import uniqBy from 'lodash/uniqBy';
 import uniq from 'lodash/uniq';
 import mean from 'lodash/mean';
@@ -10,6 +10,7 @@ import { START_OF_MAP_BYTES } from '../src/lib/parser/constants';
 const savePointLocations = {
 	brinstar0: { x: 11, y: 23 },
 	brinstar3: { x: 45, y: 37 },
+	brinstar4: { x: 34, y: 27 },
 	crateria0: { x: 26, y: 5 },
 	crateria1: { x: 17, y: 7 },
 	maridia0: { x: 36, y: 38 },
@@ -247,7 +248,7 @@ function main() {
 
 	if (!screenshotDir || !area || !savePointStr) {
 		console.error(
-			'usage: node parseScreenshots <screenshot-dir> <save-area> <save-point>'
+			'usage: ts-node parseScreenshots <screenshot-dir> <save-area> <save-point>'
 		);
 		console.error('example: node parseScreenshots my-screenshots/ crateria 1');
 		process.exit(1);
