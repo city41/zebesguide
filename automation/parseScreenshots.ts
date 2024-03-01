@@ -9,6 +9,7 @@ import { START_OF_MAP_BYTES } from '../src/lib/parser/constants';
 
 const savePointLocations = {
 	brinstar0: { x: 11, y: 23 },
+	brinstar1: { x: 4, y: 24 },
 	brinstar3: { x: 45, y: 37 },
 	brinstar4: { x: 34, y: 27 },
 	crateria0: { x: 26, y: 5 },
