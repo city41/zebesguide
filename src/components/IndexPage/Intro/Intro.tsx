@@ -13,7 +13,10 @@ import { patchInBeenEverywhere } from '../../../lib/debug/patchInBeenEverywhere'
 type PublicIntroProps = {
 	className?: string;
 	onSaveFileData: (data: Uint8Array) => void;
-	onSaveIndexChosen: (index: 0 | 1 | 2) => void;
+	onSaveIndexChosen: (props: {
+		index: 0 | 1 | 2;
+		mode: 'view' | 'edit';
+	}) => void;
 };
 
 type InternalIntroProps = {

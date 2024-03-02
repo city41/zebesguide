@@ -12,7 +12,7 @@ local WRECKED_SHIP = 3
 local MARIDIA = 4
 local TOURIAN = 5
 
-local CURRENT_SAVE_AREA = TOURIAN
+local CURRENT_SAVE_AREA = NORFAIR
 local CURRENT_SAVE_POINT = 1
 
 -- these are using the start of the save as zero, to match the sram-doc

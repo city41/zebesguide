@@ -4,10 +4,11 @@ import { Intro } from './Intro';
 import { HudNavButton } from '../HudNavButton/HudNavButton';
 import { ResetButton } from '../ResetButton';
 import { SamusLoadOut } from './SamusLoadOut';
+import { EditSave } from './EditSave';
 import { HUD } from './HUD';
 import { EarlyStarburst } from '../EarlyStarburst';
 
-type Mode = 'map' | 'samus';
+type Mode = 'map' | 'samus' | 'edit';
 
 type InternalIndexPageProps = {
 	onSaveFileData: (data: Uint8Array) => void;
@@ -30,9 +31,9 @@ function IndexPage({
 		body = (
 			<Intro
 				onSaveFileData={onSaveFileData}
-				onSaveIndexChosen={(index) => {
+				onSaveIndexChosen={({ index, mode }) => {
 					onSaveIndexChosen(index);
-					setMode('map');
+					setMode(mode === 'view' ? 'map' : 'edit');
 				}}
 			/>
 		);
@@ -55,7 +56,7 @@ function IndexPage({
 					</div>
 				</>
 			);
-		} else {
+		} else if (mode === 'samus') {
 			body = (
 				<>
 					<div className="relative w-full flex flex-col">
@@ -73,6 +74,8 @@ function IndexPage({
 					</div>
 				</>
 			);
+		} else {
+			body = <EditSave />;
 		}
 	}
 

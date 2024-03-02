@@ -9,6 +9,7 @@ import { maridia0 } from './maridia0';
 import { maridia1 } from './maridia1';
 import { maridiam } from './maridiam';
 import { norfair0 } from './norfair0';
+import { norfair1 } from './norfair1';
 import { norfair5 } from './norfair5';
 import { norfairm } from './norfairm';
 import { tourian1 } from './tourian1';
@@ -29,6 +30,7 @@ const inputs = [
 	maridia1,
 	maridiam,
 	norfair0,
+	norfair1,
 	norfair5,
 	norfairm,
 	tourian1,
