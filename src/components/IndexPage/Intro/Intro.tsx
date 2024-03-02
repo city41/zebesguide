@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import clsx from 'clsx';
 import { DropZone } from '../../DropZone';
 import { ChooseSave } from './ChooseSave';
@@ -8,6 +8,7 @@ import styles from './Intro.module.css';
 import metroidContainmentPng from './metroidContainment.png';
 import zgLogoSvg from './zgLogo.svg';
 import { GameSave } from '../../../lib/parser';
+import { patchInBeenEverywhere } from '../../../lib/debug/patchInBeenEverywhere';
 
 type PublicIntroProps = {
 	className?: string;
@@ -27,13 +28,24 @@ function Intro({
 }: PublicIntroProps & InternalIntroProps) {
 	const [patchInEverywhere, setPatchInEverywhere] = useState(false);
 
+	const handleDropZoneData = useCallback(
+		(data) => {
+			if (patchInEverywhere) {
+				onSaveFileData(patchInBeenEverywhere(data));
+			} else {
+				onSaveFileData(data);
+			}
+		},
+		[patchInEverywhere]
+	);
+
 	const body =
 		saveFiles?.length === 3 ? (
 			<ChooseSave saveFiles={saveFiles} onSaveIndexChosen={onSaveIndexChosen} />
 		) : (
 			<DropZone
 				className="h-40 grid place-items-center"
-				onData={onSaveFileData}
+				onData={handleDropZoneData}
 			>
 				{(clickToChoose, clickToChooseDemo) => (
 					<>

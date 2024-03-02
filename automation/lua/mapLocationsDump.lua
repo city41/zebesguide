@@ -12,7 +12,7 @@ local WRECKED_SHIP = 3
 local MARIDIA = 4
 local TOURIAN = 5
 
-local CURRENT_SAVE_AREA = BRINSTAR
+local CURRENT_SAVE_AREA = TOURIAN
 local CURRENT_SAVE_POINT = 1
 
 -- these are using the start of the save as zero, to match the sram-doc
@@ -79,7 +79,6 @@ end
 local bitByte = {}
 bitByte.bitIndex = 0
 bitByte.byteIndex = tonumber(os.getenv("LUA_BYTE_INDEX"))
-bitByte = getBitByte(bitByte)
 
 local screenshotcount = 0
 

@@ -11,7 +11,7 @@ import { maridiam } from './maridiam';
 import { norfair0 } from './norfair0';
 import { norfair5 } from './norfair5';
 import { norfairm } from './norfairm';
-import { tourian0 } from './tourian0';
+import { tourian1 } from './tourian1';
 import { wreckedShip0 } from './wreckedShip0';
 
 import groupBy from 'lodash/groupBy';
@@ -31,7 +31,7 @@ const inputs = [
 	norfair0,
 	norfair5,
 	norfairm,
-	tourian0,
+	tourian1,
 	wreckedShip0,
 ];
 
@@ -52,6 +52,6 @@ const groupedByBit = groupBy(cells, (c) => `${c.byte}-${c.bit}`);
 const dupeByBit = Object.values(groupedByBit).filter((v) => v.length > 1);
 
 // eslint-disable-next-line no-console
-console.log('dupeByBit', dupeByBit);
+console.log({ dupeByBit, cells });
 
 export { cells };
