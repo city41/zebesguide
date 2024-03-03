@@ -98,4 +98,13 @@ export const brinstarm = [
 		byte: 0x1dd,
 		bit: 7,
 	},
+	{
+		area: 'brinstar',
+		mapCell: {
+			x: 34,
+			y: 27,
+		},
+		byte: 475,
+		bit: 1,
+	},
 ];
