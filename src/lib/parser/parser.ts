@@ -261,5 +261,9 @@ function parse(saveFile: Uint8Array): [GameSave, GameSave, GameSave] {
 	}) as [GameSave, GameSave, GameSave];
 }
 
-export { parse, getUsedGameSlots };
-export type { GameSave };
+function toSaveFile(_gameSaves: GameSave[]): Uint8Array {
+	return new Uint8Array();
+}
+
+export { parse, toSaveFile, getUsedGameSlots };
+export type { Quantity, GameSave };
