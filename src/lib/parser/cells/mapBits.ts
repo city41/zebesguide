@@ -7,6 +7,7 @@ import { crateria0 } from './crateria0';
 import { crateria1 } from './crateria1';
 import { maridia0 } from './maridia0';
 import { maridia1 } from './maridia1';
+import { maridia3 } from './maridia3';
 import { maridiam } from './maridiam';
 import { norfair0 } from './norfair0';
 import { norfair1 } from './norfair1';
@@ -28,6 +29,7 @@ const inputs = [
 	crateria1,
 	maridia0,
 	maridia1,
+	maridia3,
 	maridiam,
 	norfair0,
 	norfair1,

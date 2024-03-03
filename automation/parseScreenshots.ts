@@ -16,6 +16,7 @@ const savePointLocations = {
 	crateria1: { x: 17, y: 7 },
 	maridia0: { x: 36, y: 38 },
 	maridia1: { x: 59, y: 23 },
+	maridia3: { x: 65, y: 25 },
 	norfair0: { x: 39, y: 50 },
 	norfair1: { x: 48, y: 42 },
 	norfair5: { x: 63, y: 51 },
