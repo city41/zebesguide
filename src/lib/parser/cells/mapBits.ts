@@ -7,6 +7,7 @@ import { crateria0 } from './crateria0';
 import { crateria1 } from './crateria1';
 import { crateriamovie0 } from './crateriamovie0';
 import { crateriamovie1 } from './crateriamovie1';
+import { crateriamovie2 } from './crateriamovie2';
 import { maridia0 } from './maridia0';
 import { maridia1 } from './maridia1';
 import { maridia3 } from './maridia3';
@@ -31,6 +32,7 @@ const inputs = [
 	crateria1,
 	crateriamovie0,
 	crateriamovie1,
+	crateriamovie2,
 	maridia0,
 	maridia1,
 	maridia3,
@@ -55,11 +57,5 @@ const nonDedupedCells = inputs.reduce((building, input) => {
 }, []);
 
 const cells = uniqBy(nonDedupedCells, (c) => `${c.mapCell.x} -${c.mapCell.y}`);
-
-const groupedByBit = groupBy(cells, (c) => `${c.byte}-${c.bit}`);
-const dupeByBit = Object.values(groupedByBit).filter((v) => v.length > 1);
-
-// eslint-disable-next-line no-console
-console.log({ dupeByBit, cells });
 
 export { cells };

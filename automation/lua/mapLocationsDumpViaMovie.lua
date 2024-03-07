@@ -12,7 +12,7 @@ local WRECKED_SHIP = 3
 local MARIDIA = 4
 local TOURIAN = 5
 
-local CURRENT_SAVE_AREA = CRATERIA
+local CURRENT_SAVE_AREA = WRECKED_SHIP
 local CURRENT_SAVE_POINT = 0
 
 -- these are using the start of the save as zero, to match the sram-doc
@@ -107,7 +107,7 @@ client.reboot_core()
 
 while true do
 	print("about to play movie")
-	movie.play_from_start("/home/matt/dev/zebesguide/automation/lua/crateria0.bk2")
+	movie.play_from_start("/home/matt/dev/zebesguide/automation/lua/traverseWreckedShipToCrateriaRightSide.bk2")
 	print("movie call returned")
 	print("patching sram")
 	patch_sram()
