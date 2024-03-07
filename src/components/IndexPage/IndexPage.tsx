@@ -91,11 +91,31 @@ function IndexPage({
 								onReset();
 							}}
 						/>
-						<a className="text-blue-100 text-xs" href="/about">
-							about
-						</a>
 					</div>
 				)}
+				<footer className="grid place-items-center mt-12">
+					<ul className="flex flex-row gap-x-4 text-xs">
+						<li>
+							<a className="text-blue-100" href="/about">
+								about
+							</a>
+						</li>
+						<li>
+							<a
+								className="text-blue-100"
+								href="https://github.com/city41/zebesguide"
+							>
+								GitHub
+							</a>
+						</li>
+						<li className="ml-8">
+							made by{' '}
+							<a className="text-blue-100" href="https://mattgreer.dev">
+								Matt Greer
+							</a>
+						</li>
+					</ul>
+				</footer>
 			</div>
 		</>
 	);
