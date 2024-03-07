@@ -32,7 +32,7 @@ function DropZone({ className, style, onData, children }: DropZoneProps) {
 
 	const orClickToChoose = (
 		<label className="px-3 cursor-pointer">
-			or, click here to choose
+			click here to choose
 			<input
 				style={{ width: 0.01, height: 0.01 }}
 				type="file"
@@ -48,7 +48,7 @@ function DropZone({ className, style, onData, children }: DropZoneProps) {
 
 	const orClickToChooseDemo = (
 		<div className="px-3 cursor-pointer" onClick={handleDemoChosen}>
-			or, no save file handy? click here to use the demo save file
+			click here to use the demo save file
 		</div>
 	);
 

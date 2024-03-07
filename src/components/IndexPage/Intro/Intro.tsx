@@ -47,19 +47,23 @@ function Intro({
 			<ChooseSave saveFiles={saveFiles} onSaveIndexChosen={onSaveIndexChosen} />
 		) : (
 			<DropZone
-				className="h-40 grid place-items-center"
+				className="h-40 flex flex-col gap-y-1 items-center justify-center"
 				onData={handleDropZoneData}
 			>
 				{(clickToChoose, clickToChooseDemo) => (
 					<>
-						<div className="text-2xl">
-							drag a Super Metroid save file here to begin
+						<div className="text-2xl">drag a Super Metroid save file here</div>
+						<div className="flex flex-row">
+							<div>or, </div>
+							<div className="text-blue-500 cursor pointer hover:text-blue-300 hover:underline">
+								{clickToChoose}
+							</div>
 						</div>
-						<div className="rounded-lg border border-gray-500 bg-gray-600 hover:bg-gray-500 p-1">
-							{clickToChoose}
-						</div>
-						<div className="rounded-lg border border-gray-500 bg-green-600 hover:bg-green-500 p-2">
-							{clickToChooseDemo}
+						<div className="flex flex-row mt-8 border-t border-gray-600 pt-4">
+							<div>No save file handy?</div>
+							<div className="text-blue-500 cursor pointer hover:text-blue-300 hover:underline">
+								{clickToChooseDemo}
+							</div>
 						</div>
 						{process.env.NODE_ENV !== 'production' && (
 							<div>
