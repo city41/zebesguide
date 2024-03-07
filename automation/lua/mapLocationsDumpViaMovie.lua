@@ -12,8 +12,8 @@ local WRECKED_SHIP = 3
 local MARIDIA = 4
 local TOURIAN = 5
 
-local CURRENT_SAVE_AREA = MARIDIA
-local CURRENT_SAVE_POINT = 1
+local CURRENT_SAVE_AREA = CRATERIA
+local CURRENT_SAVE_POINT = 0
 
 -- these are using the start of the save as zero, to match the sram-doc
 -- so to use these, usually need to do SRAM_BASE + SRAM_OFFSET + <value>
@@ -107,7 +107,7 @@ client.reboot_core()
 
 while true do
 	print("about to play movie")
-	movie.play_from_start("/home/matt/dev/zebesguide/automation/lua/rightSideCrateria.bk2")
+	movie.play_from_start("/home/matt/dev/zebesguide/automation/lua/crateria0.bk2")
 	print("movie call returned")
 	print("patching sram")
 	patch_sram()
@@ -117,12 +117,6 @@ while true do
 	end
 
 	print("movie is done")
-
-	joypad.set(start_down)
-
-	for i = 1, 150 do
-		emu.frameadvance()
-	end
 
 	client.screenshot("screenshot_" .. bitByte.byteIndex .. "_" .. bitByte.bitIndex .. ".png")
 	screenshotcount = screenshotcount + 1
