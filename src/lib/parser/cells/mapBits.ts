@@ -15,7 +15,7 @@ import { maridiam } from './maridiam';
 import { norfair0 } from './norfair0';
 import { norfair1 } from './norfair1';
 import { norfair5 } from './norfair5';
-import { norfairm } from './norfairm';
+import { norfairmovie0 } from './norfairmovie0';
 import { tourian1 } from './tourian1';
 import { wreckedShip0 } from './wreckedShip0';
 
@@ -39,7 +39,7 @@ const inputs = [
 	norfair0,
 	norfair1,
 	norfair5,
-	norfairm,
+	norfairmovie0,
 	tourian1,
 	wreckedShip0,
 ];

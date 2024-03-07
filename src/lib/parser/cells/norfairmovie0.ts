@@ -1,48 +1,12 @@
-export const norfairm = [
+export const norfairmovie0 = [
 	{
 		area: 'norfair',
 		mapCell: {
-			x: 47,
-			y: 48,
-		},
-		byte: 0x20f,
-		bit: 3,
-	},
-	{
-		area: 'norfair',
-		mapCell: {
-			x: 59,
+			x: 64,
 			y: 41,
 		},
-		byte: 0x1f6,
-		bit: 7,
-	},
-	{
-		area: 'norfair',
-		mapCell: {
-			x: 60,
-			y: 41,
-		},
-		byte: 0x1f6,
-		bit: 6,
-	},
-	{
-		area: 'norfair',
-		mapCell: {
-			x: 61,
-			y: 41,
-		},
-		byte: 0x1f6,
-		bit: 5,
-	},
-	{
-		area: 'norfair',
-		mapCell: {
-			x: 62,
-			y: 41,
-		},
-		byte: 0x1f6,
-		bit: 4,
+		byte: 346 + 211,
+		bit: 2,
 	},
 	{
 		area: 'norfair',
@@ -50,16 +14,43 @@ export const norfairm = [
 			x: 63,
 			y: 41,
 		},
-		byte: 0x1f6,
+		byte: 346 + 211,
 		bit: 3,
 	},
 	{
 		area: 'norfair',
 		mapCell: {
-			x: 64,
+			x: 62,
 			y: 41,
 		},
-		byte: 0x1f6,
-		bit: 2,
+		byte: 346 + 211,
+		bit: 4,
+	},
+	{
+		area: 'norfair',
+		mapCell: {
+			x: 61,
+			y: 41,
+		},
+		byte: 346 + 211,
+		bit: 5,
+	},
+	{
+		area: 'norfair',
+		mapCell: {
+			x: 60,
+			y: 41,
+		},
+		byte: 346 + 211,
+		bit: 6,
+	},
+	{
+		area: 'norfair',
+		mapCell: {
+			x: 59,
+			y: 41,
+		},
+		byte: 346 + 211,
+		bit: 7,
 	},
 ];
