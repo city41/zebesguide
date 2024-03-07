@@ -61,19 +61,21 @@ function Intro({
 						<div className="rounded-lg border border-gray-500 bg-green-600 hover:bg-green-500 p-2">
 							{clickToChooseDemo}
 						</div>
-						<div>
-							<label>
-								<input
-									className="mr-2"
-									type="checkbox"
-									checked={patchInEverywhere}
-									onChange={() => {
-										setPatchInEverywhere((pie) => !pie);
-									}}
-								/>
-								DEBUG: make Samus have gone everywhere
-							</label>
-						</div>
+						{process.env.NODE_ENV !== 'production' && (
+							<div>
+								<label>
+									<input
+										className="mr-2"
+										type="checkbox"
+										checked={patchInEverywhere}
+										onChange={() => {
+											setPatchInEverywhere((pie) => !pie);
+										}}
+									/>
+									DEBUG: make Samus have gone everywhere
+								</label>
+							</div>
+						)}
 					</>
 				)}
 			</DropZone>
