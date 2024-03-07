@@ -19,7 +19,6 @@ import { norfairm } from './norfairm';
 import { tourian1 } from './tourian1';
 import { wreckedShip0 } from './wreckedShip0';
 
-import groupBy from 'lodash/groupBy';
 import uniqBy from 'lodash/uniqBy';
 
 const inputs = [
