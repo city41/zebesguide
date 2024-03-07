@@ -5,7 +5,6 @@ import { ChooseSave } from './ChooseSave';
 
 import styles from './Intro.module.css';
 
-import metroidContainmentPng from './metroidContainment.png';
 import zgLogoSvg from './zgLogo.svg';
 import { GameSave } from '../../../lib/parser';
 import { patchInBeenEverywhere } from '../../../lib/debug/patchInBeenEverywhere';
@@ -90,22 +89,25 @@ function Intro({
 			className={clsx(
 				className,
 				styles.root,
-				'relative mx-auto max-w-7xl h-screen p-8 border-l border-r border-gray-500 grid grid-cols-2 grid-rows-2 gap-x-8 place-items-center overflow-hidden'
+				'relative mx-auto max-w-7xl h-full p-8 bg-black flex flex-col items-center'
 			)}
+			style={{ paddingTop: 400 }}
 		>
-			<div className="h-full flex flex-col items-center justify-center">
-				<img src={zgLogoSvg.src} width={447} height={143} />
-				<p className="text-gray-300 text-sm mt-8">
-					Shows your progress in Super Metroid, and lets you ask for hints
-				</p>
-				<p className="bg-red-700 text-white mt-4">
-					This site is not operational yet. Still being worked on.
-				</p>
-			</div>
-			<div className="row-span-2 w-full -my-8">
-				<img className="w-full h-full" src={metroidContainmentPng.src} />
-			</div>
-			<div className="p-8 w-full text-center bg-black border border-gray-500 rounded-2xl z-10 shadow-xl">
+			<p className="bg-red-700 text-white mb-8 w-1/3 px-4 py-1">
+				This site is not fully operational yet, it is still being worked on.
+				Feel free to give it a try,{' '}
+				<a
+					className="underline"
+					href="https://github.com/city41/zebesguide/discussions"
+				>
+					feedback welcome
+				</a>
+			</p>
+			<img src={zgLogoSvg.src} width={447} height={143} />
+			<p className="text-gray-300 text-sm mt-8 mb-16">
+				Shows your progress in Super Metroid, and lets you ask for hints
+			</p>
+			<div className="p-8 w-1/2 text-center bg-black border-4 border-white rounded-2xl z-10 shadow-xl">
 				{body}
 			</div>
 		</div>

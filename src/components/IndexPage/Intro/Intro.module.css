@@ -1,3 +1,8 @@
 .root {
-	background-image: linear-gradient(black 30%, black 31%, #005858);
+	background-image: url(./zebes.png);
+	background-position: top;
+	background-size: 60%;
+	background-repeat: no-repeat;
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
 }
