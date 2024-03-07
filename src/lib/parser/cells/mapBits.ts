@@ -5,6 +5,7 @@ import { brinstar4 } from './brinstar4';
 import { brinstarm } from './brinstarm';
 import { crateria0 } from './crateria0';
 import { crateria1 } from './crateria1';
+import { crateriamovie0 } from './crateriamovie0';
 import { maridia0 } from './maridia0';
 import { maridia1 } from './maridia1';
 import { maridia3 } from './maridia3';
@@ -27,6 +28,7 @@ const inputs = [
 	brinstarm,
 	crateria0,
 	crateria1,
+	crateriamovie0,
 	maridia0,
 	maridia1,
 	maridia3,

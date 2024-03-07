@@ -1,4 +1,4 @@
-import React, { CSSProperties, Fragment, useState } from 'react';
+import React, { CSSProperties, Fragment, useCallback, useState } from 'react';
 import clsx from 'clsx';
 
 import styles from './ZebesMap.module.css';
@@ -82,6 +82,9 @@ function ZebesMap({
 	samusLocation,
 }: PublicZebesMapProps & InternalZebesMapProps) {
 	const [showUnvisited, setShowUnvisited] = useState(false);
+	const [hoverPoint, setHoverPoint] = useState<{ x: number; y: number } | null>(
+		null
+	);
 
 	const rows = matrix.map((row, y) => {
 		const rowCells = row.map((c, x) => {
@@ -101,6 +104,19 @@ function ZebesMap({
 		'--row-count': matrix.length,
 	} as CSSProperties;
 
+	const handleMouseMove = useCallback(
+		(e) => {
+			const br = (
+				e.target.parentElement as HTMLDivElement
+			).getBoundingClientRect();
+			setHoverPoint({
+				x: Math.floor((e.clientX - br.left) / 16),
+				y: Math.floor((e.clientY - br.top) / 16),
+			});
+		},
+		[showUnvisited, setHoverPoint]
+	);
+
 	return (
 		<>
 			<div className={clsx(className, 'relative')}>
@@ -114,6 +130,7 @@ function ZebesMap({
 					<div
 						style={gridStyle}
 						className={clsx(styles.root, 'relative bg-cover')}
+						onMouseMove={handleMouseMove}
 					>
 						{rows}
 						<img
@@ -138,6 +155,11 @@ function ZebesMap({
 					{showUnvisited ? 'hide' : 'show'} unvisited areas
 				</button>
 				{showUnvisited ? <AreaLabels /> : null}
+				{showUnvisited && hoverPoint ? (
+					<div>
+						({hoverPoint.x},{hoverPoint.y})
+					</div>
+				) : null}
 			</div>
 		</>
 	);
