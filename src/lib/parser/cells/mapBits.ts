@@ -44,17 +44,7 @@ const inputs = [
 	wreckedShip0,
 ];
 
-const nonDedupedCells = inputs.reduce((building, input) => {
-	// eslint-disable-next-line no-console
-	console.log(
-		input[0].area,
-		// @ts-ignore
-		input[0].savePoint ?? 'manual',
-		input.length
-	);
-	return building.concat(input);
-}, []);
-
+const nonDedupedCells = inputs.flat(1);
 const cells = uniqBy(nonDedupedCells, (c) => `${c.mapCell.x} -${c.mapCell.y}`);
 
 export { cells };

@@ -7,8 +7,9 @@ function getStartingCells(): CellMatrix {
 		const row = [];
 		for (let x = 0; x < MAP_COLS; ++x) {
 			row.push({
+				area: 'crateria',
 				exposed: MAP_SHIP_POINT.x === x && MAP_SHIP_POINT.y === y,
-			});
+			} as const);
 		}
 		matrix.push(row);
 	}

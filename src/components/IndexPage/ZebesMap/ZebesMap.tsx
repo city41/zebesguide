@@ -32,41 +32,61 @@ function CellCover({
 	);
 }
 
-function AreaLabels() {
+function hasVisited(matrix: CellMatrix, area: Area): boolean {
+	return matrix.some((row) => {
+		return row.some((cell) => {
+			return cell.exposed && cell.area == area;
+		});
+	});
+}
+
+function AreaLabels({ matrix }: { matrix: CellMatrix }) {
 	return (
 		<>
 			<div
-				className="absolute p-0.5 text-white"
+				className={clsx('absolute p-0.5 text-white', {
+					hidden: !hasVisited(matrix, 'crateria'),
+				})}
 				style={{ left: 80, top: 80, backgroundColor: '#d83890' }}
 			>
 				Crateria
 			</div>
 			<div
-				className="absolute p-0.5 text-white"
+				className={clsx('absolute p-0.5 text-white', {
+					hidden: !hasVisited(matrix, 'brinstar'),
+				})}
 				style={{ left: 80, top: 570, backgroundColor: '#017e13' }}
 			>
 				Brinstar
 			</div>
 			<div
-				className="absolute p-0.5 text-white"
+				className={clsx('absolute p-0.5 text-white', {
+					hidden: !hasVisited(matrix, 'wreckedShip'),
+				})}
 				style={{ left: 900, top: 40, backgroundColor: '#d1b102' }}
 			>
 				Wrecked Ship
 			</div>
 			<div
-				className="absolute p-0.5 text-white"
+				className={clsx('absolute p-0.5 text-white', {
+					hidden: !hasVisited(matrix, 'tourian'),
+				})}
 				style={{ left: 120, top: 180, backgroundColor: '#991b8c' }}
 			>
 				Tourian
 			</div>
 			<div
-				className="absolute p-0.5 text-white"
+				className={clsx('absolute p-0.5 text-white', {
+					hidden: !hasVisited(matrix, 'maridia'),
+				})}
 				style={{ left: 900, top: 480, backgroundColor: '#283888' }}
 			>
 				Maridia
 			</div>
 			<div
-				className="absolute p-0.5 text-white"
+				className={clsx('absolute p-0.5 text-white', {
+					hidden: !hasVisited(matrix, 'norfair'),
+				})}
 				style={{ left: 380, top: 750, backgroundColor: '#d42020' }}
 			>
 				Norfair
@@ -104,18 +124,21 @@ function ZebesMap({
 		'--row-count': matrix.length,
 	} as CSSProperties;
 
-	const handleMouseMove = useCallback(
-		(e) => {
-			const br = (
-				e.target.parentElement as HTMLDivElement
-			).getBoundingClientRect();
-			setHoverPoint({
-				x: Math.floor((e.clientX - br.left) / 16),
-				y: Math.floor((e.clientY - br.top) / 16),
-			});
-		},
-		[showUnvisited, setHoverPoint]
-	);
+	let handleMouseMove: any = () => {};
+	if (process.env.NODE_ENV !== 'production') {
+		handleMouseMove = useCallback(
+			(e: any) => {
+				const br = (
+					e.target.parentElement as HTMLDivElement
+				).getBoundingClientRect();
+				setHoverPoint({
+					x: Math.floor((e.clientX - br.left) / 16),
+					y: Math.floor((e.clientY - br.top) / 16),
+				});
+			},
+			[showUnvisited, setHoverPoint]
+		);
+	}
 
 	return (
 		<>
@@ -154,7 +177,7 @@ function ZebesMap({
 				>
 					{showUnvisited ? 'hide' : 'show'} unvisited areas
 				</button>
-				{showUnvisited ? <AreaLabels /> : null}
+				<AreaLabels matrix={matrix} />
 				{showUnvisited && hoverPoint ? (
 					<div>
 						({hoverPoint.x},{hoverPoint.y})

@@ -1,6 +1,17 @@
-type Cell = {
-	exposed: boolean;
-};
+type Area =
+	| 'brinstar'
+	| 'crateria'
+	| 'maridia'
+	| 'norfair'
+	| 'tourian'
+	| 'wreckedShip';
+
+type Cell =
+	| { exposed: false }
+	| {
+			area: Area;
+			exposed: true;
+	  };
 
 type CellRow = Cell[];
 
@@ -11,11 +22,3 @@ type Region = {
 	upperLeft: Point;
 	lowerRight: Point;
 };
-
-type Area =
-	| 'brinstar'
-	| 'crateria'
-	| 'maridia'
-	| 'norfair'
-	| 'tourian'
-	| 'wreckedShip';
