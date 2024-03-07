@@ -102,6 +102,7 @@ function ZebesMap({
 	samusLocation,
 }: PublicZebesMapProps & InternalZebesMapProps) {
 	const [showUnvisited, setShowUnvisited] = useState(false);
+	const [okWithSpoilers, setOkWithSpoilers] = useState(false);
 	const [hoverPoint, setHoverPoint] = useState<{ x: number; y: number } | null>(
 		null
 	);
@@ -124,9 +125,11 @@ function ZebesMap({
 		'--row-count': matrix.length,
 	} as CSSProperties;
 
+	//eslint-disable-next-line @typescript-eslint/no-explicit-any
 	let handleMouseMove: any = () => {};
 	if (process.env.NODE_ENV !== 'production') {
 		handleMouseMove = useCallback(
+			//eslint-disable-next-line @typescript-eslint/no-explicit-any
 			(e: any) => {
 				const br = (
 					e.target.parentElement as HTMLDivElement
@@ -139,6 +142,17 @@ function ZebesMap({
 			[showUnvisited, setHoverPoint]
 		);
 	}
+
+	const handleShowUnvisited = useCallback(() => {
+		if (!showUnvisited && !okWithSpoilers) {
+			if (confirm('This will show spoilers. Proceed?')) {
+				setOkWithSpoilers(true);
+				setShowUnvisited((suv) => !suv);
+			}
+		} else {
+			setShowUnvisited((suv) => !suv);
+		}
+	}, [showUnvisited, setShowUnvisited, okWithSpoilers, setOkWithSpoilers]);
 
 	return (
 		<>
@@ -171,9 +185,7 @@ function ZebesMap({
 				</div>
 				<button
 					className="absolute top-0 left-0 px-2 py-1 bg-white text-black text-xs cursor-pointer hover:bg-yellow-500"
-					onClick={() => {
-						setShowUnvisited((uv) => !uv);
-					}}
+					onClick={handleShowUnvisited}
 				>
 					{showUnvisited ? 'hide' : 'show'} unvisited areas
 				</button>
