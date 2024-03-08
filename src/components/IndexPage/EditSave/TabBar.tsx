@@ -33,6 +33,7 @@ function TabBar({ className, tabs, focused, onFocus }: TabBarProps) {
 			{tabs.map((t) => {
 				return (
 					<Tab
+						key={t}
 						focused={t === focused}
 						onClick={t === focused ? undefined : () => onFocus(t)}
 					>

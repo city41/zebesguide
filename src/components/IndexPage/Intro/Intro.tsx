@@ -11,7 +11,13 @@ import { patchInBeenEverywhere } from '../../../lib/debug/patchInBeenEverywhere'
 
 type PublicIntroProps = {
 	className?: string;
-	onSaveFileData: (data: Uint8Array) => void;
+	onSaveFileData: ({
+		data,
+		isDemo,
+	}: {
+		data: Uint8Array;
+		isDemo: boolean;
+	}) => void;
 	onSaveIndexChosen: (props: {
 		index: 0 | 1 | 2;
 		mode: 'view' | 'edit';
@@ -20,22 +26,24 @@ type PublicIntroProps = {
 
 type InternalIntroProps = {
 	saveFiles: [GameSave, GameSave, GameSave] | null;
+	isDemo: boolean;
 };
 
 function Intro({
 	className,
 	saveFiles,
+	isDemo,
 	onSaveFileData,
 	onSaveIndexChosen,
 }: PublicIntroProps & InternalIntroProps) {
 	const [patchInEverywhere, setPatchInEverywhere] = useState(false);
 
 	const handleDropZoneData = useCallback(
-		(data) => {
+		({ data, isDemo }) => {
 			if (patchInEverywhere) {
-				onSaveFileData(patchInBeenEverywhere(data));
+				onSaveFileData({ data: patchInBeenEverywhere(data), isDemo });
 			} else {
-				onSaveFileData(data);
+				onSaveFileData({ data, isDemo });
 			}
 		},
 		[patchInEverywhere]
@@ -43,7 +51,11 @@ function Intro({
 
 	const body =
 		saveFiles?.length === 3 ? (
-			<ChooseSave saveFiles={saveFiles} onSaveIndexChosen={onSaveIndexChosen} />
+			<ChooseSave
+				saveFiles={saveFiles}
+				isDemo={isDemo}
+				onSaveIndexChosen={onSaveIndexChosen}
+			/>
 		) : (
 			<DropZone
 				className="h-40 flex flex-col gap-y-1 items-center justify-center"

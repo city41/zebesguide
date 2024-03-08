@@ -9,16 +9,14 @@ import samusSideHelmetSvg from './samusSideHelmet.svg';
 import _ from 'lodash';
 import { GameSave } from '../../../../lib/parser';
 
-type PublicChooseSaveProps = {
+type ChooseSaveProps = {
 	className?: string;
+	saveFiles: [GameSave, GameSave, GameSave];
+	isDemo: boolean;
 	onSaveIndexChosen: (props: {
 		index: 0 | 1 | 2;
 		mode: 'edit' | 'view';
 	}) => void;
-};
-
-type InternalChooseSaveProps = {
-	saveFiles: [GameSave, GameSave, GameSave];
 };
 
 function ChoiceButton(props: JSX.IntrinsicElements['div']) {
@@ -33,8 +31,9 @@ function ChoiceButton(props: JSX.IntrinsicElements['div']) {
 function ChooseSave({
 	className,
 	saveFiles,
+	isDemo,
 	onSaveIndexChosen,
-}: PublicChooseSaveProps & InternalChooseSaveProps) {
+}: ChooseSaveProps) {
 	return (
 		<div className={clsx(className, 'flex flex-col w-full gap-y-8')}>
 			{saveFiles.map((gameSave, i) => {
@@ -42,6 +41,16 @@ function ChooseSave({
 
 				if (gameSave.time.minutes < 10) {
 					minutes = '0' + minutes;
+				}
+
+				let demoLabel = null;
+
+				if (isDemo) {
+					if (i === 0) {
+						demoLabel = 'Far into the game';
+					} else if (i === 1) {
+						demoLabel = 'Just starting out';
+					}
 				}
 
 				return (
@@ -64,7 +73,12 @@ function ChooseSave({
 							alt="Samus's helmet from the side"
 						/>
 						{gameSave.active ? (
-							<div className="flex-1 flex flex-col">
+							<div className="relative flex-1 flex flex-col">
+								{demoLabel && (
+									<div className="absolute -left-40 -top-2 -rotate-12 bg-orange-600 px-1 py-0.5 text-sm">
+										{demoLabel}
+									</div>
+								)}
 								<div className="flex-1 flex flex-row justify-between items-center">
 									<EnergyLabel energy={gameSave.energy} />
 									<EnergyTanks energy={gameSave.energy} className="gap-1" />

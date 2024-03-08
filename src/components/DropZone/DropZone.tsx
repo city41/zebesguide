@@ -4,7 +4,7 @@ import clsx from 'clsx';
 type DropZoneProps = {
 	className?: string;
 	style?: CSSProperties;
-	onData: (data: Uint8Array) => void;
+	onData: ({ data, isDemo }: { data: Uint8Array; isDemo: boolean }) => void;
 	children: (
 		clickToChoose: ReactNode,
 		clickToChooseDemo: ReactNode
@@ -18,7 +18,7 @@ function DropZone({ className, style, onData, children }: DropZoneProps) {
 		const reader = new FileReader();
 		reader.addEventListener('loadend', () => {
 			const data = new Uint8Array(reader.result as ArrayBuffer);
-			onData(data);
+			onData({ data, isDemo: false });
 		});
 		reader.readAsArrayBuffer(file);
 	}
@@ -27,7 +27,7 @@ function DropZone({ className, style, onData, children }: DropZoneProps) {
 		const response = await fetch('/demo.srm');
 		const data = await response.arrayBuffer();
 
-		onData(new Uint8Array(data));
+		onData({ data: new Uint8Array(data), isDemo: true });
 	}
 
 	const orClickToChoose = (

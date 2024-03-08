@@ -3,6 +3,7 @@ import { GameSave, parse } from '../../lib/parser';
 
 type ZebesState = {
 	saveFiles: null | [GameSave, GameSave, GameSave];
+	isDemo?: boolean;
 	chosenSaveFile: GameSave | null;
 };
 
@@ -20,6 +21,9 @@ const mapSlice = createSlice({
 		setSaveFileData(state: ZebesState, action: PayloadAction<Uint8Array>) {
 			state.saveFiles = parse(action.payload);
 		},
+		setIsDemo(state: ZebesState, action: PayloadAction<boolean>) {
+			state.isDemo = action.payload;
+		},
 		setSaveIndex(state: ZebesState, action: PayloadAction<number>) {
 			if (state.saveFiles === null) {
 				throw new Error('setSaveIndex: called before there are save files');
@@ -35,7 +39,7 @@ const mapSlice = createSlice({
 });
 
 const reducer = mapSlice.reducer;
-const { setSaveFileData, setSaveIndex, reset } = mapSlice.actions;
+const { setSaveFileData, setIsDemo, setSaveIndex, reset } = mapSlice.actions;
 
 export type { ZebesState };
-export { reducer, setSaveFileData, setSaveIndex, reset };
+export { reducer, setSaveFileData, setIsDemo, setSaveIndex, reset };

@@ -8,7 +8,11 @@ function ConnectedIntro(props: PublicIntroProps) {
 		return state.saveFiles;
 	});
 
-	return <Intro {...props} saveFiles={saveFiles} />;
+	const isDemo = useSelector((state: AppState) => {
+		return state.isDemo;
+	});
+
+	return <Intro {...props} saveFiles={saveFiles} isDemo={!!isDemo} />;
 }
 
 export { ConnectedIntro };

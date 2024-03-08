@@ -12,7 +12,13 @@ import { Footer } from '../Footer';
 type Mode = 'map' | 'samus' | 'edit';
 
 type InternalIndexPageProps = {
-	onSaveFileData: (data: Uint8Array) => void;
+	onSaveFileData: ({
+		data,
+		isDemo,
+	}: {
+		data: Uint8Array;
+		isDemo: boolean;
+	}) => void;
 	onSaveIndexChosen: (index: 0 | 1 | 2) => void;
 	onReset: () => void;
 	saveWasChosen: boolean;
