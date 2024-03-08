@@ -106,7 +106,7 @@ function getNumber(saveFileView: DataView, key: string): number {
 	const matchingOffset = offsets.find((o) => o.key.includes(key));
 
 	if (!matchingOffset) {
-		throw new Error(`parser,getBoolean: no offset found for: ${key}`);
+		throw new Error(`parser,getNumber: no offset found for: ${key}`);
 	}
 
 	return matchingOffset.size === 8

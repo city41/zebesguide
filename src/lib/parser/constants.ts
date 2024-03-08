@@ -235,8 +235,8 @@ export const offsets: Offset[] = [
 		size: 8,
 		key: ['bossStatueBroken', 'landmark'],
 		bits: {
-			0: ['bossStateuBroken', 'draygon'],
-			1: ['bossStateuBroken', 'kraid'],
+			0: ['bossStatueBroken', 'draygon'],
+			1: ['bossStatueBroken', 'kraid'],
 			2: ['landmark', 'tourian', 'elevator'],
 			3: ['landmark', 'maridia', 'glassTubeBroken'],
 			7: ['landmark', 'rescuedAnimals'],
@@ -322,6 +322,7 @@ export const offsets: Offset[] = [
 		offset: 0xb1,
 		size: 8,
 		key: [
+			'itemAcquired',
 			'crateria',
 			'brinstar',
 			'missilePacks',
@@ -494,7 +495,7 @@ export const offsets: Offset[] = [
 	{
 		offset: 0xba,
 		size: 8,
-		key: ['norfair', 'energyTanks'],
+		key: ['itemAcquired', 'norfair', 'energyTanks'],
 		bits: {
 			0: ['norfair', 'energyTank'],
 		},
