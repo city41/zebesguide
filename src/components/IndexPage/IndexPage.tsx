@@ -82,7 +82,7 @@ function IndexPage({
 
 	return (
 		<>
-			<EarlyStarburst className="fixed top-4 left-4" />
+			<EarlyStarburst className="fixed top-4 left-4 z-20" />
 			<div className="w-full h-full mx-auto max-w-6xl flex flex-col">
 				{body}
 				{saveWasChosen && (
