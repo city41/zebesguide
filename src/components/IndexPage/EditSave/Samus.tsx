@@ -70,18 +70,6 @@ function Samus({ gameSave, onChange }: ItemsProps) {
 				>
 					Missiles
 				</Quantity>
-				<Quantity
-					quantity={gameSave.superMissiles}
-					onChange={(nq) => handleQuantityChange('superMissiles', nq)}
-				>
-					Super Missiles
-				</Quantity>
-				<Quantity
-					quantity={gameSave.powerBombs}
-					onChange={(nq) => handleQuantityChange('powerBombs', nq)}
-				>
-					Power Bombs
-				</Quantity>
 			</div>
 		</div>
 	);
