@@ -34,6 +34,7 @@ const mapSlice = createSlice({
 		reset(state: ZebesState) {
 			state.saveFiles = null;
 			state.chosenSaveFile = null;
+			state.isDemo = false;
 		},
 	},
 });
