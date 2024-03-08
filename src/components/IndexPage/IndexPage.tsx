@@ -7,6 +7,7 @@ import { SamusLoadOut } from './SamusLoadOut';
 import { EditSave } from './EditSave';
 import { HUD } from './HUD';
 import { EarlyStarburst } from '../EarlyStarburst';
+import { Footer } from '../Footer';
 
 type Mode = 'map' | 'samus' | 'edit';
 
@@ -41,7 +42,7 @@ function IndexPage({
 		if (mode === 'map') {
 			body = (
 				<>
-					<div className="relative w-full flex flex-col">
+					<div className="relative flex flex-col">
 						<HUD />
 						<ZebesMap style={{ height: '80vh' }} />
 					</div>
@@ -59,7 +60,7 @@ function IndexPage({
 		} else if (mode === 'samus') {
 			body = (
 				<>
-					<div className="relative w-full flex flex-col">
+					<div className="relative flex flex-col">
 						<HUD />
 						<SamusLoadOut style={{ height: '80vh' }} />
 					</div>
@@ -82,7 +83,7 @@ function IndexPage({
 	return (
 		<>
 			<EarlyStarburst className="fixed top-4 left-4" />
-			<div className="w-screen h-full mx-auto max-w-6xl">
+			<div className="w-full h-full mx-auto max-w-6xl flex flex-col">
 				{body}
 				{saveWasChosen && (
 					<div className="fixed top-2 right-2 flex flex-col items-center">
@@ -93,29 +94,8 @@ function IndexPage({
 						/>
 					</div>
 				)}
-				<footer className="grid place-items-center mt-12">
-					<ul className="flex flex-row gap-x-4 text-xs">
-						<li>
-							<a className="text-blue-100" href="/about">
-								about
-							</a>
-						</li>
-						<li>
-							<a
-								className="text-blue-100"
-								href="https://github.com/city41/zebesguide"
-							>
-								GitHub
-							</a>
-						</li>
-						<li className="ml-8">
-							made by{' '}
-							<a className="text-blue-100" href="https://mattgreer.dev">
-								Matt Greer
-							</a>
-						</li>
-					</ul>
-				</footer>
+				<div className="flex-1" />
+				<Footer className="pb-8" />
 			</div>
 		</>
 	);

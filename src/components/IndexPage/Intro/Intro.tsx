@@ -89,7 +89,7 @@ function Intro({
 			className={clsx(
 				className,
 				styles.root,
-				'relative mx-auto max-w-7xl h-full p-8 bg-black flex flex-col items-center'
+				'relative p-8 bg-black flex flex-col items-center'
 			)}
 			style={{ paddingTop: 400 }}
 		>
