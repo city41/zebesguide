@@ -14,6 +14,8 @@ const EQUIPPED = {
 };
 
 const FULLY_EQUIPPED: GameSave = {
+	data: new Uint8Array(),
+
 	active: true,
 
 	energy: {

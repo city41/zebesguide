@@ -2,6 +2,7 @@ import { BitOffset, isBitOffset, offsets } from './constants';
 import isEqual from 'lodash/isEqual';
 import { parseCells } from './cells/parseCells';
 import { getSave } from '../getFirstSave';
+import { sanitize } from './sanitize';
 
 type Quantity = {
 	current: number;
@@ -14,6 +15,11 @@ type ItemStatus = {
 };
 
 type GameSave = {
+	/**
+	 * The raw save file data
+	 */
+	data: Uint8Array;
+
 	/**
 	 * If true, this save has info pertaining to a played
 	 * game. If false, this save came from a slot in the save file
@@ -183,6 +189,8 @@ function parseGameSave(gameSave: Uint8Array, active: boolean): GameSave {
 	const view = new DataView(gameSave.buffer);
 
 	return {
+		data: gameSave,
+
 		active,
 
 		energy: {
@@ -261,8 +269,37 @@ function parse(saveFile: Uint8Array): [GameSave, GameSave, GameSave] {
 	}) as [GameSave, GameSave, GameSave];
 }
 
-function toSaveFile(_gameSave: GameSave): Uint8Array {
-	return new Uint8Array();
+/**
+ * Converts a parsed save file object back into a save file binary array.
+ * The resulting save file will have the first save slot used, and the other
+ * two unused.
+ *
+ * @param gameSave
+ * @returns
+ */
+function toSaveFile(gameSave: GameSave): Uint8Array {
+	const clone = new Uint8Array(gameSave.data);
+	const view = new DataView(clone.buffer);
+
+	const currentMissiles = offsets.find((o) =>
+		isEqual(o.key, ['currentMissiles'])
+	);
+
+	if (!currentMissiles) {
+		throw new Error('toSaveFile: currentMissiles offset was not found');
+	}
+
+	view.setUint16(currentMissiles.offset, gameSave.missiles.current, true);
+
+	const saveFileArray: number[] = [
+		...new Array(16).fill(0xff),
+		...Array.from(clone),
+		...new Array(0x2000 - clone.byteLength - 16).fill(0xff),
+	];
+
+	const saveFile = Uint8Array.from(saveFileArray);
+
+	return sanitize(saveFile, [true, false, false]);
 }
 
 export { parse, toSaveFile, getUsedGameSlots };
